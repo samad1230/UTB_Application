@@ -68,7 +68,20 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ route('owner.dashboard') }}">Dashboard</a>
+                        <?php
+                        if (Auth::user()->role_id ==1 ){
+                            ?>
+                            <a href="{{ route('owner.dashboard') }}">Dashboard</a>
+
+                        <?php
+                        }else{
+                                ?>
+                            <a href="{{ route('admin.dashboard') }}">Dashboard</a>
+                            <?php
+                            }
+
+                        ?>
+
                     @else
                         <a href="{{ route('login') }}">Login</a>
 

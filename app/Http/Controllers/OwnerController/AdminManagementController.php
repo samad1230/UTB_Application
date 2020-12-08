@@ -1,9 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Admin_Controller;
+namespace App\Http\Controllers\OwnerController;
 
-use App\Admin_model\Dipertment;
-use App\Admin_model\Dipertment_User;
 use App\Admin_model\Role;
 use App\Admin_model\User_Profile;
 use App\Http\Controllers\Controller;
@@ -14,28 +12,30 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
 
-class MainIndexController extends Controller
+
+class AdminManagementController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    public function Adminindex()
-    {
-        $roledata = Role::whereNotIn('id', [1,2])
+    public function Ownerindex(){
+
+        $roledata = Role::whereNotIn('id', [1,4])
             ->get();
 
-        $userdata = User::where('role_id', 3)->get();
-        $department= Dipertment::all();
+        $userdata = DB::table('users')
+            ->where('role_id', 2)
+            ->get();
 
-        return view('Admin_view.Main.Admin_Main_Dashborad',compact('roledata','userdata','department'));
-
+        return view('Admin_view.Main.Owner_Main_Dashborad',compact('roledata','userdata'));
     }
 
-    public function Userregistration(Request $request)
+
+    public function adminregistration(Request $request)
     {
-       // dd($request);
         $loginid = Auth::user()->id;
 
         $validatedData = $request->validate([
@@ -43,25 +43,13 @@ class MainIndexController extends Controller
         ]);
 
         $data = new User();
-        $data ['name']=$request->stafname;
+        $data ['name']=$request->user_name;
         $data ['role_id']=$request->usertype;
         $data ['staf_id']=$request->stafid;
         $data ['email']=$request->email;
         $data ['password']=Hash::make($request->password);
         $data ['creat_by']=$loginid;
         $data->save();
-        $saveid = $data->id;
-
-        $states = $request->states;
-        if ($states){
-            foreach ($states as $row){
-                $data = new Dipertment_User();
-                $data ['dipertment_id']=$row;
-                $data ['user_id']=$saveid;
-                $data->save();
-            }
-
-        }
 
         $notification=array(
             'messege'=>'User Registration Success!',
@@ -70,9 +58,10 @@ class MainIndexController extends Controller
         return back()->with($notification);
     }
 
-
-    public function AdminprofileUpdate(Request $request)
+    public function OwnerprofileUpdate(Request $request)
     {
+        //dd($request);
+
         $name_new = $request->user_name;
         $name_old = $request->nameold;
 
@@ -137,26 +126,4 @@ class MainIndexController extends Controller
         return Redirect()->back()->with($notification);
 
     }
-
-
-    public function Userdetails()
-    {
-        //$userdatalist = User::where('role_id', 3)->get();
-
-        $userdatalist= DB::table('users')
-            ->select('users.*','roles.name as rolename')
-            ->join('roles','roles.id','=','users.role_id')
-            ->where('users.role_id', 3)
-            ->get();
-
-        return view('Admin_view.User_page.userlist',compact('userdatalist'));
-    }
-
-
-    public function Customerdetails()
-    {
-        return response()->json("Customer Details");
-    }
-
-
 }

@@ -1,0 +1,11 @@
+.secendform .row{
+    padding-bottom: 10px;
+}
+.secendform .user_name {
+    padding: 4px 0px;
+    float: right;
+    font-size: 15px;
+}
+.secendform .form-control {
+    font-size: 15px;
+}

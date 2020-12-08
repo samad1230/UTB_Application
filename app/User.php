@@ -41,4 +41,12 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Admin_model\Role');
     }
+
+    public function dipertments(){
+        return $this->belongsToMany('App\Admin_model\Dipertment');
+    }
+
+    public function profile(){
+        return $this->hasOne('App\Admin_model\User_Profile');
+    }
 }

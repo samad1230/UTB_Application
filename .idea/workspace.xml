@@ -1,15 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed9422ca-31df-4782-9109-4c2badbd632a" name="Default Changelist" comment="" />
+    <list default="true" id="ed9422ca-31df-4782-9109-4c2badbd632a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/OwnerController/AdminManagementController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/image.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Admin_asset/letesttoastr.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Admin_asset/letesttoastr.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Admin_asset/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Admin_asset/toastr.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Admin_asset/toastr.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/user_profile/1607424021fhrgex.DAC.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/user_profile/1607424021tfs2rj.DAC.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/user_profile/1607428128rdw0fm.DAC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/user_profile/1607428128twz4q0.DAC.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/user_profile/avatar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin_layouts/Owner_master_layout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin_layouts/Owner_top_left_nav.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin_layouts/pagetitle.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin_view/Main/Admin_Main_Dashborad.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin_view/Main/Owner_Main_Dashborad.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Admin_view/User_page/userlist.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/utb_application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/utb_application.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin_model/Dipertment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin_model/Dipertment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin_model/User_Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin_model/User_Profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin_Controller/MainIndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin_Controller/MainIndexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin_layouts/admin_master_layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin_layouts/Admin_master_layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin_layouts/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin_layouts/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin_layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin_layouts/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin_layouts/top_left_nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin_layouts/Admin_top_left_nav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin_view/Main/Main_Dashborad.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -115,29 +177,38 @@
       <path value="$PROJECT_DIR$/vendor/laravel/framework" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/vendor/intervention/image" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lHLYrb43TMaTJdAIYDkTjt9ngG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/Admin_layouts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/Admin_view/Main" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\utb_application\resources\views\Admin_view\Main" />
+      <recent name="D:\xampp\htdocs\utb_application\resources\views\Admin_layouts" />
+      <recent name="D:\xampp\htdocs\utb_application\public\Admin_asset" />
+      <recent name="D:\xampp\htdocs\utb_application\resources\views\auth" />
+      <recent name="D:\xampp\htdocs\utb_application\resources\Admin_layouts" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\utb_application\resources\views\Admin_view\Main" />
       <recent name="D:\xampp\htdocs\utb_application\resources\views" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\utb_application\resources\views\Admin_layouts" />
-      <recent name="D:\xampp\htdocs\utb_application\resources\views\auth" />
-      <recent name="D:\xampp\htdocs\utb_application\resources\Admin_layouts" />
     </key>
   </component>
   <component name="RunManager">
@@ -155,11 +226,28 @@
       <option name="presentableId" value="Default" />
       <updated>1607249121212</updated>
       <workItem from="1607249122335" duration="13255000" />
+      <workItem from="1607322631648" duration="1402000" />
+      <workItem from="1607406886712" duration="33105000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="495" y="253" key="#Composer" timestamp="1607250020754">
@@ -170,6 +258,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="429" y="173" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1607250246519" />
+    <state x="413" y="121" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607428095676">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="121" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1607428095676" />
+    <state x="463" y="121" key="FileChooserDialogImpl" timestamp="1607323440387">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1607323440387" />
+    <state x="505" y="108" key="NewPhpClassDialog" timestamp="1607416375537">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="505" y="108" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1607416375537" />
     <state x="354" y="600" width="672" height="678" key="search.everywhere.popup" timestamp="1607262816722">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
