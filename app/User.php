@@ -42,8 +42,8 @@ class User extends Authenticatable
         return $this->belongsTo('App\Admin_model\Role');
     }
 
-    public function dipertments(){
-        return $this->belongsToMany('App\Admin_model\Dipertment');
+    public function departments(){
+        return $this->belongsToMany('App\Admin_model\Department');
     }
 
     public function profile(){

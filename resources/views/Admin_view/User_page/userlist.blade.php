@@ -29,36 +29,47 @@
                                             </thead>
                                             <tbody>
                                             @foreach($userdatalist as $row)
-                                                @php
-                                                    $department = DB::table('dipertment__users')
-                                                        ->select('dipertments.name as dipname')
-                                                        ->Join('dipertments', 'dipertments.id', '=', 'dipertment__users.dipertment_id')
-                                                        ->where('dipertment__users.user_id',$row->id)
-                                                        ->get();
-                                                     //dd($department);
-                                                       $profile = DB::table('user__profiles')->where('user_id',$row->id)->first();
+{{--                                                @php--}}
 
-                                                           if ($profile != null){
-                                                              if($profile->user_image !=null){
-                                                                  $url=URL::to('/Media/user_profile/'.$profile->user_image);
-                                                              }else{
-                                                                  $url = URL::to('/Media/user_profile/avatar.png');
-                                                              }
-                                                           }else{
-                                                            $url = URL::to('/Media/user_profile/avatar.png');
-                                                           }
-                                                @endphp
+
+{{--                                                       $profile = DB::table('user__profiles')->where('user_id',$row->id)->first();--}}
+
+{{--                                                           if ($profile != null){--}}
+{{--                                                              if($profile->user_image !=null){--}}
+{{--                                                                  $url=URL::to('/Media/user_profile/'.$profile->user_image);--}}
+{{--                                                              }else{--}}
+{{--                                                                  $url = URL::to('/Media/user_profile/avatar.png');--}}
+{{--                                                              }--}}
+{{--                                                           }else{--}}
+{{--                                                            $url = URL::to('/Media/user_profile/avatar.png');--}}
+{{--                                                           }--}}
+{{--                                                @endphp--}}
 
                                             <tr>
                                                 <td><a href="">
-                                                        <div class="ul-widget-app__profile-pic"><img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{$url}}" alt="" />
-                                                            {{$row->name}}</div>
+                                                        <div class="ul-widget-app__profile-pic"><img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset($row->profile != null? 'Media/user_profile/'. $row->profile->user_image:'') }}" alt="" />
+                                                            <span class="text-capitalize font-weight-bold">{{ $row->name }}</span>
+                                                            </div>
                                                     </a></td>
-                                                <td>{{$row->email}}</td>
-                                                <td>{{@$profile->phone}}</td>
-                                                <td><a class="badge badge-primary m-2 p-2" href="#">{{$row->rolename}}</a></td>
-                                                <td>{{$row->created_at}}</td>
-                                                <td></td>
+                                                <td>{{ $row->email }}</td>
+                                                <td>{{ $row->profile != null?$row->profile->phone:'' }}</td>
+                                                <td><a class="badge badge-primary m-2 p-2" href="#">{{ $row->role->name }}</a></td>
+                                                <td>{{ date('d-M-Y',strtotime($row->created_at)) }}</td>
+                                                <td>
+                                                    @php
+                                                        $count = 0;
+                                                    @endphp
+                                                    @foreach($row->departments as $department)
+                                                        @php
+                                                            $count++;
+                                                        @endphp
+                                                        <span><i>{{ $department->name }}</i></span>
+                                                        @if(count($row->departments) != $count)
+                                                            <br>
+                                                        @endif
+
+                                                    @endforeach
+                                                </td>
                                                 <td><a class="ul-link-action text-success" href="" data-toggle="tooltip" data-placement="top" title="Edit"><i class="i-Edit"></i></a><a class="ul-link-action text-danger mr-1" href="" data-toggle="tooltip" data-placement="top" title="Want To Delete !!!"><i class="i-Eraser-2"></i></a></td>
                                             </tr>
                                             @endforeach

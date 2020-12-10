@@ -4,9 +4,9 @@ namespace App\Admin_model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Dipertment_User extends Model
+class DepartmentUser extends Model
 {
     protected $fillable = [
-        'dipertment_id','user_id'
+        'department_id','user_id'
     ];
 }

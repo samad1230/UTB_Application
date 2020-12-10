@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers\Admin_Controller;
 
-use App\Admin_model\Dipertment;
-use App\Admin_model\Dipertment_User;
+use App\Admin_model\Department;
 use App\Admin_model\Role;
 use App\Admin_model\User_Profile;
 use App\Http\Controllers\Controller;
@@ -23,11 +22,11 @@ class MainIndexController extends Controller
 
     public function Adminindex()
     {
-        $roledata = Role::whereNotIn('id', [1,2])
+        $roledata = Role::where('id', 3)
             ->get();
 
         $userdata = User::where('role_id', 3)->get();
-        $department= Dipertment::all();
+        $department= Department::all();
 
         return view('Admin_view.Main.Admin_Main_Dashborad',compact('roledata','userdata','department'));
 
@@ -51,17 +50,17 @@ class MainIndexController extends Controller
         $data ['creat_by']=$loginid;
         $data->save();
         $saveid = $data->id;
+        $department = $request->states;
 
-        $states = $request->states;
-        if ($states){
-            foreach ($states as $row){
-                $data = new Dipertment_User();
-                $data ['dipertment_id']=$row;
-                $data ['user_id']=$saveid;
-                $data->save();
-            }
+        $user = User::find($saveid);
+        $user->departments()->sync($department,false);
 
-        }
+//        $data = new Dipertment_User();
+//        $data ['dipertment_id']=$user;
+//        $data ['user_id']=$saveid;
+//        $data->save();
+
+
 
         $notification=array(
             'messege'=>'User Registration Success!',
@@ -141,13 +140,13 @@ class MainIndexController extends Controller
 
     public function Userdetails()
     {
-        //$userdatalist = User::where('role_id', 3)->get();
+        $userdatalist = User::where('role_id', 3)->get();
 
-        $userdatalist= DB::table('users')
-            ->select('users.*','roles.name as rolename')
-            ->join('roles','roles.id','=','users.role_id')
-            ->where('users.role_id', 3)
-            ->get();
+//        $userdatalist= DB::table('users')
+//            ->select('users.*','roles.name as rolename')
+//            ->join('roles','roles.id','=','users.role_id')
+//            ->where('users.role_id', 3)
+//            ->get();
 
         return view('Admin_view.User_page.userlist',compact('userdatalist'));
     }

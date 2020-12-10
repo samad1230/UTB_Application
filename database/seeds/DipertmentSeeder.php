@@ -15,7 +15,7 @@ class DipertmentSeeder extends Seeder
     {
         $dt = Carbon::now();
         $dateNow = $dt->toDateTimeString();
-        DB::table('dipertments')->insert(array(
+        DB::table('departments')->insert(array(
             array(
                 'name' => 'Policy Making Department',
                 'created_at' => $dateNow,

@@ -4,7 +4,7 @@ namespace App\Admin_model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Dipertment extends Model
+class Department extends Model
 {
     protected $fillable = [
         'name'
@@ -14,5 +14,3 @@ class Dipertment extends Model
         return $this->belongsToMany('App\User');
     }
 }
-
-
