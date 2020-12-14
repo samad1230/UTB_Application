@@ -17,7 +17,7 @@ class DipertmentSeeder extends Seeder
         $dateNow = $dt->toDateTimeString();
         DB::table('departments')->insert(array(
             array(
-                'name' => 'Policy Making Department',
+                'name' => 'Purchase',
                 'created_at' => $dateNow,
                 'updated_at' => $dateNow
             ),

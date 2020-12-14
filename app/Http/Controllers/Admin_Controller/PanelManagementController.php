@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\OwnerController;
+namespace App\Http\Controllers\Admin_Controller;
 
 use App\Admin_model\Department;
 use App\Admin_model\Role;
 use App\Admin_model\Service;
 use App\Admin_model\User_Profile;
-use App\CommonModel;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
@@ -15,67 +14,44 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
 
-
-class AdminManagementController extends Controller
+class PanelManagementController extends Controller
 {
-
+    //
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    public function Ownerindex(){
-        return view('Owner_panel_view.Main.Owner_Main_Dashborad');
+    public function Admindashboard()
+    {
+        return view('Admin_view.Main.Admin_dashboard');
     }
 
-    public function Serviceregistration(Request $request)
+    public function Servicepaneladmin()
     {
-        $model_common = new CommonModel();
-        $x =  $model_common->slagdata();
-        $slag = time().",".str_replace(' ','_', $request->service).",".$x;
-
-        $data = new Service();
-        $data ['service_name']=$request->service;
-        $data ['service_title']=$request->servicetitle;
-        $data ['slag']=$slag;
-        $data->save();
-
-        $notification=array(
-            'messege'=>'Service Registration Success!',
-            'alert-type'=>'success'
-        );
-        return back()->with($notification);
-    }
-
-
-    public function Servicepanel()
-    {
-        $userdata = User::whereNotIn('role_id', [1,4])
+        $userdata = User::where('role_id', 3)
             ->get();
 
         $allservice = Department::all();
-        return view('Owner_panel_view.Service.service_panel',compact('allservice','userdata'));
+        return view('Admin_view.Admin_service.ServicePanel',compact('allservice','userdata'));
     }
 
-    public function AdminuserPanel()
+    public function Userdetails()
     {
-        $roledata = Role::where('id', 2)
+        $roledata = Role::where('id', 3)
             ->get();
 
-        $userdata = DB::table('users')
-            ->where('role_id', 2)
-            ->get();
+        $userdata = User::where('role_id', 3)->get();
 
-        $userdatalist = User::whereNotIn('role_id', [1,4])->get();
-
-        return view('Owner_panel_view.Admin_user.admin_user_panel',compact('roledata','userdata','userdatalist'));
+        $department= Department::all();
+        $userdatalist = User::where('role_id', 3)->get();
+        return view('Admin_view.User_page.userlist',compact('userdatalist','roledata','userdata','department'));
     }
 
 
-
-    public function adminregistration(Request $request)
+    public function Userregistration(Request $request)
     {
-
+       // dd($request);
         $loginid = Auth::user()->id;
 
         $validatedData = $request->validate([
@@ -83,13 +59,18 @@ class AdminManagementController extends Controller
         ]);
 
         $data = new User();
-        $data ['name']=$request->user_name;
+        $data ['name']=$request->stafname;
         $data ['role_id']=$request->usertype;
         $data ['staf_id']=$request->stafid;
         $data ['email']=$request->email;
         $data ['password']=Hash::make($request->password);
         $data ['creat_by']=$loginid;
         $data->save();
+        $saveid = $data->id;
+        $department = $request->states;
+
+        $user = User::find($saveid);
+        $user->departments()->sync($department,false);
 
         $notification=array(
             'messege'=>'User Registration Success!',
@@ -99,11 +80,8 @@ class AdminManagementController extends Controller
     }
 
 
-
-    public function OwnerprofileUpdate(Request $request)
+    public function AdminprofileUpdate(Request $request)
     {
-        //dd($request);
-
         $name_new = $request->user_name;
         $name_old = $request->nameold;
 
@@ -168,4 +146,13 @@ class AdminManagementController extends Controller
         return Redirect()->back()->with($notification);
 
     }
+
+    public function Customerdetails()
+    {
+        return response()->json("Customer Details");
+    }
+
+
+
+
 }

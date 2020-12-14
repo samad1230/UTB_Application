@@ -9,8 +9,6 @@
             <div></div>
         </div>
 
-
-
         <div style="margin: auto"></div>
         <div class="header-part-right">
             <div class="dropdown">
@@ -54,13 +52,10 @@
     <div class="side-content-wrap">
         <div class="sidebar-left open rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
             <ul class="navigation-left">
-                <li class="nav-item" data-item=""><a class="nav-item-hold" href="{{URL::to('/Admin/Dashboard')}}"><i class="nav-icon i-Bar-Chart"></i><span class="nav-text">Dashboard</span></a>
+                <li class="nav-item" data-item=""><a class="nav-item-hold" href="{{URL::to('/User/Dashboard')}}"><i class="nav-icon i-Bar-Chart"></i><span class="nav-text">Dashboard</span></a>
                     <div class="triangle"></div>
                 </li>
-                <li class="nav-item" data-item="servicepanel"><a class="nav-item-hold" href="#"><i class="nav-icon i-Library"></i><span class="nav-text">Service Panel</span></a>
-                    <div class="triangle"></div>
-                </li>
-                <li class="nav-item" data-item="uikits"><a class="nav-item-hold" href="#"><i class="nav-icon i-Library"></i><span class="nav-text">Staff & Customer</span></a>
+                <li class="nav-item" data-item="servicepanel"><a class="nav-item-hold" href="#"><i class="nav-icon i-Library"></i><span class="nav-text">User Menu Dynamic</span></a>
                     <div class="triangle"></div>
                 </li>
 
@@ -68,18 +63,12 @@
         </div>
         <div class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
             <ul class="childNav" data-parent="servicepanel">
-                <li class="nav-item"><a href="{{route('service.paneladmin')}}"><i class="nav-icon i-Add"></i><span class="item-name">Service Panel</span></a></li>
+                <li class="nav-item"><a href="#"><i class="nav-icon i-Add"></i><span class="item-name">Dynamic</span></a></li>
             </ul>
-            <ul class="childNav" data-parent="uikits">
-                <li class="nav-item"><a href="{{route('user.details')}}"><i class="nav-icon i-Add-File"></i><span class="item-name">User Details</span></a></li>
-                <li class="nav-item"><a href="{{route('customer.details')}}"><i class="nav-icon i-Add-File"></i><span class="item-name">Customer Details</span></a></li>
-            </ul>
-
         </div>
-
         <div class="sidebar-overlay"></div>
-
     </div>
+
 
 
 

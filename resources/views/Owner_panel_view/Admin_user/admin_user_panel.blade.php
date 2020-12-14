@@ -1,5 +1,6 @@
-@extends('Admin_layouts.Admin_master_layout')
+@extends('Owner_layouts.Owner_master_layout')
 @section('content')
+
     <div class="app-admin-wrap layout-sidebar-large">
         <div class="main-content-wrap sidenav-open d-flex flex-column">
             <div class="main-content">
@@ -10,7 +11,7 @@
                         <div class="col-md-12 mb-4">
                             <div class="card text-left">
                                 <div class="card-header text-right bg-transparent">
-                                    <button class="btn btn-primary btn-md m-1" type="button" data-toggle="modal" data-target="#adduser"><i class="i-Add-User text-white mr-2"></i> Add Contact</button>
+                                    <button class="btn btn-primary btn-md m-1" type="button" data-toggle="modal" data-target="#addadmin"><i class="i-Add-User text-white mr-2"></i> Add Contact</button>
 
                                 </div>
 
@@ -31,33 +32,38 @@
                                             <tbody>
                                             @foreach($userdatalist as $row)
 
-                                            <tr>
-                                                <td><a href="">
-                                                        <div class="ul-widget-app__profile-pic"><img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset($row->profile != null? 'Media/user_profile/'. $row->profile->user_image:'') }}" alt="" />
-                                                            <span class="text-capitalize font-weight-bold">{{ $row->name }}</span>
+                                                <tr>
+                                                    <td><a href="">
+                                                            <div class="ul-widget-app__profile-pic"><img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset($row->profile != null? 'Media/user_profile/'. $row->profile->user_image:'') }}" alt="" />
+                                                                <span class="text-capitalize font-weight-bold">{{ $row->name }}</span>
                                                             </div>
-                                                    </a></td>
-                                                <td>{{ $row->email }}</td>
-                                                <td>{{ $row->profile != null?$row->profile->phone:'' }}</td>
-                                                <td><a class="badge badge-primary m-2 p-2" href="#">{{ $row->role->name }}</a></td>
-                                                <td>{{ date('d-M-Y',strtotime($row->created_at)) }}</td>
-                                                <td>
-                                                    @php
-                                                        $count = 0;
-                                                    @endphp
-                                                    @foreach($row->departments as $department)
+                                                        </a></td>
+                                                    <td>{{ $row->email }}</td>
+                                                    <td>{{ $row->profile != null?$row->profile->phone:'' }}</td>
+                                                    <td><a class="badge badge-primary m-2 p-2" href="#">{{ $row->role->name }}</a></td>
+                                                    <td>{{ date('d-M-Y',strtotime($row->created_at)) }}</td>
+                                                    <td>
                                                         @php
-                                                            $count++;
+                                                            $count = 0;
                                                         @endphp
-                                                        <span><i>{{ $department->name }}</i></span>
-                                                        @if(count($row->departments) != $count)
-                                                            <br>
-                                                        @endif
+                                                        @if($row->role_id == 2)
+                                                            <span><i>Admin Department</i></span>
+                                                        @else
+                                                        @foreach($row->departments as $department)
 
-                                                    @endforeach
-                                                </td>
-                                                <td><a class="ul-link-action text-success" href="" data-toggle="tooltip" data-placement="top" title="Edit"><i class="i-Edit"></i></a></td>
-                                            </tr>
+                                                                @php
+                                                                    $count++;
+                                                                @endphp
+                                                                <span><i>{{ $department->name }}</i></span>
+                                                                @if(count($row->departments) != $count)
+                                                                    <br>
+                                                                @endif
+
+                                                        @endforeach
+                                                        @endif
+                                                    </td>
+                                                    <td><a class="ul-link-action text-success" href="" data-toggle="tooltip" data-placement="top" title="Edit"><i class="i-Edit"></i></a></td>
+                                                </tr>
                                             @endforeach
                                             </tbody>
                                         </table>
@@ -73,7 +79,7 @@
 
 
 
-    <div class="modal fade" id="adduser" tabindex="1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal fade" id="addadmin" tabindex="1" role="dialog" aria-labelledby="" aria-hidden="true">
         <div class="modal-dialog model-sm" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -89,7 +95,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{route('User.registration')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('admin.registration')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="modal-body">
                             <div class="row">
@@ -97,7 +103,7 @@
                                     <label class="" for="">User name :</label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="text" name="stafname" class="form-control" id="" placeholder="User Name" autocomplete="off">
+                                    <input type="text" name="user_name" class="form-control" id="" placeholder="User Name" autocomplete="off">
                                 </div>
                             </div>
                         </div>
@@ -146,25 +152,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label class="" for="">Department :</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <select class="form-control js-example-basic-multiple" name="states[]" multiple="multiple" style="width: 240px">
-                                        <?php
-                                        use App\Admin_model\Department;$alldepartment= Department::all();
-
-                                        ?>
-                                        @foreach($alldepartment as $ndata)
-                                            <option value="{{$ndata->id}}">{{$ndata->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="modal-footer">
                             <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Save</button>
@@ -175,11 +162,4 @@
         </div>
     </div>
 
-@endsection
-@section('pagescript')
-    <script>
-        $(document).ready(function() {
-            $('.js-example-basic-multiple').select2();
-        });
-    </script>
 @endsection

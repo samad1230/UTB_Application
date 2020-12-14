@@ -1,15 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin_Controller;
+namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
-use App\User;
 use Illuminate\Http\Request;
 
-
-class MainIndexController extends Controller
+class CategorieController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
