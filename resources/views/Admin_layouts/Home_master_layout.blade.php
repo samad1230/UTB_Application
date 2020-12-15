@@ -1,6 +1,6 @@
 
 
-    @include('Admin_layouts.header')
+    @include('Common_header_footer.header')
 
 
 
@@ -18,7 +18,7 @@
         @yield('content')
 
 
-    @include('Admin_layouts.footer')
+    @include('Common_header_footer.footer')
 
 
 

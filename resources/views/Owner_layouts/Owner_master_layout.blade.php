@@ -1,6 +1,6 @@
 
 
-    @include('Owner_layouts.header')
+    @include('Common_header_footer.header')
     <div class="app-admin-wrap layout-sidebar-large">
     @include('Owner_layouts.Owner_top_left_nav')
 
@@ -19,7 +19,7 @@
         @yield('content')
 
 
-    @include('Owner_layouts.footer')
+    @include('Common_header_footer.footer')
 
 
 

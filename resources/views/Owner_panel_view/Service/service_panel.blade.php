@@ -2,7 +2,7 @@
 @section('content')
     <div class="main-content-wrap sidenav-open d-flex flex-column">
         <div class="main-content">
-        @include('Admin_layouts.pagetitlewoner')
+        @include('Common_header_footer.pagetitlewoner')
             <!-- MAIN SIDEBAR CONTAINER start-->
             <div class="inbox-main-sidebar-container" data-sidebar-container="main">
 
@@ -55,16 +55,28 @@
                         <!-- Secondary Inbox sidebar start-->
                         <div class="inbox-secondary-sidebar perfect-scrollbar rtl-ps-none" data-sidebar="secondary"><i class="sidebar-close i-Close" data-sidebar-toggle="secondary"></i>
                             @foreach($allservice as $data)
-                            <div class="mail-item">
+                                <div class="mail-item">
 
                                     <div class="col-md-8">
                                         <h5 style="font-weight: bold">{{$data->name}} Department</h5>
                                     </div>
                                     <div class="col-md-4">
-                                        <button class="btn btn-primary" type="button">Access</button>
+                                        @if($data->id == 1)
+                                            <a href="{{ route('purchase.department-access') }}" class="btn btn-sm btn-primary">Access</a>
+                                        @elseif($data->id == 2)
+                                            <a href="{{ route('hradmin.department-access') }}" class="btn btn-sm btn-primary">Access</a>
+                                        @elseif($data->id == 3)
+                                            <a href="{{ route('accounts.department-access') }}" class="btn btn-sm btn-primary">Access</a>
+                                        @elseif($data->id == 4)
+                                            <a href="{{ route('commercial.department-access') }}" class="btn btn-sm btn-primary">Access</a>
+                                        @elseif($data->id == 5)
+                                            <a href="{{ route('store.department-access') }}" class="btn btn-sm btn-primary">Access</a>
+                                        @elseif($data->id == 6)
+                                            <a href="{{ route('sales.department-access') }}" class="btn btn-sm btn-primary">Access</a>
+                                        @endif
                                     </div>
 
-                            </div>
+                                </div>
                             @endforeach
                         </div>
 

@@ -4,7 +4,7 @@
     <div class="app-admin-wrap layout-sidebar-large">
         <div class="main-content-wrap sidenav-open d-flex flex-column">
             <div class="main-content">
-                @include('User_layouts.pagetitleuser')
+                @include('Common_header_footer.pagetitleuser')
                 <div class="separator-breadcrumb border-top"></div>
                 <div class="row">
                     <!-- ICON BG-->

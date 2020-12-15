@@ -1,4 +1,4 @@
-@extends('Department_layouts.Hradmin_master_layout')
+@extends('Department_layouts.Sales_master_layout')
 @section('content')
 
     <div class="app-admin-wrap layout-sidebar-large">
@@ -8,11 +8,7 @@
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-6">
-                                @include('Department_layouts.dashbosart_title')
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="dashtitle">Welcome To {{$department->name}} Department</div>
+                                @include('Common_header_footer.dashbosart_title')
                             </div>
                         </div>
                     </div>

@@ -9,6 +9,8 @@
             <div></div>
         </div>
 
+
+
         <div style="margin: auto"></div>
         <div class="header-part-right">
             <div class="dropdown">
@@ -49,26 +51,44 @@
             </div>
         </div>
     </div>
+    @php
+        $user =  Auth::user()->role->id;
+          if ($user==1){
+              $url= '/owner/dashboard';
+          }else if ($user==2){
+               $url= '/Admin/Dashboard';
+          }else if ($user==3){
+               $url= 'User/Dashboard';
+          }else{
+              return false;
+          }
+    @endphp
+
     <div class="side-content-wrap">
         <div class="sidebar-left open rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
             <ul class="navigation-left">
-                <li class="nav-item" data-item=""><a class="nav-item-hold" href="{{URL::to('/User/Dashboard')}}"><i class="nav-icon i-Bar-Chart"></i><span class="nav-text">Dashboard</span></a>
+                <li class="nav-item" data-item=""><a class="nav-item-hold" href="{{URL::to($url)}}"><i class="nav-icon i-Bar-Chart"></i><span class="nav-text">Dashboard</span></a>
                     <div class="triangle"></div>
                 </li>
-                <li class="nav-item" data-item="servicepanel"><a class="nav-item-hold" href="#"><i class="nav-icon i-Library"></i><span class="nav-text">Department</span></a>
+                <li class="nav-item" data-item="productmenu"><a class="nav-item-hold" href="#"><i class="nav-icon i-Suitcase"></i><span class="nav-text">Store </span></a>
                     <div class="triangle"></div>
                 </li>
-
             </ul>
         </div>
         <div class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
-            <ul class="childNav" data-parent="servicepanel">
-                <li class="nav-item"><a href="{{route('service.paneluser')}}"><i class="nav-icon i-Add"></i><span class="item-name">Service Panel</span></a></li>
-            </ul>
-        </div>
-        <div class="sidebar-overlay"></div>
-    </div>
 
+
+            <ul class="childNav" data-parent="productmenu">
+                <li class="nav-item"><a href=""><i class="nav-icon i-Add"></i><span class="item-name">Add Store</span></a></li>
+                <li class="nav-item"><a href="#"><i class="nav-icon i-Loading-3"></i><span class="item-name">Loaders</span></a></li>
+                <li class="nav-item"><a href="#"><i class="nav-icon i-Loading-2"></i><span class="item-name">Ladda Buttons</span></a></li>
+            </ul>
+
+        </div>
+
+        <div class="sidebar-overlay"></div>
+
+    </div>
 
 
 

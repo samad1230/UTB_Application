@@ -1,9 +1,9 @@
 
 
-    @include('Department_layouts.header')
+    @include('Common_header_footer.header')
     <div class="app-admin-wrap layout-sidebar-large">
 
-    @include('Department_layouts.Purchase_top_left_nav')
+    @include('Department_layouts.navbar.Purchase_top_left_nav')
 
 
     @guest
@@ -20,7 +20,7 @@
         @yield('content')
 
 
-    @include('Department_layouts.footer')
+    @include('Common_header_footer.footer')
 
 
 

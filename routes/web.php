@@ -34,16 +34,26 @@ Route::get('/Admin/Customer/Details', 'Admin_Controller\PanelManagementControlle
 
 //==================================
 
+//user login and dashboard
 Route::get('/User/Dashboard', 'Admin_Controller\MainLoginController@Userdashboard')->name('user.dashboard');
+Route::get('/User/Department', 'Admin_Controller\MainLoginController@UserDepartment')->name('service.paneluser');
+/// dash user
 
-Route::get('/purchase-department', 'Admin_Controller\MainLoginController@purchaseDepartment')->name('purchase.department-access');
 
-
+// department controller================================================
+Route::get('/Purchase-Department', 'Admin_Controller\MainLoginController@purchaseDepartment')->name('purchase.department-access');
+Route::get('/Hradmin-Department', 'Admin_Controller\MainLoginController@HradminDepartment')->name('hradmin.department-access');
+Route::get('/Accounts-Department', 'Admin_Controller\MainLoginController@AccountsDepartment')->name('accounts.department-access');
+Route::get('/Commercial-Department', 'Admin_Controller\MainLoginController@CommercialDepartment')->name('commercial.department-access');
+Route::get('/Store-Department', 'Admin_Controller\MainLoginController@StoreDepartment')->name('store.department-access');
+Route::get('/Sales-Department', 'Admin_Controller\MainLoginController@SalesDepartment')->name('sales.department-access');
+//====================================
 
 
 //=========== Categories Controller===================
 
-//==============================================================
+
+//==================Categories Controller===========================
 
 
 

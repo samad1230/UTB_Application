@@ -51,33 +51,36 @@
             </div>
         </div>
     </div>
+    @php
+      $user =  Auth::user()->role->id;
+        if ($user==1){
+            $url= '/owner/dashboard';
+        }else if ($user==2){
+             $url= '/Admin/Dashboard';
+        }else if ($user==3){
+             $url= 'User/Dashboard';
+        }else{
+            return false;
+        }
+    @endphp
     <div class="side-content-wrap">
         <div class="sidebar-left open rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
             <ul class="navigation-left">
-                <li class="nav-item" data-item=""><a class="nav-item-hold" href="{{URL::to('/Admin/Dashboard')}}"><i class="nav-icon i-Bar-Chart"></i><span class="nav-text">Dashboard</span></a>
+                <li class="nav-item" data-item=""><a class="nav-item-hold" href="{{URL::to($url)}}"><i class="nav-icon i-Bar-Chart"></i><span class="nav-text">Dashboard</span></a>
                     <div class="triangle"></div>
                 </li>
-
-                <li class="nav-item" data-item="productmenu"><a class="nav-item-hold" href="#"><i class="nav-icon i-Suitcase"></i><span class="nav-text">Product </span></a>
-                    <div class="triangle"></div>
-                </li>
-                <li class="nav-item" data-item="apps"><a class="nav-item-hold" href="#"><i class="nav-icon i-Computer-Secure"></i><span class="nav-text">Apps</span></a>
+                <li class="nav-item" data-item="productmenu"><a class="nav-item-hold" href="#"><i class="nav-icon i-Suitcase"></i><span class="nav-text">Accounts </span></a>
                     <div class="triangle"></div>
                 </li>
             </ul>
         </div>
         <div class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
 
+
             <ul class="childNav" data-parent="productmenu">
                 <li class="nav-item"><a href=""><i class="nav-icon i-Add"></i><span class="item-name">Add Categories</span></a></li>
                 <li class="nav-item"><a href="#"><i class="nav-icon i-Loading-3"></i><span class="item-name">Loaders</span></a></li>
                 <li class="nav-item"><a href="#"><i class="nav-icon i-Loading-2"></i><span class="item-name">Ladda Buttons</span></a></li>
-            </ul>
-
-            <ul class="childNav" data-parent="apps">
-                <li class="nav-item"><a href="#"><i class="nav-icon i-Add-File"></i><span class="item-name">Invoice</span></a></li>
-                <li class="nav-item"><a href="#"><i class="nav-icon i-Email"></i><span class="item-name">Inbox</span></a></li>
-                <li class="nav-item"><a href="#"><i class="nav-icon i-Speach-Bubble-3"></i><span class="item-name">Chat</span></a></li>
             </ul>
 
         </div>

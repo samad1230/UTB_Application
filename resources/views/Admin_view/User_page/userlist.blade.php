@@ -3,7 +3,7 @@
     <div class="app-admin-wrap layout-sidebar-large">
         <div class="main-content-wrap sidenav-open d-flex flex-column">
             <div class="main-content">
-                @include('Admin_layouts.pagetitle')
+                @include('Common_header_footer.pagetitle')
                 <div class="separator-breadcrumb border-top"></div>
                 <section class="contact-list">
                     <div class="row">

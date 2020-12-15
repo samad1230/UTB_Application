@@ -1,6 +1,6 @@
 
 
-    @include('User_layouts.header')
+    @include('Common_header_footer.header')
     <div class="app-admin-wrap layout-sidebar-large">
     @include('User_layouts.User_top_left_nav')
 
@@ -17,7 +17,7 @@
         @yield('content')
 
 
-    @include('User_layouts.footer')
+    @include('Common_header_footer.footer')
 
 
 

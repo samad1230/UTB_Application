@@ -2,7 +2,7 @@
 @section('content')
     <div class="main-content-wrap sidenav-open d-flex flex-column">
         <div class="main-content">
-        @include('Admin_layouts.pagetitle')
+        @include('Common_header_footer.pagetitle')
         <!-- MAIN SIDEBAR CONTAINER start-->
             <div class="inbox-main-sidebar-container" data-sidebar-container="main">
 
@@ -64,10 +64,15 @@
                                         @if($data->id == 1)
                                             <a href="{{ route('purchase.department-access') }}" class="btn btn-sm btn-primary">Access</a>
                                         @elseif($data->id == 2)
+                                            <a href="{{ route('hradmin.department-access') }}" class="btn btn-sm btn-primary">Access</a>
                                         @elseif($data->id == 3)
+                                            <a href="{{ route('accounts.department-access') }}" class="btn btn-sm btn-primary">Access</a>
                                         @elseif($data->id == 4)
+                                            <a href="{{ route('commercial.department-access') }}" class="btn btn-sm btn-primary">Access</a>
                                         @elseif($data->id == 5)
+                                            <a href="{{ route('store.department-access') }}" class="btn btn-sm btn-primary">Access</a>
                                         @elseif($data->id == 6)
+                                            <a href="{{ route('sales.department-access') }}" class="btn btn-sm btn-primary">Access</a>
                                         @endif
                                     </div>
 
