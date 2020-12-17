@@ -82,9 +82,11 @@
         <div class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
 
             <ul class="childNav" data-parent="productmenu">
-                <li class="nav-item"><a href=""><i class="nav-icon i-Add"></i><span class="item-name">Add Categories</span></a></li>
-                <li class="nav-item"><a href="#"><i class="nav-icon i-Loading-3"></i><span class="item-name">Loaders</span></a></li>
-                <li class="nav-item"><a href="#"><i class="nav-icon i-Loading-2"></i><span class="item-name">Ladda Buttons</span></a></li>
+                <li class="nav-item"><a href="{{route('add.categories')}}"><i class="nav-icon i-Add"></i><span class="item-name">Add Categories</span></a></li>
+                <li class="nav-item"><a href="#"><i class="nav-icon i-Add"></i><span class="item-name">Sub Category</span></a></li>
+                <li class="nav-item"><a href="#"><i class="nav-icon i-Add"></i><span class="item-name">Pro Category</span></a></li>
+                <li class="nav-item"><a href="#"><i class="nav-icon i-Add"></i><span class="item-name">Brand</span></a></li>
+                <li class="nav-item"><a href="#"><i class="nav-icon i-Add"></i><span class="item-name">Product</span></a></li>
             </ul>
 
             <ul class="childNav" data-parent="apps">

@@ -43,3 +43,8 @@
     font-weight: bold;
     float: right;
 }
+
+.addbtnplus{
+    float: right;
+    padding-bottom: 13px;
+}

@@ -15,7 +15,7 @@
 <script src="{{asset('Admin_asset/dist-assets/js/scripts/echart.options.min.js')}}"></script>
 <script src="{{asset('Admin_asset/dist-assets/js/scripts/dashboard.v1.script.min.js')}}"></script>
 <script src="{{asset('Admin_asset/dist-assets/js/scripts/customizer.script.min.js')}}"></script>
-
+<script src="{{asset('Admin_asset/dist-assets/js/plugins/datatables.min.js')}}"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 <script src="{{asset('Admin_asset/letesttoastr.min.js')}}"></script>
@@ -69,7 +69,9 @@
 
 </body>
 
-
+<script>
+    $('#ul-contact-list').DataTable();
+</script>
 
 {{--<script type="text/javascript">--}}
 {{--    $(document).ready(function () {--}}

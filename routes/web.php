@@ -50,9 +50,12 @@ Route::get('/Sales-Department', 'Admin_Controller\MainLoginController@SalesDepar
 //====================================
 
 
+// main index controller=================================
+Route::get('/Categories/Add','Admin_Controller\MainIndexController@CategoryIndex')->name('add.categories');
+// main index controller==================================
+
 //=========== Categories Controller===================
-
-
+Route::resource('/categories', 'Product\CategoryController');
 //==================Categories Controller===========================
 
 
