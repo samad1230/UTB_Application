@@ -17,6 +17,11 @@
 <script src="{{asset('Admin_asset/dist-assets/js/scripts/customizer.script.min.js')}}"></script>
 <script src="{{asset('Admin_asset/dist-assets/js/plugins/datatables.min.js')}}"></script>
 
+<script src="{{asset('Admin_asset/image_upload/js/jquery-3.3.1.min.js')}}"></script>
+<script src="{{asset('Admin_asset/image_upload/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('Admin_asset/image_upload/js/image-uploader.min.js')}}"></script>
+
+
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 <script src="{{asset('Admin_asset/letesttoastr.min.js')}}"></script>
 <link href="{{asset('Admin_asset/letesttoastr.css')}}" rel="stylesheet" />
@@ -71,6 +76,12 @@
 
 <script>
     $('#ul-contact-list').DataTable();
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
 </script>
 
 {{--<script type="text/javascript">--}}

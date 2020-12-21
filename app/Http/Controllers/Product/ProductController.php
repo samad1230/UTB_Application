@@ -2,8 +2,24 @@
 
 namespace App\Http\Controllers\Product;
 
+use App\Admin_model\Categorie;
+use App\Admin_model\Prductimage;
+use App\Admin_model\Procategorie;
+use App\Admin_model\Product;
+use App\Admin_model\Subcategorie;
+use App\CommonModel;
 use App\Http\Controllers\Controller;
+use App\Product_model\AutocatProduct;
+use App\Product_model\DocfileProduct;
+use App\Product_model\FeatureProduct;
+use App\Product_model\PdfProduct;
+use App\Product_model\ProductVideo;
 use Illuminate\Http\Request;
+use App\Admin_model\Brand;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
@@ -18,7 +34,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $product = Product::all();
+        $brand = Brand::all();
+        $category = Categorie::all();
+        $subcategory = Subcategorie::all();
+        $procategory = Procategorie::all();
+        return view('Purchase_view.Product.productview',compact('product','brand','category','procategory','subcategory'));
     }
 
     /**
@@ -39,7 +60,121 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        $model_common = new CommonModel();
+        $x =  $model_common->slagdata();
+        $slag = time().",".str_replace(' ','_', $request->productname).",".$x;
+        $loginid = Auth::user()->id;
+
+        $data= new Product();
+        $data['name']=$request->productname;
+        $data['product_details']=$request->productdetails;
+        $data['brand_id']=$request->brandid;
+        $data['skvalue']=$request->skvalue;
+        $data['warranty']=$request->warranty;
+        $data['Country_Of_Origin']=$request->cuntryorigin;
+        $data['Made_in_Assemble']=$request->madeassemble;
+        $data['stoke_status']=$request->stokestatus;
+        $data['popular_product']=$request->popularproduct;
+        $data['feature_product']=$request->featureproduct;
+        $data['slag']=$slag;
+        $data['create_by']=$loginid;
+        $data->save();
+        $productid = $data->id;
+        $saved_product = Product::find($data->id);
+
+        $saved_product->brands()->sync($request->brandid,false);
+
+        if($request->hasFile('company_logo')){
+            foreach ($request->company_logo as $item => $imagevalue) {
+                $x = 'abcdefghijklmnopqrstuvwxyz0123456789';
+                $x = str_shuffle($x);
+                $x = substr($x, 0, 6) . '.DAC_ZS.';
+                $productImageFilename = time() . $x . $imagevalue->getClientOriginalExtension();
+                Image::make($imagevalue->getRealPath())->resize(800, 700)->save(public_path('/Media/product/' . $productImageFilename));
+
+                $dataimage = array(
+                    'product_id' => $productid,
+                    'product_image' => $productImageFilename,
+                );
+                Prductimage::insert($dataimage);
+            }
+        }
+
+        if ($request->hasfile('docfile_products')) {
+            foreach ($request->file('docfile_products') as $file) {
+                $x = 'abcdefghijklmnopqrstuvwxyz0123456789';
+                $x = str_shuffle($x);
+                $x = substr($x, 0, 6) . '.DAC_ZS.';
+                $filename = time() . $x . $file->getClientOriginalExtension();
+                $file->move(public_path() . '/Media/file/', $filename);
+                $datafile = array(
+                    'product_id' => $productid,
+                    'doc_file' => $filename,
+                );
+                DocfileProduct::insert($datafile);
+            }
+        }
+
+        if ($request->hasfile('pdf_products')) {
+            foreach ($request->file('pdf_products') as $file) {
+                $x = 'abcdefghijklmnopqrstuvwxyz0123456789';
+                $x = str_shuffle($x);
+                $x = substr($x, 0, 6) . '.DAC_ZS.';
+                $filename = time() . $x . $file->getClientOriginalExtension();
+                $file->move(public_path() . '/Media/file/', $filename);
+                $datafile = array(
+                    'product_id' => $productid,
+                    'pdf_file' => $filename,
+                );
+                PdfProduct::insert($datafile);
+            }
+        }
+
+        if ($request->hasfile('autocat_products')) {
+            foreach ($request->file('autocat_products') as $file) {
+                $x = 'abcdefghijklmnopqrstuvwxyz0123456789';
+                $x = str_shuffle($x);
+                $x = substr($x, 0, 6) . '.DAC_ZS.';
+                $filename = time() . $x . $file->getClientOriginalExtension();
+                $file->move(public_path() . '/Media/file/', $filename);
+                $datafile = array(
+                    'product_id' => $productid,
+                    'autocad_file' => $filename,
+                );
+                AutocatProduct::insert($datafile);
+            }
+        }
+
+        foreach ($request->product_videos as $item => $video) {
+            $dataf = array(
+                'product_id' => $productid,
+                'video_name' => $video,
+            );
+            ProductVideo::insert($dataf);
+        }
+
+        if($request->has('category_ids')){
+            $saved_product->categories()->sync($request->category_ids);
+        }
+        if($request->has('subcategory_ids')){
+            $saved_product->subcategories()->sync($request->subcategory_ids);
+        }
+        if($request->has('procategory_ids')){
+            $saved_product->procategories()->sync($request->procategory_ids);
+        }
+
+
+        // $saved_product->feature_products()->sync($request->feature_products);
+        // $saved_product->group_products()->sync($request->products_group);
+
+        $notification=array(
+            'messege'=>'Successfully Product Insert!',
+            'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);
+
+
     }
 
     /**

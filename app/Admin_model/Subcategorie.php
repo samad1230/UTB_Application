@@ -14,4 +14,19 @@ class Subcategorie extends Model
     {
         return $this->morphToMany('App\Admin_model\Brand','brandable');
     }
+
+    public function category(){
+        return $this->belongsTo('App\Admin_model\Categorie');
+    }
+
+    public function pro_categories(){
+        return $this->hasMany('App\Admin_model\Procategorie');
+    }
+
+
+    public function products()
+    {
+        return $this->morphToMany('App\Admin_model\Product','productable');
+    }
+
 }

@@ -35,6 +35,13 @@ class Product extends Model
         return $this->hasMany('App\Product_model\FeatureProduct');
     }
 
+
+
+    public function group_products()
+    {
+        return $this->hasMany('App\Product_model\GroupProduct');
+    }
+
     public function pdf_products()
     {
         return $this->hasMany('App\Product_model\PdfProduct');
@@ -43,6 +50,24 @@ class Product extends Model
     public function product_videos()
     {
         return $this->hasMany('App\Product_model\ProductVideo');
+    }
+
+
+
+
+    public function categories()
+    {
+        return $this->morphedByMany('App\Admin_model\Categorie', 'productable');
+    }
+
+    public function subcategories()
+    {
+        return $this->morphedByMany('App\Admin_model\Subcategorie', 'productable');
+    }
+
+    public function procategories()
+    {
+        return $this->morphedByMany('App\Admin_model\Procategorie', 'productable');
     }
 
 

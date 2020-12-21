@@ -13,6 +13,7 @@
     <link href="{{asset('Admin_asset/dist-assets/css/plugins/perfect-scrollbar.min.css')}}" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{asset('Admin_asset/dist-assets/css/plugins/datatables.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('Admin_asset/image_upload/css/image-uploader.min.css')}}">
 
     <link rel="stylesheet" href="{{ asset('Admin_asset/toastr.css') }}">
     <link href="{{asset('Admin_asset/style.css')}}" rel="stylesheet" />

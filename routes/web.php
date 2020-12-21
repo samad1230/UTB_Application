@@ -52,11 +52,23 @@ Route::get('/Sales-Department', 'Admin_Controller\MainLoginController@SalesDepar
 
 // main index controller=================================
 Route::get('/Categories/Add','Admin_Controller\MainIndexController@CategoryIndex')->name('add.categories');
+Route::get('/Subcategory/Add','Admin_Controller\MainIndexController@SubcategoryIndex')->name('add.subcategory');
+Route::get('/Procategory/Add','Admin_Controller\MainIndexController@ProcategoryIndex')->name('add.procategory');
+Route::get('/Brand/Add','Admin_Controller\MainIndexController@BrandIndex')->name('add.brand');
+Route::get('/Feature/Product','Admin_Controller\MainIndexController@FeatureProduct')->name('add.featureproducts');
 // main index controller==================================
 
 //=========== Categories Controller===================
 Route::resource('/categories', 'Product\CategoryController');
+Route::resource('/subcategory', 'Product\SubCategoryController');
+Route::resource('/procategory', 'Product\ProCategoryController');
+Route::resource('/brand', 'Product\BrandController');
+Route::resource('/Product', 'Product\ProductController');
 //==================Categories Controller===========================
 
 
+// ajax controller ========================
+Route::get('/categorydataid/{id}','Admin_Controller\AjaxController@CategoryData');
+Route::get('/subcategorydataid/{id}','Admin_Controller\AjaxController@SubcategoryData');
 
+// ajax controller===================

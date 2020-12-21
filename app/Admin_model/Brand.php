@@ -25,6 +25,8 @@ class Brand extends Model
         return $this->morphedByMany('App\Admin_model\Procategorie', 'brandable');
     }
 
+
+
     public function products()
     {
        return $this->belongsToMany('App\Admin_model\Product') ;

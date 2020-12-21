@@ -83,10 +83,11 @@
 
             <ul class="childNav" data-parent="productmenu">
                 <li class="nav-item"><a href="{{route('add.categories')}}"><i class="nav-icon i-Add"></i><span class="item-name">Add Categories</span></a></li>
-                <li class="nav-item"><a href="#"><i class="nav-icon i-Add"></i><span class="item-name">Sub Category</span></a></li>
-                <li class="nav-item"><a href="#"><i class="nav-icon i-Add"></i><span class="item-name">Pro Category</span></a></li>
-                <li class="nav-item"><a href="#"><i class="nav-icon i-Add"></i><span class="item-name">Brand</span></a></li>
-                <li class="nav-item"><a href="#"><i class="nav-icon i-Add"></i><span class="item-name">Product</span></a></li>
+                <li class="nav-item"><a href="{{route('add.subcategory')}}"><i class="nav-icon i-Add"></i><span class="item-name">Sub Category</span></a></li>
+                <li class="nav-item"><a href="{{route('add.procategory')}}"><i class="nav-icon i-Add"></i><span class="item-name">Pro Category</span></a></li>
+                <li class="nav-item"><a href="{{route('add.brand')}}"><i class="nav-icon i-Add"></i><span class="item-name">Brand</span></a></li>
+                <li class="nav-item"><a href="{{route('add.featureproducts')}}"><i class="nav-icon i-Add"></i><span class="item-name">Feature Product</span></a></li>
+                <li class="nav-item"><a href="{{route('Product.index')}}"><i class="nav-icon i-Add"></i><span class="item-name">Product</span></a></li>
             </ul>
 
             <ul class="childNav" data-parent="apps">

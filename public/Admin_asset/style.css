@@ -48,3 +48,14 @@
     float: right;
     padding-bottom: 13px;
 }
+
+.appendform{
+    width: 308px;
+    float: left;
+    margin-right: 9px;
+    margin-bottom: 9px;
+}
+.appendbody a img{
+    width: 25px;
+    margin-bottom: 17px;
+}

@@ -20,20 +20,81 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed9422ca-31df-4782-9109-4c2badbd632a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Product/CategoryController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Media/category/1608199728dp8a0y.DAC_ZS.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Media/category/1608200289ps7z93.DAC_ZS.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Media/user_profile/1608196204mhcd4y.DAC_ZS.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Purchase_view/Categorie/categories.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utb_app.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin_Controller/AjaxController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Product/BrandController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Product/ProCategoryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Product/SubCategoryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Product_model/GroupProduct.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_21_171516_create_productables_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_21_174256_create_group_products_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Admin_asset/image_upload/css/image-uploader.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Admin_asset/image_upload/fonts/iu.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Admin_asset/image_upload/fonts/iu.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Admin_asset/image_upload/fonts/iu.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Admin_asset/image_upload/fonts/iu.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Admin_asset/image_upload/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Admin_asset/image_upload/js/image-uploader.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Admin_asset/image_upload/js/jquery-3.3.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/brand/1608362760on5vux.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/brand/1608378188ul4zak.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/brand/1608449625yvo6kp.DAC_ZS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/file/1608578036n025xe.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/file/16085780833lbkcv.DAC_ZS.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/file/160857899841ti3u.DAC_ZS.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/file/1608578998evql2b.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/file/1608578998qoxp8f.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/file/241020_082225 - Copy.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/image/add-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/image/remove-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/procategory/1608362071ycn7zs.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/procategory/1608372629s0tiu5.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/procategory/1608372646hn0gik.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/procategory/1608372658r1ze0l.DAC_ZS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/procategory/1608372722w4x2st.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/product/160857710075gikd.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/product/1608577100sja935.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/product/1608577100tzfpmc.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/product/1608577100xl1pyu.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/product/1608577100yshx75.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/product/1608578082ijv53l.DAC_ZS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/product/1608578083cr37ab.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/product/1608578083dl2reg.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/product/1608578083g9lzpq.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/product/1608578083ne25c0.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/product/1608578997bhifc7.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/product/1608578997e2f8wh.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/product/1608578997jkot23.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/product/1608578997oj0d7w.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/product/1608578997tzl18g.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/product/1608578998jahp1x.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/product/1608578998jr7kox.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/product/1608578998pcjboe.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/product/1608578998tr2qak.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/subcategory/1608360990zbt9xg.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/subcategory/1608372678gycire.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/subcategory/1608372696lw92y6.DAC_ZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Purchase_view/Categorie/brandview.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Purchase_view/Categorie/procategory.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Purchase_view/Categorie/subcategory.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Purchase_view/Product/productview.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin_model/Brand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin_model/Brand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin_model/Categorie.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin_model/Categorie.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin_model/Procategorie.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin_model/Procategorie.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin_model/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin_model/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin_model/Subcategorie.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin_model/Subcategorie.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin_Controller/MainIndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin_Controller/MainIndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Product/CategorieController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Product/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Product/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Product/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Product/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product_model/FeatureProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product_model/FeatureProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_13_071603_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_13_071603_create_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_13_102507_create_product_brand_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_13_102507_create_brand_product_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/Admin_asset/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Admin_asset/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/user_profile/1607938377z165tw.DAC_ZS.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Common_header_footer/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Common_header_footer/footer.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Common_header_footer/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Common_header_footer/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Common_header_footer/pagetitle.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Common_header_footer/pagetitle.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Common_header_footer/pagetitleuser.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Common_header_footer/pagetitleuser.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Common_header_footer/pagetitlewoner.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Common_header_footer/pagetitlewoner.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Department_layouts/navbar/Purchase_top_left_nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Department_layouts/navbar/Purchase_top_left_nav.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -170,17 +231,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravel_inventory" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\utb_application\public\Admin_asset\image_upload" />
+      <recent name="D:\xampp\htdocs\utb_application\resources\views\Purchase_view\Categorie" />
       <recent name="D:\xampp\htdocs\utb_application\resources\views\User_Page" />
       <recent name="D:\xampp\htdocs\utb_application\resources\views\Department_layouts" />
       <recent name="D:\xampp\htdocs\utb_application\resources\views\Department" />
-      <recent name="D:\xampp\htdocs\utb_application\resources\views\Admin_layouts" />
-      <recent name="D:\xampp\htdocs\utb_application\resources\views\Admin_view\Main" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\utb_application\resources\views\Admin_view\Main" />
@@ -209,7 +270,13 @@
       <workItem from="1607842999366" duration="11643000" />
       <workItem from="1607924329392" duration="26532000" />
       <workItem from="1608011169563" duration="12134000" />
-      <workItem from="1608185281024" duration="7082000" />
+      <workItem from="1608185281024" duration="7176000" />
+      <workItem from="1608359022719" duration="6560000" />
+      <workItem from="1608368129782" duration="8496000" />
+      <workItem from="1608446715520" duration="11552000" />
+      <workItem from="1608481154496" duration="782000" />
+      <workItem from="1608543042696" duration="1170000" />
+      <workItem from="1608568920254" duration="8951000" />
     </task>
     <servers />
   </component>
@@ -240,18 +307,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="429" y="173" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1607250246519" />
-    <state x="413" y="121" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608199270657">
+    <state x="413" y="121" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608576649725">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="121" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1608199270657" />
-    <state x="463" y="121" key="FileChooserDialogImpl" timestamp="1608185674142">
+    <state x="413" y="121" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1608576649725" />
+    <state x="463" y="121" key="FileChooserDialogImpl" timestamp="1608544209451">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1608185674142" />
+    <state x="463" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1608544209451" />
     <state x="505" y="108" key="NewPhpClassDialog" timestamp="1607416375537">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="505" y="108" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1607416375537" />
+    <state x="339" y="157" key="run.anything.popup" timestamp="1608364112356">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="157" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1608364112356" />
     <state x="354" y="600" width="672" height="678" key="search.everywhere.popup" timestamp="1607843344325">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
