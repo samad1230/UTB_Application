@@ -55,7 +55,8 @@
     margin-right: 9px;
     margin-bottom: 9px;
 }
-.appendbody a img{
+.appendbody a img, .removeFeatureGroupBtn img, .removeFeatureBtn img, .removeFeatureGroupBtnWithData img, .removeFeatureBtnWithData img{
     width: 25px;
     margin-bottom: 17px;
 }
+

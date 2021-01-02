@@ -19,7 +19,7 @@
                                         <div class="table-responsive">
                                             <table class="table table-hover" id="ul-contact-list">
 
-                                                <thead>
+                                                <thead class="table-dark">
                                                 <tr>
                                                     <th scope="col">SL</th>
                                                     <th scope="col">Subcategory Name</th>
@@ -38,9 +38,9 @@
                                                         <td>{{ $row->name }}</td>
                                                         <td><img src="{{ asset($row->procat_image != null? 'Media/procategory/'. $row->procat_image:'') }}" height="40px;" width="50px;"></td>
 
-                                                        <td><a class="badge badge-primary m-2 p-2" href="#"><?php $statusnew = $row->status; if ($statusnew==1) {echo "Active";}else{echo "Insctive";} ?></a></td>
+                                                        <td><a class="badge badge-primary m-2 p-2" href="#"><?php $statusnew = $row->status; if ($statusnew==1) {echo "Active";}else{echo "Inactive";} ?></a></td>
                                                         <td width="305px">
-                                                            <button type="button" class="btn btn-primary btn-sm category_edit" id="{{$row->id}}" >Edit</button>
+                                                            <button type="button" class="btn btn-primary btn-sm procategory_edit" id="{{$row->id}}" >Edit</button>
                                                             <a class="btn btn-danger btn-sm" href="{{$row->id}}" id="delete" role="button">Delete</a>
                                                         </td>
                                                     </tr>
@@ -126,4 +126,97 @@
     </div>
 
 
+    <div class="modal fade" id="Editprocategory" tabindex="1" role="dialog" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog model-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="">Add Procategory</h4>
+                </div>
+                <div class="modal-body">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <form action="" class="procategories_edit" method="POST" enctype="multipart/form-data">
+                        @method('PUT')
+                        @csrf
+                        <input type="hidden" name="oldimage" id="old_image">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label class="" for="">Pro Category:</label>
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" name="procategory_name" class="form-control" id="procategory_edit" placeholder="Procategory Name" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label class="" for="">Sub Category:</label>
+                                </div>
+                                <div class="col-md-7">
+                                    <select class="form-control" name="subcat_id" id="subcatid">
+                                        <option value="">Select Category</option>
+                                        @foreach($subcategory as $data)
+                                            <option value="{{$data->id}}">{{$data->name}}</option>
+                                        @endforeach
+                                    </select>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label class="" for="">Procategory Image :</label>
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="file" name="procatimage" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@endsection
+
+@section('pagescript')
+
+    <script>
+        $(function(){
+            $('.procategory_edit').on('click', function(){
+                var procatid = $(this).attr("id");
+                $.ajax({
+                    type: 'GET',
+                    url:'/procategory_edit/'+procatid,
+                    success: function (data) {
+                       // console.log(data);
+                        $("#procategory_edit").val(data.name);
+                        $("#old_image").val(data.procat_image);
+                        $("#subcatid").val(data.subcategorie_id);
+                        $('.procategories_edit').attr('action', '/procategory/'+procatid);
+                    }
+                });
+
+                $("#Editprocategory").modal('show');
+
+            });
+
+        });
+    </script>
 @endsection

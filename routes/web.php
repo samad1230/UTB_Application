@@ -56,6 +56,9 @@ Route::get('/Subcategory/Add','Admin_Controller\MainIndexController@SubcategoryI
 Route::get('/Procategory/Add','Admin_Controller\MainIndexController@ProcategoryIndex')->name('add.procategory');
 Route::get('/Brand/Add','Admin_Controller\MainIndexController@BrandIndex')->name('add.brand');
 Route::get('/Feature/Product','Admin_Controller\MainIndexController@FeatureProduct')->name('add.featureproducts');
+Route::get('/Product/Details','Admin_Controller\MainIndexController@ProductDetails')->name('Product.details');
+Route::get('/Product/Edit/{slag}','Admin_Controller\MainIndexController@ProductEdit')->name('product.edit');
+
 // main index controller==================================
 
 //=========== Categories Controller===================
@@ -68,7 +71,14 @@ Route::resource('/Product', 'Product\ProductController');
 
 
 // ajax controller ========================
-Route::get('/categorydataid/{id}','Admin_Controller\AjaxController@CategoryData');
-Route::get('/subcategorydataid/{id}','Admin_Controller\AjaxController@SubcategoryData');
+Route::get('/categores_edit/{id}','Admin_Controller\AjaxController@CategoresEditdata');
+Route::get('/subcategory_edit/{id}','Admin_Controller\AjaxController@SubCategoresEditdata');
+Route::get('/procategory_edit/{id}','Admin_Controller\AjaxController@ProCategoresEditdata');
+Route::get('/branddata_edit/{id}','Admin_Controller\AjaxController@BrandEditdata');
+Route::get('/product_feturedata/{slag}','Admin_Controller\AjaxController@ProductFetureData');
+Route::get('/product_categoriesdata/{slag}','Admin_Controller\AjaxController@ProductCategoryesData');
+Route::post('/product_image_remove','Admin_Controller\AjaxController@ProductimageRemove');
+Route::post('/feature_id_remove','Admin_Controller\AjaxController@Feature_id_Remove');
+Route::post('/feature_group_remove','Admin_Controller\AjaxController@FeatureGroupRemove');
 
 // ajax controller===================

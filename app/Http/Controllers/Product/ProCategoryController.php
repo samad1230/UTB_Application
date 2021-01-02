@@ -104,7 +104,31 @@ class ProCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $data= Procategorie::find($id);
+        $data['name']=$request->procategory_name;
+        $data['subcategorie_id']=$request->subcat_id;
+        $procatimage =$request->procatimage;
+        $oldimage =$request->oldimage;
+
+        if($request->hasFile('procatimage')){
+            if($oldimage != null){
+                $path = 'Media/procategory/'.$oldimage;
+                unlink($path);
+            }
+            $x = 'abcdefghijklmnopqrstuvwxyz0123456789';
+            $x = str_shuffle($x);
+            $x = substr($x, 0, 6) . '.DAC_ZS.';
+            $procategoryImageFilename = time() . $x . $procatimage->getClientOriginalExtension();
+            Image::make($procatimage->getRealPath())->resize(450, 400)->save(public_path('/Media/procategory/' . $procategoryImageFilename));
+            $data['procat_image']=$procategoryImageFilename;
+        }
+        $data->save();
+        $notification=array(
+            'messege'=>'Successfully Pro Categories Updated!',
+            'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);
     }
 
     /**

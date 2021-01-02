@@ -11,6 +11,7 @@ use App\CommonModel;
 use App\Http\Controllers\Controller;
 use App\Product_model\AutocatProduct;
 use App\Product_model\DocfileProduct;
+use App\Product_model\FeatureGroup;
 use App\Product_model\FeatureProduct;
 use App\Product_model\PdfProduct;
 use App\Product_model\ProductVideo;
@@ -60,7 +61,29 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
+
+//        $feature = [];
+//        if($request->has('feature_group_name')){
+//            for ($i = 0; $i <count($request->feature_group_name); $i++){
+//                $freaturesList = [];
+//                $featureFildName = preg_replace('/\s+/', '', $request->feature_group_name[$i]).'_name';
+//                $featureFildMaterial = preg_replace('/\s+/', '', $request->feature_group_name[$i]).'_material';
+//                if(count($request->$featureFildName) == count($request->$featureFildMaterial)){
+//                    for ($x = 0; $x <count($request->$featureFildName); $x++){
+//                        $freaturesList[] = [
+//                            'name' => $request->$featureFildName[$x],
+//                            'material' => $request->$featureFildName[$x],
+//                        ];
+//                    }
+//                }
+//                $feature[] =  [
+//                    'groupName' => $request->feature_group_name[$i],
+//                    'features' => $freaturesList,
+//                ];
+//            }
+//        }
+
+
         $model_common = new CommonModel();
         $x =  $model_common->slagdata();
         $slag = time().",".str_replace(' ','_', $request->productname).",".$x;
@@ -85,6 +108,29 @@ class ProductController extends Controller
 
         $saved_product->brands()->sync($request->brandid,false);
 
+        if($request->has('feature_group_name')){
+            for ($i = 0; $i < count($request->feature_group_name); $i++){
+                $featureGroup = new FeatureGroup();
+                $featureGroup->product_id = $saved_product->id;
+                $featureGroup->group_name = $request->feature_group_name[$i];
+                $featureGroup->save();
+                $featureGroup_save = FeatureGroup::find($featureGroup->id);
+//                dd($featureGroup_save_id);
+                $featureFildName = preg_replace('/\s+/', '', $request->feature_group_name[$i]).'_name';
+                $featureFildMaterial = preg_replace('/\s+/', '', $request->feature_group_name[$i]).'_material';
+                if(count($request->$featureFildName) == count($request->$featureFildMaterial)){
+                    for ($x = 0; $x <count($request->$featureFildName); $x++){
+                        $feature = new FeatureProduct();
+                        $feature->feature_name = $request->$featureFildName[$x];
+                        $feature->material = $request->$featureFildMaterial[$x];
+                        $feature->feature_group_id = $featureGroup_save->id;
+                        $feature->save();
+
+                    }
+                }
+            }
+        }
+       //dd($feature);
         if($request->hasFile('company_logo')){
             foreach ($request->company_logo as $item => $imagevalue) {
                 $x = 'abcdefghijklmnopqrstuvwxyz0123456789';
@@ -146,13 +192,16 @@ class ProductController extends Controller
             }
         }
 
-        foreach ($request->product_videos as $item => $video) {
-            $dataf = array(
-                'product_id' => $productid,
-                'video_name' => $video,
-            );
-            ProductVideo::insert($dataf);
+        if ($request->hasfile('product_videos')) {
+            foreach ($request->product_videos as $item => $video) {
+                $dataf = array(
+                    'product_id' => $productid,
+                    'video_name' => $video,
+                );
+                ProductVideo::insert($dataf);
+            }
         }
+
 
         if($request->has('category_ids')){
             $saved_product->categories()->sync($request->category_ids);
@@ -163,10 +212,6 @@ class ProductController extends Controller
         if($request->has('procategory_ids')){
             $saved_product->procategories()->sync($request->procategory_ids);
         }
-
-
-        // $saved_product->feature_products()->sync($request->feature_products);
-        // $saved_product->group_products()->sync($request->products_group);
 
         $notification=array(
             'messege'=>'Successfully Product Insert!',
@@ -208,7 +253,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($request);
     }
 
     /**

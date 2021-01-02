@@ -30,17 +30,7 @@ class Product extends Model
         return $this->hasMany('App\Product_model\DocfileProduct');
     }
 
-    public function feature_products()
-    {
-        return $this->hasMany('App\Product_model\FeatureProduct');
-    }
 
-
-
-    public function group_products()
-    {
-        return $this->hasMany('App\Product_model\GroupProduct');
-    }
 
     public function pdf_products()
     {
@@ -53,6 +43,9 @@ class Product extends Model
     }
 
 
+    public function featuregroups(){
+        return $this->hasMany('App\Product_model\FeatureGroup');
+    }
 
 
     public function categories()

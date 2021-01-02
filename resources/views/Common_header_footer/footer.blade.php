@@ -2,9 +2,6 @@
 
 
 
-
-
-
 <script src="{{asset('Admin_asset/dist-assets/js/plugins/jquery-3.3.1.min.js')}}"></script>
 <script src="{{asset('Admin_asset/dist-assets/js/plugins/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('Admin_asset/dist-assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
@@ -15,13 +12,11 @@
 <script src="{{asset('Admin_asset/dist-assets/js/scripts/echart.options.min.js')}}"></script>
 <script src="{{asset('Admin_asset/dist-assets/js/scripts/dashboard.v1.script.min.js')}}"></script>
 <script src="{{asset('Admin_asset/dist-assets/js/scripts/customizer.script.min.js')}}"></script>
-<script src="{{asset('Admin_asset/dist-assets/js/plugins/datatables.min.js')}}"></script>
-
-<script src="{{asset('Admin_asset/image_upload/js/jquery-3.3.1.min.js')}}"></script>
-<script src="{{asset('Admin_asset/image_upload/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('Admin_asset/image_upload/js/image-uploader.min.js')}}"></script>
+<link href="{{asset('css/select2.min.css')}}" rel="stylesheet" />
+<script src="{{asset('js/select2.min.js')}}"></script>
 
-
+<script src="{{asset('Admin_asset/dist-assets/js/plugins/datatables.min.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 <script src="{{asset('Admin_asset/letesttoastr.min.js')}}"></script>
 <link href="{{asset('Admin_asset/letesttoastr.css')}}" rel="stylesheet" />

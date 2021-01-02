@@ -114,7 +114,43 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data= Brand::find($id);
+        $data['name']=$request->brand_name;
+        $brandimage =$request->brandimage;
+        $oldimage =$request->oldimage;
+
+        if($request->hasFile('brandimage')){
+            if($oldimage != null){
+                $path = 'Media/brand/'.$oldimage;
+                unlink($path);
+            }
+            $x = 'abcdefghijklmnopqrstuvwxyz0123456789';
+            $x = str_shuffle($x);
+            $x = substr($x, 0, 6) . '.DAC_ZS.';
+            $brandImageFilename = time() . $x . $brandimage->getClientOriginalExtension();
+            Image::make($brandimage->getRealPath())->resize(450, 400)->save(public_path('/Media/brand/' . $brandImageFilename));
+            $data['brand_image']=$brandImageFilename;
+
+        }
+        $data->save();
+        $saved_brand = Brand::find($id);
+        if($request->has('category_ids')){
+            $saved_brand->categories()->sync($request->category_ids);
+        }
+        if($request->has('subcategory_ids')){
+            $saved_brand->subcategories()->sync($request->subcategory_ids);
+        }
+        if($request->has('procategory_ids')){
+            $saved_brand->procategories()->sync($request->procategory_ids);
+        }
+
+
+        $notification=array(
+            'messege'=>'Successfully Brand Update!',
+            'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);
+
     }
 
     /**

@@ -18,8 +18,7 @@
                                         </div>
                                         <div class="table-responsive">
                                             <table class="table table-hover" id="ul-contact-list">
-
-                                                <thead>
+                                                <thead class="thead-dark">
                                                 <tr>
                                                     <th scope="col">SL</th>
                                                     <th scope="col">Categories Name</th>
@@ -107,4 +106,82 @@
     </div>
 
 
+
+    <div class="modal fade" id="categories_edit" tabindex="1" role="dialog" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog model-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="">Add Category</h4>
+                </div>
+                <div class="modal-body">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <form action="" class="editupdate_category" method="POST" enctype="multipart/form-data">
+                        @method('PUT')
+                        @csrf
+                        <input type="hidden" name="oldimage" id="old_image">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label class="" for="">Category name :</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" name="category_name" class="form-control" id="categore_editdata" placeholder="Category Name" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label class="" for="">Category Image :</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="file" name="catimage" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+@endsection
+
+@section('pagescript')
+
+    <script>
+        $(function(){
+            $('.category_edit').on('click', function(){
+                var catid = $(this).attr("id");
+                $.ajax({
+                    type: 'GET',
+                    url:'/categores_edit/'+catid,
+                    success: function (data) {
+                        //console.log(data);
+                        $("#categore_editdata").val(data.name);
+                        $("#old_image").val(data.categorie_image);
+                        $('.editupdate_category').attr('action', '/categories/'+catid);
+                    }
+                });
+
+                $("#categories_edit").modal('show');
+
+            });
+
+        });
+    </script>
 @endsection

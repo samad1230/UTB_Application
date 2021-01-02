@@ -17,7 +17,7 @@ class CreateFeatureProductsTable extends Migration
             $table->id();
             $table->string('feature_name');
             $table->string('material');
-            $table->integer('product_id');
+            $table->integer('feature_group_id');
             $table->timestamps();
         });
     }

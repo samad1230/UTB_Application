@@ -104,7 +104,36 @@ class SubCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $oldimage =$request->oldimage;
+
+        $data= Subcategorie::find($id);
+        $data['name']=$request->subcategory_name;
+        $data['categorie_id']=$request->cate_id;
+        $subcatimage =$request->subcatimage;
+
+        if($request->hasFile('subcatimage')){
+            if($oldimage != null){
+                $path = 'Media/subcategory/'.$oldimage;
+                unlink($path);
+            }
+            $x = 'abcdefghijklmnopqrstuvwxyz0123456789';
+            $x = str_shuffle($x);
+            $x = substr($x, 0, 6) . '.DAC_ZS.';
+            $subcategoryImageFilename = time() . $x . $subcatimage->getClientOriginalExtension();
+            Image::make($subcatimage->getRealPath())->resize(450, 400)->save(public_path('/Media/subcategory/' . $subcategoryImageFilename));
+            $data['subcat_image']=$subcategoryImageFilename;
+
+        }
+        $data->save();
+
+        $notification=array(
+            'messege'=>'Successfully Sub Categories Updated!',
+            'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);
+
+
     }
 
     /**

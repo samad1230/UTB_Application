@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class FeatureProduct extends Model
 {
     protected $fillable = [
-        'feature_name','material','product_id'
+        'feature_name','material','feature_group_id'
     ];
 
-    public function product(){
-        return $this->belongsTo('App\Admin_model\Product');
+    public function featuregroup(){
+        return $this->belongsTo('App\Product_model\FeatureGroup');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin_Controller;
 use App\Admin_model\Brand;
 use App\Admin_model\Categorie;
 use App\Admin_model\Procategorie;
+use App\Admin_model\Product;
 use App\Admin_model\Subcategorie;
 use App\Http\Controllers\Controller;
 use App\User;
@@ -61,7 +62,24 @@ class MainIndexController extends Controller
     }
 
 
+    public function ProductDetails()
+    {
+        $product = Product::orderBy('id','DESC')->get();
+        //$product = Product::all();
+        return view('Purchase_view.Product.productdetails',compact('product'));
+    }
 
+
+
+    public function ProductEdit($slag)
+    {
+        $producteditdata = Product::where('slag',$slag)->first();
+        $category = Categorie::all();
+        $brand = Brand::all();
+        $subcategory = Subcategorie::all();
+        $procategory = Procategorie::all();
+        return view('Purchase_view.Product.productdetails_edit',compact('producteditdata','category','brand','subcategory','procategory'));
+    }
 
 
 }

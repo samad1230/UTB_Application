@@ -103,7 +103,31 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data= Categorie::find($id);
+        $data['name']=$request->category_name;
+        $catimage =$request->catimage;
+        $oldimage =$request->oldimage;
+
+        if($request->hasFile('catimage')){
+            if($oldimage != null){
+                $path = 'Media/category/'.$oldimage;
+                unlink($path);
+            }
+            $x = 'abcdefghijklmnopqrstuvwxyz0123456789';
+            $x = str_shuffle($x);
+            $x = substr($x, 0, 6) . '.DAC_ZS.';
+            $categoryImageFilename = time() . $x . $catimage->getClientOriginalExtension();
+            Image::make($catimage->getRealPath())->resize(450, 400)->save(public_path('/Media/category/' . $categoryImageFilename));
+            $data['categorie_image']=$categoryImageFilename;
+
+        }
+        $data->save();
+
+        $notification=array(
+            'messege'=>'Successfully Categories Updated!',
+            'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);
     }
 
     /**
