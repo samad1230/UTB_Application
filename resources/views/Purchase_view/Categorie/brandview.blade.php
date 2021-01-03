@@ -273,12 +273,19 @@
                     url:'/branddata_edit/'+brandid,
                     success: function (data) {
                          console.log(data);
+                        var mydata = $.parseJSON(data);
+                        var category = (mydata.category);
+                        var subcategory = (mydata.subcategory);
+                        var procategory = (mydata.procategory);
+                        var brand = (mydata.brand);
+                        //console.log(procategory);
+                        $('#category_idedit').val(category).trigger('change');
+                        $('#subcategory_edit').val(subcategory).trigger('change');
+                        $('#procategory_edit').val(procategory).trigger('change');
 
-                        $("#old_image").val(data.brand_image);
-                        $("#Brand_name_edit").val(data.name);
-                        // $("#category_idedit").val(data.subcategorie_id);
-                        // $("#subcategory_edit").val(data.subcategorie_id);
-                        // $("#procategory_edit").val(data.subcategorie_id);
+                        $("#old_image").val(brand.brand_image);
+                        $("#Brand_name_edit").val(brand.name);
+
                         $('.editbrand_form').attr('action', '/brand/'+brandid);
                     }
                 });

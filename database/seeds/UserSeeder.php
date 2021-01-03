@@ -17,10 +17,10 @@ class UserSeeder extends Seeder
         $dateNow = $dt->toDateTimeString();
         DB::table('users')->insert(array(
             array(
-                'name' => 'Abdus Samad',
+                'name' => 'UTB Application',
                 'role_id' => '1',
                 'staf_id' => NULL,
-                'email' => 'samadwebbd@gmail.com',
+                'email' => 'utbapp@gmail.com',
                 'creat_by' => '1',
                 'email_verified_at' => NULL,
                 'password' => '$2y$10$R7L3AYru2Nf5ZT7fDNchJOA5gTGybQk72cEaOvnBwUGG8h4mrS4Yy',

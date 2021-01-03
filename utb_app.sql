@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2020 at 11:13 AM
+-- Generation Time: Jan 03, 2021 at 10:10 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.31
 
@@ -69,6 +69,20 @@ CREATE TABLE `brands` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `brand_product`
+--
+
+CREATE TABLE `brand_product` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `brand_id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `categories`
 --
 
@@ -100,12 +114,12 @@ CREATE TABLE `departments` (
 --
 
 INSERT INTO `departments` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Purchase', '2020-12-13 06:00:29', '2020-12-13 06:00:29'),
-(2, 'Hr Admin', '2020-12-13 06:00:29', '2020-12-13 06:00:29'),
-(3, 'Accounts', '2020-12-13 06:00:29', '2020-12-13 06:00:29'),
-(4, 'Commercial', '2020-12-13 06:00:29', '2020-12-13 06:00:29'),
-(5, 'Store', '2020-12-13 06:00:29', '2020-12-13 06:00:29'),
-(6, 'Sales', '2020-12-13 06:00:29', '2020-12-13 06:00:29');
+(1, 'Purchase', '2021-01-03 03:06:53', '2021-01-03 03:06:53'),
+(2, 'Hr Admin', '2021-01-03 03:06:53', '2021-01-03 03:06:53'),
+(3, 'Accounts', '2021-01-03 03:06:53', '2021-01-03 03:06:53'),
+(4, 'Commercial', '2021-01-03 03:06:53', '2021-01-03 03:06:53'),
+(5, 'Store', '2021-01-03 03:06:53', '2021-01-03 03:06:53'),
+(6, 'Sales', '2021-01-03 03:06:53', '2021-01-03 03:06:53');
 
 -- --------------------------------------------------------
 
@@ -120,16 +134,6 @@ CREATE TABLE `department_user` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `department_user`
---
-
-INSERT INTO `department_user` (`id`, `department_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 2, 4, NULL, NULL),
-(2, 3, 4, NULL, NULL),
-(3, 2, 5, NULL, NULL),
-(4, 4, 5, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -163,6 +167,20 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `feature_groups`
+--
+
+CREATE TABLE `feature_groups` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `group_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `feature_products`
 --
 
@@ -170,7 +188,7 @@ CREATE TABLE `feature_products` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `feature_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `material` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `product_id` int(11) NOT NULL,
+  `feature_group_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -200,22 +218,22 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (6, '2020_12_10_125947_create_departments_table', 1),
 (7, '2020_12_13_071603_create_products_table', 1),
 (8, '2020_12_13_094313_create_brands_table', 1),
-(9, '2020_12_13_102507_create_product_brand_table', 1),
-(10, '2020_12_13_102727_create_categories_table', 1),
-(11, '2020_12_13_103111_create_subcategories_table', 1),
-(12, '2020_12_13_103246_create_procategories_table', 1),
-(13, '2020_12_13_103547_create_prductimages_table', 1),
-(14, '2020_12_13_113837_create_feature_products_table', 1),
-(15, '2020_12_13_113908_create_product_videos_table', 1),
-(16, '2020_12_13_113934_create_autocat_products_table', 1),
-(17, '2020_12_13_113954_create_pdf_products_table', 1),
-(18, '2020_12_13_114017_create_docfile_products_table', 1),
-(19, '2020_12_13_114040_create_product_stocks_table', 1),
-(20, '2020_12_13_114106_create_product_sells_table', 1),
-(21, '2020_12_13_115339_create_brandables_table', 1),
-(22, '2020_12_13_115955_create_department_user_table', 1),
-(23, '2020_12_14_072116_create_services_table', 2),
-(25, '2020_12_14_083332_create_service_permission_table', 3);
+(9, '2020_12_13_102727_create_categories_table', 1),
+(10, '2020_12_13_103111_create_subcategories_table', 1),
+(11, '2020_12_13_103246_create_procategories_table', 1),
+(12, '2020_12_13_103547_create_prductimages_table', 1),
+(13, '2020_12_13_113837_create_feature_products_table', 1),
+(14, '2020_12_13_113908_create_product_videos_table', 1),
+(15, '2020_12_13_113934_create_autocat_products_table', 1),
+(16, '2020_12_13_113954_create_pdf_products_table', 1),
+(17, '2020_12_13_114017_create_docfile_products_table', 1),
+(18, '2020_12_13_114040_create_product_stocks_table', 1),
+(19, '2020_12_13_114106_create_product_sells_table', 1),
+(20, '2020_12_13_115339_create_brandables_table', 1),
+(21, '2020_12_13_115955_create_department_user_table', 1),
+(22, '2020_12_21_171516_create_productables_table', 1),
+(23, '2020_12_24_071253_create_feature_groups_table', 1),
+(24, '2020_12_24_072616_create_brand_product_table', 1);
 
 -- --------------------------------------------------------
 
@@ -277,22 +295,14 @@ CREATE TABLE `procategories` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Table structure for table `productables`
 --
 
-CREATE TABLE `products` (
+CREATE TABLE `productables` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `product_details` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `brand_id` int(11) NOT NULL,
-  `skvalue` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '0',
-  `warranty` int(11) DEFAULT 0,
-  `Country_Of_Origin` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '0',
-  `Made_in_Assemble` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '0',
-  `stoke_status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
-  `slag` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `create_by` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `productable_id` int(11) NOT NULL,
+  `productable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -300,13 +310,24 @@ CREATE TABLE `products` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_brand`
+-- Table structure for table `products`
 --
 
-CREATE TABLE `product_brand` (
+CREATE TABLE `products` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `product_id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_details` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `brand_id` int(11) NOT NULL,
+  `skvalue` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '0',
+  `warranty` int(11) DEFAULT 0,
+  `Country_Of_Origin` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '0',
+  `Made_in_Assemble` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '0',
+  `stoke_status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `popular_product` int(11) NOT NULL DEFAULT 0,
+  `feature_product` int(11) NOT NULL DEFAULT 0,
+  `status` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
+  `slag` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `create_by` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -367,10 +388,10 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Owner', '2020-12-13 06:00:29', '2020-12-13 06:00:29'),
-(2, 'Admin', '2020-12-13 06:00:29', '2020-12-13 06:00:29'),
-(3, 'Staffs', '2020-12-13 06:00:29', '2020-12-13 06:00:29'),
-(4, 'Customer', '2020-12-13 06:00:29', '2020-12-13 06:00:29');
+(1, 'Owner', '2021-01-03 03:06:53', '2021-01-03 03:06:53'),
+(2, 'Admin', '2021-01-03 03:06:53', '2021-01-03 03:06:53'),
+(3, 'Staffs', '2021-01-03 03:06:53', '2021-01-03 03:06:53'),
+(4, 'Customer', '2021-01-03 03:06:53', '2021-01-03 03:06:53');
 
 -- --------------------------------------------------------
 
@@ -415,11 +436,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `role_id`, `staf_id`, `email`, `email_verified_at`, `password`, `creat_by`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Abdus Samad', 1, NULL, 'samadwebbd@gmail.com', NULL, '$2y$10$R7L3AYru2Nf5ZT7fDNchJOA5gTGybQk72cEaOvnBwUGG8h4mrS4Yy', 1, '1', NULL, NULL, NULL),
-(2, 'Zakir Hossain', 2, 25636, 'zakir@gmail.com', NULL, '$2y$10$gAjPwex3Wz4MO9tY5W3ZDOmp2S6DrmOaVOTI8fEw5UmQDAL/n6mxK', 1, '1', NULL, '2020-12-14 02:05:07', '2020-12-14 02:05:07'),
-(3, 'Kamal Hossain', 2, 9687, 'kamal@gmail.com', NULL, '$2y$10$AcbDZ1/qupQGWE9KbyZXV.BOQ3dOh8hxTZFCNR/0jB2EH8ap031kW', 1, '1', NULL, '2020-12-14 02:14:07', '2020-12-14 02:14:07'),
-(4, 'Kamal Hossain', 3, 456, 'kamal1@gmail.com', NULL, '$2y$10$PLyylp5seTMzFSTecuMdkO0eNG8rsXdN0Fud6riW0.GrLXkLUFJ26', 2, '1', NULL, '2020-12-14 03:21:29', '2020-12-14 03:21:29'),
-(5, 'kamrul', 3, 2562, 'kamrul@gmail.com', NULL, '$2y$10$Ds/Oy8Q8cj5KwF83XuVNvuGFOL9SLwHBC.QWd7vko9hiS6NgrNeEO', 2, '1', NULL, '2020-12-14 03:31:35', '2020-12-14 03:31:35');
+(1, 'UTB Application', 1, NULL, 'utbapp@gmail.com', NULL, '$2y$10$R7L3AYru2Nf5ZT7fDNchJOA5gTGybQk72cEaOvnBwUGG8h4mrS4Yy', 1, '1', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -438,14 +455,6 @@ CREATE TABLE `user__profiles` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `user__profiles`
---
-
-INSERT INTO `user__profiles` (`id`, `user_id`, `national_id`, `address`, `national_id_image`, `user_image`, `phone`, `created_at`, `updated_at`) VALUES
-(1, 2, 43242, 'Moheshpur', '16079383774cnszw.DAC_ZS.png', '1607938377z165tw.DAC_ZS.jpg', 18231512, '2020-12-14 03:32:57', '2020-12-14 03:32:57'),
-(2, 4, 5645, 'Dhaka', '16079485305dj8zp.DAC_ZS.jpg', '1607948529ki1uan.DAC_ZS.jpg', 256352, '2020-12-14 06:22:10', '2020-12-14 06:22:10');
 
 --
 -- Indexes for dumped tables
@@ -467,6 +476,12 @@ ALTER TABLE `brandables`
 -- Indexes for table `brands`
 --
 ALTER TABLE `brands`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `brand_product`
+--
+ALTER TABLE `brand_product`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -497,6 +512,12 @@ ALTER TABLE `docfile_products`
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `feature_groups`
+--
+ALTER TABLE `feature_groups`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -536,15 +557,15 @@ ALTER TABLE `procategories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `products`
+-- Indexes for table `productables`
 --
-ALTER TABLE `products`
+ALTER TABLE `productables`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product_brand`
+-- Indexes for table `products`
 --
-ALTER TABLE `product_brand`
+ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -613,6 +634,12 @@ ALTER TABLE `brands`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `brand_product`
+--
+ALTER TABLE `brand_product`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
@@ -628,7 +655,7 @@ ALTER TABLE `departments`
 -- AUTO_INCREMENT for table `department_user`
 --
 ALTER TABLE `department_user`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `docfile_products`
@@ -643,6 +670,12 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `feature_groups`
+--
+ALTER TABLE `feature_groups`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `feature_products`
 --
 ALTER TABLE `feature_products`
@@ -652,7 +685,7 @@ ALTER TABLE `feature_products`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `pdf_products`
@@ -673,15 +706,15 @@ ALTER TABLE `procategories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT for table `productables`
 --
-ALTER TABLE `products`
+ALTER TABLE `productables`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `product_brand`
+-- AUTO_INCREMENT for table `products`
 --
-ALTER TABLE `product_brand`
+ALTER TABLE `products`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -718,13 +751,13 @@ ALTER TABLE `subcategories`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user__profiles`
 --
 ALTER TABLE `user__profiles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -32,7 +32,7 @@
                         '        <a href="javascript:void(0);" class="removeFeatureGroupBtnWithData" style="margin-bottom: 0;" id="'+ feature[i].id +'"><img src="'+ base_url+'/Media/image/remove-icon.png"></a>\n' +
                         '    </div>\n' +
                         '    <label for="productFeatureGroup">Feature Group Name</label>\n' +
-                        '    <input type="text" id="productFeatureGroup"  class="form-control form-control-rounded featureGroupName" name="feature_group_name[]" value="'+ feature[i].name  +'" placeholder="Feature Group Name" required/>\n' +
+                        '    <input type="text" id="productFeatureGroup" name="feature_group_name[]" class="form-control form-control-rounded featureGroupName" value="'+ feature[i].name  +'" placeholder="Feature Group Name" required readonly/>\n' +
                         '\n' +
                         '    <div class="addFeatureBtnContent py-2">\n' +
                         '        <button type="button" class="btn btn-warning w-50 addFeatureBtn">Add Feature</button>\n' +
@@ -63,10 +63,10 @@
                                 '        <a href="javascript:void(0);" class="removeFeatureBtnWithData" style="margin-bottom: 0;" id="'+ feature[i].featuresItem[x].id +'"><img src="'+ base_url+'/Media/image/remove-icon.png"></a>\n' +
                                 '    </div>\n' +
                                 '    <label for="'+inputBox+'Name">Feature Name</label>\n' +
-                                '    <input type="text" id="featureName"  class="form-control form-control-rounded '+inputBox+'Name" name="'+ inputBox +'_name[]" value="'+ feature[i].featuresItem[x].feature_name +'" placeholder="Feature Name" required/>\n' +
+                                '    <input type="text" id="featureName"  class="form-control form-control-rounded '+inputBox+'Name" value="'+ feature[i].featuresItem[x].feature_name +'" placeholder="Feature Name" required readonly/>\n' +
                                 '\n' +
                                 '    <label for="'+inputBox+'Material">Feature Material</label>\n' +
-                                '    <input type="text" id="featureMaterial" class="form-control form-control-rounded '+inputBox+'Material" name="'+ inputBox +'_material[]" value="'+ feature[i].featuresItem[x].material +'" placeholder="Feature Material" required/>';
+                                '    <input type="text" id="featureMaterial" class="form-control form-control-rounded '+inputBox+'Material" value="'+ feature[i].featuresItem[x].material +'" placeholder="Feature Material" required readonly/>';
 
                             content.innerHTML = singleFeatureContentItemFromServer;
                             faetureContent.append(content);

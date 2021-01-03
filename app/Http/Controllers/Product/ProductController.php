@@ -253,7 +253,141 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request);
+        $loginid = Auth::user()->id;
+
+        $product = Product::where('slag',$id)->first();
+
+        $product->name = $request->productname;
+        $product->product_details = $request->productdetails;
+        $product->brand_id = $request->brandid;
+        $product->skvalue = $request->skvalue;
+        $product->warranty = $request->warranty;
+        $product->Country_Of_Origin = $request->cuntryorigin;
+        $product->Made_in_Assemble = $request->madeassemble;
+        $product->stoke_status = $request->stokestatus;
+        $product->popular_product = $request->popularproduct;
+        $product->feature_product = $request->featureproduct;
+        $product->create_by = $loginid;
+        $product->save();
+
+
+        $haveFeatureGroups = $product->featuregroups;
+        if($request->has('feature_group_name')){
+            if(count($haveFeatureGroups) > 0) {
+                foreach ($haveFeatureGroups as $haveFeatureGroup) {
+                    for ($i = 0; $i < count($request->feature_group_name); $i++) {
+                        if ($haveFeatureGroup->group_name == $request->feature_group_name[$i]) {
+                            $featureFildName = preg_replace('/\s+/', '', $request->feature_group_name[$i]) . '_name';
+                            $featureFildMaterial = preg_replace('/\s+/', '', $request->feature_group_name[$i]) . '_material';
+
+                            if ($request->has($featureFildName) && $request->has($featureFildMaterial)) {
+
+                                if (count($request->$featureFildName) == count($request->$featureFildMaterial)) {
+                                    for ($x = 0; $x < count($request->$featureFildName); $x++) {
+                                        $feature = new FeatureProduct();
+                                        $feature->feature_name = $request->$featureFildName[$x];
+                                        $feature->material = $request->$featureFildMaterial[$x];
+                                        $feature->feature_group_id = $haveFeatureGroup->id;
+                                        $feature->save();
+
+                                    }
+                                }
+                            }
+                        } else {
+                            $featureGroup = new FeatureGroup();
+                            $featureGroup->product_id = $product->id;
+                            $featureGroup->group_name = $request->feature_group_name[$i];
+                            $featureGroup->save();
+                            $featureGroup_save = FeatureGroup::find($featureGroup->id);
+                            $featureFildName = preg_replace('/\s+/', '', $request->feature_group_name[$i]) . '_name';
+                            $featureFildMaterial = preg_replace('/\s+/', '', $request->feature_group_name[$i]) . '_material';
+                            if (count($request->$featureFildName) == count($request->$featureFildMaterial)) {
+                                for ($x = 0; $x < count($request->$featureFildName); $x++) {
+                                    $feature = new FeatureProduct();
+                                    $feature->feature_name = $request->$featureFildName[$x];
+                                    $feature->material = $request->$featureFildMaterial[$x];
+                                    $feature->feature_group_id = $featureGroup_save->id;
+                                    $feature->save();
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }else{
+                for ($v = 0; $v < count($request->feature_group_name); $v++){
+                    $featureGroup = new FeatureGroup();
+                    $featureGroup->product_id = $product->id;
+                    $featureGroup->group_name = $request->feature_group_name[$v];
+                    $featureGroup->save();
+                    $featureGroup_save = FeatureGroup::find($featureGroup->id);
+                    $featureFildName = preg_replace('/\s+/', '', $request->feature_group_name[$v]).'_name';
+                    $featureFildMaterial = preg_replace('/\s+/', '', $request->feature_group_name[$v]).'_material';
+                    if(count($request->$featureFildName) == count($request->$featureFildMaterial)){
+                        for ($x = 0; $x <count($request->$featureFildName); $x++){
+                            $feature = new FeatureProduct();
+                            $feature->feature_name = $request->$featureFildName[$x];
+                            $feature->material = $request->$featureFildMaterial[$x];
+                            $feature->feature_group_id = $featureGroup_save->id;
+                            $feature->save();
+
+                        }
+                    }
+                }
+            }
+        }
+
+        if($request->hasFile('company_logo')){
+            foreach ($request->company_logo as $item => $imagevalue) {
+                $x = 'abcdefghijklmnopqrstuvwxyz0123456789';
+                $x = str_shuffle($x);
+                $x = substr($x, 0, 6) . '.DAC_ZS.';
+                $productImageFilename = time() . $x . $imagevalue->getClientOriginalExtension();
+                Image::make($imagevalue->getRealPath())->resize(800, 700)->save(public_path('/Media/product/' . $productImageFilename));
+
+                $dataimage = array(
+                    'product_id' => $product->id,
+                    'product_image' => $productImageFilename,
+                );
+                Prductimage::insert($dataimage);
+            }
+        }
+
+
+        if ($request->has('product_videos')) {
+            $video = $product->product_videos;
+            foreach ($video as $videos) {
+                $videos->product_id = $product->id;
+                $videos->video_name = $request->product_videos;
+                $videos->save();
+            }
+        }
+
+        if($request->has('category_ids')){
+            $product->categories()->sync($request->category_ids);
+        }else{
+            $product->categories()->sync(array([]));
+        }
+
+        if($request->has('subcategory_ids')){
+            $product->subcategories()->sync($request->subcategory_ids);
+        }else {
+            $product->subcategories()->sync(array([]));
+        }
+
+        if($request->has('procategory_ids')){
+            $product->procategories()->sync($request->procategory_ids);
+        }else{
+            $product->procategories()->sync(array([]));
+        }
+
+        $notification=array(
+            'messege'=>'Successfully Product Insert!',
+            'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);
+
+
     }
 
     /**

@@ -106,24 +106,12 @@
                                                 <label for="credit2">Stoke Status</label>
                                                 <input type="text" class="form-control form-control-rounded" name="stokestatus" id="" placeholder="Stoke Status" required value="{{$producteditdata->stoke_status}}"/>
                                             </div>
-                                            <div class="col-md-4 form-group mb-3">
-                                                <label for="credit2">Product Document</label>
 
-                                                <input type="file" class="form-control form-control-rounded" name="docfile_products[]" id="" />
-                                            </div>
-                                            <div class="col-md-4 form-group mb-3">
-                                                <label for="credit2">Product PDF</label>
-                                                <input type="file" class="form-control form-control-rounded" name="pdf_products[]" id="" />
-                                            </div>
-                                            <div class="col-md-4 form-group mb-3">
-                                                <label for="credit2">Product Auto Cat File</label>
-                                                <input type="file" class="form-control form-control-rounded" name="autocat_products[]" id="" />
-                                            </div>
                                             <div class="col-md-6 form-group mb-3">
                                                 <label for="credit2">Product Videos</label>
                                                 @foreach($producteditdata->product_videos as $videolink)
                                                 @endforeach
-                                                <input type="text" class="form-control form-control-rounded" name="product_videos[]" value="{{@$videolink->video_name}}" placeholder="Product Videos Link"/>
+                                                <input type="text" class="form-control form-control-rounded" name="product_videos" value="{{@$videolink->video_name}}" placeholder="Product Videos Link"/>
 
                                             </div>
 
@@ -139,7 +127,7 @@
                                                     <?php
                                                     }
                                                     ?>
-                                                    <input type="hidden" name="popularproduct" id="checkpopular">
+                                                    <input type="hidden" name="popularproduct" id="checkpopular" value="{{$producteditdata->popular_product}}">
 
                                                 </label>
                                             </div>
@@ -158,7 +146,7 @@
                                                     }
                                                     ?>
 
-                                                    <input type="hidden" name="featureproduct" id="checkfeature">
+                                                    <input type="hidden" name="featureproduct" id="checkfeature" value="{{$producteditdata->feature_product}}">
                                                 </label>
 
                                             </div>
@@ -290,24 +278,34 @@
     </script>
 
     <script>
-        $(".imageiddata").on('click',function(e){
-            var imageid = $(this).attr("id");
+        var imageData = document.getElementsByClassName('imageiddata');
+        for(var id = 0; id  < imageData.length; id++){
+            var btn = imageData[id];
+            btn.addEventListener('click', deleteImageFunction)
+        }
+
+        function deleteImageFunction(event){
+            var seletedBtn = event.target;
+            var conteiner = seletedBtn.parentElement;
+            var seletedItem = conteiner.id;
             $.ajax({
                 url: '/product_image_remove',
                 type: 'post',
                 data: {
-                    "imageid":imageid
+                    "imageid":seletedItem
                 },
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
 
                 success: function(data){
-                    $("#imagefireld").load(location.href+" #imagefireld>*","");
+                    //console.log(data);
+                    conteiner.remove();
                 },
 
             });
-        });
+        }
+
 
     </script>
 

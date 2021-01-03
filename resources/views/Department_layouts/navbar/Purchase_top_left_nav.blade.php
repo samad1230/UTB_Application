@@ -74,9 +74,9 @@
                 <li class="nav-item" data-item="productmenu"><a class="nav-item-hold" href="#"><i class="nav-icon i-Suitcase"></i><span class="nav-text">Product </span></a>
                     <div class="triangle"></div>
                 </li>
-                <li class="nav-item" data-item="apps"><a class="nav-item-hold" href="#"><i class="nav-icon i-Computer-Secure"></i><span class="nav-text">Apps</span></a>
-                    <div class="triangle"></div>
-                </li>
+{{--                <li class="nav-item" data-item="apps"><a class="nav-item-hold" href="#"><i class="nav-icon i-Computer-Secure"></i><span class="nav-text">Apps</span></a>--}}
+{{--                    <div class="triangle"></div>--}}
+{{--                </li>--}}
             </ul>
         </div>
         <div class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">

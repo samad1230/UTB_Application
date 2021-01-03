@@ -40,9 +40,32 @@ class AjaxController extends Controller
 
     public function BrandEditdata($id)
     {
-        $data = Brand::where('id',$id)->first();
-        return response()->json($data);
+        $brand = Brand::where('id',$id)->first();
+
+        $category = [];
+        foreach ($brand->categories as $categorie){
+            $category [] = [
+                $categorie->id,
+            ];
+        }
+
+        $subcategory = [];
+        foreach ($brand->subcategories as $subcategorie){
+            $subcategory [] = [
+                $subcategorie->id,
+            ];
+        }
+
+        $procategories = [];
+        foreach ($brand->procategories as $procategorie){
+            $procategories [] = [
+                $procategorie->id,
+            ];
+        }
+
+        return json_encode(array('category'=>$category,'subcategory'=>$subcategory,'brand'=>$brand));
     }
+
 
     public function ProductFetureData($slag)
     {
@@ -104,8 +127,11 @@ class AjaxController extends Controller
 
     public function ProductimageRemove(Request $request)
     {
-        Prductimage::where('id', $request->imageid)->delete();
-        return response()->json("success");
+        $image = Prductimage::find($request->imageid);
+        $path = 'Media/product/' . $image->product_image;
+        unlink($path);
+        $image->delete();
+        return response()->json('success');
     }
 
     public function Feature_id_Remove(Request $request)
