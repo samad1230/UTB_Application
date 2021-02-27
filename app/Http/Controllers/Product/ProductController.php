@@ -36,7 +36,7 @@ class ProductController extends Controller
     public function index()
     {
         $product = Product::all();
-        $brand = Brand::all();
+        $brand = Brand::where('brand_url','=',NULL)->get();
         $category = Categorie::all();
         $subcategory = Subcategorie::all();
         $procategory = Procategorie::all();

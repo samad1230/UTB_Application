@@ -71,12 +71,15 @@
                     <div class="triangle"></div>
                 </li>
 
-                <li class="nav-item" data-item="productmenu"><a class="nav-item-hold" href="#"><i class="nav-icon i-Suitcase"></i><span class="nav-text">Product </span></a>
+                <li class="nav-item" data-item="productmenu"><a class="nav-item-hold" href="#"><i class="nav-icon i-Checkout-Basket"></i><span class="nav-text">Product </span></a>
                     <div class="triangle"></div>
                 </li>
-{{--                <li class="nav-item" data-item="apps"><a class="nav-item-hold" href="#"><i class="nav-icon i-Computer-Secure"></i><span class="nav-text">Apps</span></a>--}}
-{{--                    <div class="triangle"></div>--}}
-{{--                </li>--}}
+                <li class="nav-item" data-item="purchases"><a class="nav-item-hold" href="#"><i class="nav-icon i-Financial"></i><span class="nav-text">Purchase</span></a>
+                    <div class="triangle"></div>
+                </li>
+                <li class="nav-item" data-item="account"><a class="nav-item-hold" href="#"><i class="nav-icon i-Money-2"></i><span class="nav-text">Accounts</span></a>
+                    <div class="triangle"></div>
+                </li>
             </ul>
         </div>
         <div class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
@@ -90,10 +93,12 @@
                 <li class="nav-item"><a href="{{route('Product.details')}}"><i class="nav-icon i-Add"></i><span class="item-name"> Product Details</span></a></li>
             </ul>
 
-            <ul class="childNav" data-parent="apps">
-                <li class="nav-item"><a href="#"><i class="nav-icon i-Add-File"></i><span class="item-name">Invoice</span></a></li>
-                <li class="nav-item"><a href="#"><i class="nav-icon i-Email"></i><span class="item-name">Inbox</span></a></li>
-                <li class="nav-item"><a href="#"><i class="nav-icon i-Speach-Bubble-3"></i><span class="item-name">Chat</span></a></li>
+            <ul class="childNav" data-parent="purchases">
+                <li class="nav-item"><a href="{{route('Purchase.index')}}"><i class="nav-icon i-Add-File"></i><span class="item-name">Product Purchase</span></a></li>
+                <li class="nav-item"><a href="#"><i class="nav-icon i-Add-File"></i><span class="item-name">Stock Details Purchase</span></a></li>
+            </ul>
+            <ul class="childNav" data-parent="account">
+                <li class="nav-item"><a href="{{route('Supplier.index')}}"><i class="nav-icon i-Add-File"></i><span class="item-name">Supplier</span></a></li>
             </ul>
 
         </div>

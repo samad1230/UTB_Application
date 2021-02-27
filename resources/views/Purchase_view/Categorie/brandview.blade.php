@@ -75,7 +75,6 @@
                     @endif
                     <form action="{{route('brand.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
-
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-md-5">
@@ -86,6 +85,19 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label class="" for="">Brand Link:</label>
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" name="brand_url" class="form-control" id="" placeholder="Brand Link" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+
+
 
 
                         <div class="modal-body">
@@ -186,6 +198,17 @@
                             </div>
                         </div>
 
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label class="" for="">Brand Link:</label>
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" name="brand_url" class="form-control" id="brand_url_edit" placeholder="Brand Link" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="modal-body">
                             <div class="row">
@@ -272,7 +295,7 @@
                     type: 'GET',
                     url:'/branddata_edit/'+brandid,
                     success: function (data) {
-                         console.log(data);
+                        // console.log(data);
                         var mydata = $.parseJSON(data);
                         var category = (mydata.category);
                         var subcategory = (mydata.subcategory);
@@ -285,6 +308,7 @@
 
                         $("#old_image").val(brand.brand_image);
                         $("#Brand_name_edit").val(brand.name);
+                        $("#brand_url_edit").val(brand.brand_url);
 
                         $('.editbrand_form').attr('action', '/brand/'+brandid);
                     }

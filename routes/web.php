@@ -74,6 +74,8 @@ Route::resource('/subcategory', 'Product\SubCategoryController');
 Route::resource('/procategory', 'Product\ProCategoryController');
 Route::resource('/brand', 'Product\BrandController');
 Route::resource('/Product', 'Product\ProductController');
+Route::resource('/Purchase', 'Product\PurchaseController');
+Route::resource('/Supplier', 'Supplier_controller\SupplierController');
 //==================Categories Controller===========================
 
 
@@ -87,5 +89,7 @@ Route::get('/product_categoriesdata/{slag}','Admin_Controller\AjaxController@Pro
 Route::post('/product_image_remove','Admin_Controller\AjaxController@ProductimageRemove');
 Route::post('/feature_id_remove','Admin_Controller\AjaxController@Feature_id_Remove');
 Route::post('/feature_group_remove','Admin_Controller\AjaxController@FeatureGroupRemove');
+Route::get('/purchesh_suplier_data/{id}','Admin_Controller\AjaxController@AccountsPurchaseSupplier');
+Route::get('/purchesh_product_data/{id}','Admin_Controller\AjaxController@PurchaseProductData');
 
 // ajax controller===================

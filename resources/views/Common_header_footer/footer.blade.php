@@ -15,6 +15,10 @@
 <script src="{{asset('Admin_asset/image_upload/js/image-uploader.min.js')}}"></script>
 <link href="{{asset('css/select2.min.css')}}" rel="stylesheet" />
 <script src="{{asset('js/select2.min.js')}}"></script>
+<script src="{{asset('Admin_asset/dist-assets/js/scripts/form.validation.script.min.js')}}"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script src="{{ asset('Admin_asset/sweetalert.min.js') }}"></script>
 
 <script src="{{asset('Admin_asset/dist-assets/js/plugins/datatables.min.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
@@ -94,8 +98,8 @@
 
 
 
-{{--<script>--}}
-{{--    $('.select2').select2();--}}
-{{--</script>--}}
+<script>
+    $('.select2').select2();
+</script>
 
 </html>

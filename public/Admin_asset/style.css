@@ -60,3 +60,37 @@
     margin-bottom: 17px;
 }
 
+.form-group label {
+    font-size: 15px;
+    color: #07000e;
+    margin-top: 2px;
+    font-weight: bold;
+}
+.form-control-label {
+    font-size: 15px;
+    color: #07000e;
+    margin-top: 2px;
+    font-weight: bold;
+}
+
+.tx-danger{
+    color: red;
+}
+.rowpad{
+    margin-bottom: 15px;
+}
+.accountsection{
+    background: #dfe1ec;
+    margin-top: 9px;
+    padding: 4px;
+    border-radius:5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.accountsection label{
+    font-size: 14px;
+    font-weight: bold;
+    color: blueviolet;
+    float: right;
+}

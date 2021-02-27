@@ -11,6 +11,8 @@ use App\Admin_model\Subcategorie;
 use App\Http\Controllers\Controller;
 use App\Product_model\FeatureGroup;
 use App\Product_model\FeatureProduct;
+use App\Supplier_model\Supplier;
+use App\Supplier_model\Supplieraccount;
 use Illuminate\Http\Request;
 
 class AjaxController extends Controller
@@ -146,6 +148,22 @@ class AjaxController extends Controller
 
         FeatureProduct::where('feature_group_id', $request->feature_group)->delete();
         return response()->json("success");
+    }
+
+    public function AccountsPurchaseSupplier($id)
+    {
+        $data = Supplieraccount::where('supplier_id',$id)
+            ->orderBy('id','DESC')
+            ->first();
+        return response()->json($data);
+
+    }
+
+    public function PurchaseProductData($id)
+    {
+        $data = Product::where('id',$id)->first();
+        return response()->json($data);
+
     }
 
 

@@ -20,80 +20,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed9422ca-31df-4782-9109-4c2badbd632a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/utb_application.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Product/PurchaseController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Supplier_controller/SupplierController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Product_model/Purchase.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Supplier_model/Supplier.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Supplier_model/Supplieraccount.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Supplier_model/Supplierpayment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_27_081245_create_suppliers_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_27_081746_create_supplieraccounts_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_27_081812_create_supplierpayments_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_27_082843_create_purchases_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Admin_asset/sweetalert.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/brand/1614409193uws8io.DAC_ZS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Media/product/16144098094o8sib.DAC_ZS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/Product/purchase.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Purchase_view/Purchase/purchase_view.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Purchase_view/Supplier/supplier_view.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin_model/Brand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin_model/Brand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin_model/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin_model/Product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin_Controller/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin_Controller/AjaxController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Product/BrandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Product/BrandController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Product/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Product/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/brand/1608362760on5vux.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/brand/1608449625yvo6kp.DAC_ZS.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/brand/1609243311adhqg7.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/category/1608199728dp8a0y.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/category/1608200289ps7z93.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/category/1609239262upiwok.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/category/1609239288it1gfs.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/file/1608578036n025xe.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/file/16085780833lbkcv.DAC_ZS.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/file/160857899841ti3u.DAC_ZS.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/file/1608578998evql2b.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/file/1608578998qoxp8f.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/file/1609581987mtslr6.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/file/1609581987sg05zi.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/file/1609581987v4rkmo.DAC_ZS.doc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/file/1609581987v4rkmo.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/file/16095872251xd23p.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/file/1609587225buxdw2.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/file/1609587225etq432.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/file/241020_082225 - Copy.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/procategory/1608372646hn0gik.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/procategory/1608372658r1ze0l.DAC_ZS.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/procategory/1608372722w4x2st.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/procategory/1609241373jltg54.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/procategory/160924138247axvp.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/procategory/1609241400pymd07.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/160857710075gikd.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/1608577100sja935.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/1608577100tzfpmc.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/1608577100xl1pyu.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/1608577100yshx75.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/1608578082ijv53l.DAC_ZS.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/1608578083cr37ab.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/1608578083dl2reg.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/1608578083g9lzpq.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/1608578083ne25c0.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/1608578997bhifc7.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/1608578997e2f8wh.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/1608578997jkot23.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/1608578997oj0d7w.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/1608578997tzl18g.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/1608578998jahp1x.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/1608578998jr7kox.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/1608578998pcjboe.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/1608578998tr2qak.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/160958198603xahv.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/1609581986t4dzfi.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/16095872230lbv2a.DAC_ZS.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/16095872244h3bdw.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/product/1609587224swzad0.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/subcategory/1608360990zbt9xg.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/subcategory/1608372696lw92y6.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/subcategory/1609240620maxu4c.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/subcategory/1609240647uorq8n.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/subcategory/1609240668m4xgzs.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/user_profile/1607424021fhrgex.DAC.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/user_profile/1607424021tfs2rj.DAC.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/user_profile/1607428128rdw0fm.DAC.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/user_profile/1607428128twz4q0.DAC.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/user_profile/16079383774cnszw.DAC_ZS.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/user_profile/1607948529ki1uan.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/user_profile/16079485305dj8zp.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/Media/user_profile/1608196204mhcd4y.DAC_ZS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/product_feture_edit.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/product_feture_edit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product_model/ProductStock.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product_model/ProductStock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_13_094313_create_brands_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_13_094313_create_brands_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_13_114040_create_product_stocks_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_13_114040_create_product_stocks_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admin_asset/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Admin_asset/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Common_header_footer/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Common_header_footer/footer.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Department_layouts/navbar/Purchase_top_left_nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Department_layouts/navbar/Purchase_top_left_nav.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Purchase_view/Categorie/brandview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Purchase_view/Categorie/brandview.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Purchase_view/Product/productdetails_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Purchase_view/Product/productdetails_edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Purchase_view/Categorie/subcategory.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Purchase_view/Categorie/subcategory.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utb_app.sql" beforeDir="false" afterPath="$PROJECT_DIR$/utb_app.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +190,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -293,7 +250,10 @@
       <workItem from="1609574136555" duration="676000" />
       <workItem from="1609579226294" duration="11153000" />
       <workItem from="1609605000456" duration="12694000" />
-      <workItem from="1609652042397" duration="13272000" />
+      <workItem from="1609652042397" duration="13340000" />
+      <workItem from="1609667912973" duration="59000" />
+      <workItem from="1614182171926" duration="779000" />
+      <workItem from="1614407450095" duration="22278000" />
     </task>
     <servers />
   </component>
@@ -328,26 +288,30 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="429" y="173" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1607250246519" />
-    <state x="413" y="121" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608576649725">
+    <state x="413" y="121" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614417186204">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="121" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1608576649725" />
-    <state x="463" y="121" key="FileChooserDialogImpl" timestamp="1609574807885">
+    <state x="413" y="121" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1614417186204" />
+    <state x="463" y="121" key="FileChooserDialogImpl" timestamp="1609667968559">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1609574807885" />
+    <state x="463" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1609667968559" />
     <state x="505" y="108" key="NewPhpClassDialog" timestamp="1607416375537">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="505" y="108" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1607416375537" />
+    <state x="404" y="94" width="540" height="524" key="StructurePopup" timestamp="1614417159218">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="404" y="94" width="540" height="524" key="StructurePopup/0.0.1366.728@0.0.1366.728" timestamp="1614417159218" />
     <state x="275" y="99" key="Vcs.Push.Dialog.v2" timestamp="1609247666043">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="99" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1609247666043" />
-    <state x="339" y="157" key="run.anything.popup" timestamp="1608364112356">
+    <state x="339" y="157" key="run.anything.popup" timestamp="1614425301829">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="157" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1608364112356" />
+    <state x="339" y="157" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1614425301829" />
     <state x="354" y="600" width="672" height="678" key="search.everywhere.popup" timestamp="1607843344325">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

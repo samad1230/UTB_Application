@@ -117,7 +117,7 @@
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-primary savebtn_valid">Save</button>
                         </div>
                     </form>
                 </div>
@@ -216,6 +216,17 @@
 
                 $("#Editsubcategory").modal('show');
 
+            });
+
+            var count = 0;
+            $(".savebtn_valid").click(function (event){
+                count++;
+                //alert(count);
+                if (count >1){
+                    $('.savebtn_valid').attr('disabled','disabled');
+                    $(this).prop("disabled",true);
+                    $(this).attr("disabled","disabled");
+                }
             });
 
         });

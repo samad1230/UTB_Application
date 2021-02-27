@@ -45,6 +45,11 @@ class BrandController extends Controller
         if($request->hasFile('brandimage')){
             $data= new Brand();
             $data['name']=$request->brand_name;
+
+            if($request->has('brand_url')){
+                $data['brand_url']=$request->brand_url;
+            }
+
             $data['slag']=$slag;
             $brandimage =$request->brandimage;
 
@@ -59,6 +64,9 @@ class BrandController extends Controller
         }else{
             $data= new Brand();
             $data['name']=$request->brand_name;
+            if($request->has('brand_url')){
+                $data['brand_url']=$request->brand_url;
+            }
             $data['slag']=$slag;
             $data['brand_image']="";
             $data->save();
@@ -116,6 +124,10 @@ class BrandController extends Controller
     {
         $data= Brand::find($id);
         $data['name']=$request->brand_name;
+
+        if($request->has('brand_url')){
+            $data['brand_url']=$request->brand_url;
+        }
         $brandimage =$request->brandimage;
         $oldimage =$request->oldimage;
 

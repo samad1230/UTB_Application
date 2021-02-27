@@ -4,11 +4,10 @@ namespace App\Product_model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductStock extends Model
+class Purchase extends Model
 {
     protected $fillable = [
-        'offer_id','product_id','buy_price','buy_qty','buy_sub_total','buy_cost','discount','actual_buy','rest_qty','rest_qty_buy_total','sell_price','sell_discount_price','supplier_id','purchase_date','purchase_type','with_free','status','user_id'
-
+        'offer_id','total_buy_amount','total_buy_cost','total_buy_discount','last_buy_amount','supplier_id','purchase_date','status','user_id'
     ];
 
     public function supplier(){
@@ -18,6 +17,5 @@ class ProductStock extends Model
     public function product(){
         return $this->belongsTo('App\Admin_model\Product');
     }
-
 
 }

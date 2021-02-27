@@ -42,6 +42,15 @@ class Product extends Model
         return $this->hasMany('App\Product_model\ProductVideo');
     }
 
+    public function purchases()
+    {
+        return $this->hasMany('App\Product_model\Purchase');
+    }
+
+    public function productStocks()
+    {
+        return $this->hasMany('App\Product_model\ProductStock');
+    }
 
     public function featuregroups(){
         return $this->hasMany('App\Product_model\FeatureGroup');

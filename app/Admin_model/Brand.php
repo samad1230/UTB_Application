@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Brand extends Model
 {
     protected $fillable = [
-        'name','brand_image','slag','status'
+        'name','brand_image','brand_url','slag','status'
     ];
 
     public function categories()
