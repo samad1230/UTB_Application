@@ -40,7 +40,7 @@ class ProductController extends Controller
         $category = Categorie::all();
         $subcategory = Subcategorie::all();
         $procategory = Procategorie::all();
-        return view('Purchase_view.Product.productview',compact('product','brand','category','procategory','subcategory'));
+        return view('Store_Department.Product.productview',compact('product','brand','category','procategory','subcategory'));
     }
 
     /**

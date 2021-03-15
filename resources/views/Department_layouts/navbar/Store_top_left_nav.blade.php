@@ -1,15 +1,41 @@
 
-    <div class="main-header">
-        <div class="logo">
-            <img src="{{asset('Admin_asset/dist-assets/images/logo.png')}}" alt="">
-        </div>
-        <div class="menu-toggle">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+@php
+    $department = explode(",,", $_COOKIE["Department"]);
 
+    $homeurl= '/'.$department[1];
 
+    $user =  Auth::user()->role->id;
+    if ($user==1){
+        $mainurl= '/owner/dashboard';
+    }else if ($user==2){
+         $mainurl= '/Admin/Dashboard';
+    }else if ($user==3){
+         $mainurl= 'User/Dashboard';
+    }else{
+        return false;
+    }
+
+@endphp
+
+<div class="main-header">
+    <div class="logo">
+        <a href="{{URL::to($homeurl)}}"><img src="{{asset('Admin_asset/dist-assets/images/logo.png')}}" alt=""></a>
+    </div>
+    <div class="menu-toggle">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div style="margin: auto;font-size: 21px; font-weight: bold;font-family: cursive; color: rgb(31 173 14 / 75%);">{{$department[0]}}</div>
+    <div class="header-part-right">
+
+        <div class="dropdown">
+            <buton></buton>
+            <div class="badge-top-container" role="button">
+                <a href="{{$mainurl}}"> <img src="{{ URL::to('Media/icon/Go-back.ico') }}" width="20px;"></a>
+            </div>
+        </div>
 
         <div style="margin: auto"></div>
         <div class="header-part-right">
@@ -51,37 +77,36 @@
             </div>
         </div>
     </div>
-    @php
-        $user =  Auth::user()->role->id;
-          if ($user==1){
-              $url= '/owner/dashboard';
-          }else if ($user==2){
-               $url= '/Admin/Dashboard';
-          }else if ($user==3){
-               $url= 'User/Dashboard';
-          }else{
-              return false;
-          }
-    @endphp
+
 
     <div class="side-content-wrap">
         <div class="sidebar-left open rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
             <ul class="navigation-left">
-                <li class="nav-item" data-item=""><a class="nav-item-hold" href="{{URL::to($url)}}"><i class="nav-icon i-Bar-Chart"></i><span class="nav-text">Dashboard</span></a>
+                <li class="nav-item" data-item=""><a class="nav-item-hold" href="{{URL::to($homeurl)}}"><i class="nav-icon i-Bar-Chart"></i><span class="nav-text">Dashboard</span></a>
                     <div class="triangle"></div>
                 </li>
-                <li class="nav-item" data-item="productmenu"><a class="nav-item-hold" href="#"><i class="nav-icon i-Suitcase"></i><span class="nav-text">Store </span></a>
+                <li class="nav-item" data-item="productmenu"><a class="nav-item-hold" href="#"><i class="nav-icon i-Checkout-Basket"></i><span class="nav-text">Product </span></a>
+                    <div class="triangle"></div>
+                </li>
+                <li class="nav-item" data-item="recognition"><a class="nav-item-hold" href="#"><i class="nav-icon i-Suitcase"></i><span class="nav-text">Recognition </span></a>
                     <div class="triangle"></div>
                 </li>
             </ul>
         </div>
         <div class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
 
-
             <ul class="childNav" data-parent="productmenu">
-                <li class="nav-item"><a href=""><i class="nav-icon i-Add"></i><span class="item-name">Add Store</span></a></li>
-                <li class="nav-item"><a href="#"><i class="nav-icon i-Loading-3"></i><span class="item-name">Loaders</span></a></li>
-                <li class="nav-item"><a href="#"><i class="nav-icon i-Loading-2"></i><span class="item-name">Ladda Buttons</span></a></li>
+                <li class="nav-item"><a href="{{route('add.categories')}}"><i class="nav-icon i-Add"></i><span class="item-name">Add Categories</span></a></li>
+                <li class="nav-item"><a href="{{route('add.subcategory')}}"><i class="nav-icon i-Add"></i><span class="item-name">Sub Category</span></a></li>
+                <li class="nav-item"><a href="{{route('add.procategory')}}"><i class="nav-icon i-Add"></i><span class="item-name">Pro Category</span></a></li>
+                <li class="nav-item"><a href="{{route('add.brand')}}"><i class="nav-icon i-Add"></i><span class="item-name">Brand</span></a></li>
+                <li class="nav-item"><a href="{{route('Product.index')}}"><i class="nav-icon i-Add"></i><span class="item-name">Product</span></a></li>
+                <li class="nav-item"><a href="{{route('Product.details')}}"><i class="nav-icon i-Add"></i><span class="item-name"> Product Details</span></a></li>
+            </ul>
+
+            <ul class="childNav" data-parent="recognition">
+                <li class="nav-item"><a href="{{route('add.recognition')}}"><i class="nav-icon i-Add"></i><span class="item-name">Add Recognition</span></a></li>
+                <li class="nav-item"><a href="{{route('recognition.details')}}"><i class="nav-icon i-Add"></i><span class="item-name"> Recognition Details</span></a></li>
             </ul>
 
         </div>

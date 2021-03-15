@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 //php artisan migrate:fresh --seed
+//php artisan make:seeder UserSeeder
 Route::get('/clear-cache', function() {
     $run = Artisan::call('config:clear');
     $run = Artisan::call('cache:clear');
@@ -65,6 +66,12 @@ Route::get('/Brand/Add','Admin_Controller\MainIndexController@BrandIndex')->name
 Route::get('/Feature/Product','Admin_Controller\MainIndexController@FeatureProduct')->name('add.featureproducts');
 Route::get('/Product/Details','Admin_Controller\MainIndexController@ProductDetails')->name('Product.details');
 Route::get('/Product/Edit/{slag}','Admin_Controller\MainIndexController@ProductEdit')->name('product.edit');
+Route::get('/Product/Purchase-Stock','Admin_Controller\MainIndexController@DetailsProductPurchaseStock')->name('ProductPurchase.Stock');
+Route::get('/Add/Recognition','Admin_Controller\MainIndexController@AddRecognition')->name('add.recognition');
+Route::get('/Recognition/Details','Admin_Controller\MainIndexController@DetailsRecognition')->name('recognition.details');
+Route::get('/Recognition/Status','Admin_Controller\MainIndexController@RecognitionStatus')->name('recognition.status');
+Route::get('/Recognition/Approved','Admin_Controller\MainIndexController@ApprovedRecognition')->name('recognition.approve');
+Route::get('/Recognition/Purchase/Approved','Admin_Controller\MainIndexController@ApprovedPurchaseRecognition')->name('recognition_purchase.approve');
 
 // main index controller==================================
 
@@ -92,4 +99,27 @@ Route::post('/feature_group_remove','Admin_Controller\AjaxController@FeatureGrou
 Route::get('/purchesh_suplier_data/{id}','Admin_Controller\AjaxController@AccountsPurchaseSupplier');
 Route::get('/purchesh_product_data/{id}','Admin_Controller\AjaxController@PurchaseProductData');
 
+
 // ajax controller===================
+
+
+// search and view details ============================
+Route::get('/productsearching_stoke','Admin_Controller\SearchViewDetailsController@Allproduct_stokedata')->name('product.purcheshdata');
+Route::get('/Purchase/Detail/{id}','Admin_Controller\SearchViewDetailsController@DetailsPurchaseView')->name('purchesedetail.view');
+
+// search and view details ============================
+
+
+
+// Recognition section
+Route::resource('/Recognition', 'Store_department\RecognitionController');
+Route::get('/Recognition/Delete/{id}', 'Store_department\RecognitionController@destroy')->name('Recognition.delete');
+Route::get('/Recognition/approve_details/{id}', 'Store_department\RecognitionController@Recognitionapprove_details')->name('Recognition.approve_details');
+Route::get('/recognition_edit/{id}', 'Admin_Controller\AjaxController@RecognitionItemData');
+Route::post('/Recognition_price/update', 'Store_department\RecognitionController@RecognitionPriceUpdate')->name('recognition_price.update');
+Route::get('/Purchase/Approve/Details/{id}', 'Store_department\RecognitionController@ApprovePurchaseDetails')->name('purchase.approve_details');
+Route::get('/Accounts/Cost/Analysis/{id}', 'Store_department\RecognitionController@AccountsCostAnalysis')->name('accounts_cost_analysis');
+
+// Recognition section
+
+

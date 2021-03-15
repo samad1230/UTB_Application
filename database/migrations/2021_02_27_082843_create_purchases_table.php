@@ -20,6 +20,7 @@ class CreatePurchasesTable extends Migration
             $table->string('total_buy_cost')->default(0);
             $table->string('total_buy_discount')->default(0);
             $table->string('last_buy_amount');
+            $table->integer('payment_amount');
             $table->integer('supplier_id');
             $table->string('purchase_date');
             $table->integer('status');

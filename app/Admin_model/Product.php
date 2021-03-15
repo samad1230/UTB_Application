@@ -74,4 +74,9 @@ class Product extends Model
 
 
 
+
+    public function recognition_items(){
+        return $this->hasMany('App\Recognition_model\Recognition_item');
+    }
+
 }

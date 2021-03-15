@@ -117,7 +117,7 @@ $(function(){
 
             var totalpurchase_amount = $('#purchase_amount_total').val();
 
-            obj = {product_name:product_name,serialid:newsl,product_id:productid, totalpurchase_amount:totalpurchase_amount, singlebuyprice:buypriceval, quntity_valu:quantity_valu, singleprice:sell_priceval,singlesubtotal:totalbuyval};
+            obj = {product_name:product_name,serialid:newsl,product_id:productid, singlebuyprice:buypriceval, quntity_valu:quantity_valu, singleprice:sell_priceval,singlesubtotal:totalbuyval};
 
             product_info.push(obj);
 
@@ -262,8 +262,6 @@ $(function(){
             }
         }
         $('#last_balanch').val(last_AccountValue);
-
-
     });
 
 
@@ -278,139 +276,130 @@ $(function(){
         }
     });
 
-    // $(document).on('click', '.remove_field', function() {
-    //     var serial_r = $(this).closest('tr').find('td:eq(0)').text();
-    //     var productname = $(this).closest('tr').find('td:eq(1)').text();
-    //     var singBuyprice = $(this).closest('tr').find('td:eq(2)').text();
-    //     var quantiry = $(this).closest('tr').find('td:eq(3)').text();
-    //     var subtotal_r = $(this).closest('tr').find('td:eq(5)').text();
-    //     var sellpricesn = $(this).closest('tr').find('td:eq(6)').text();
-    //     $(this).parents('tr').remove();
-    //
-    //     const index = product_info.findIndex(function (todo, index){
-    //         return todo.serialid == serial_r
-    //     })
-    //
-    //     product_info.splice(index, 1);
-    //
-    //     var suplier_buy = $("#suplier_buy").val();
-    //     var nitsellamount = suplier_buy - subtotal_r;
-    //
-    //     $('#suplier_buy').val(nitsellamount);
-    //     $('#paableamount').val(nitsellamount);
-    //     $('#subtotal_cash').val(nitsellamount);
-    //     var status = $("#suplier_status").val();
-    //     var accounts = $("#suplier_ledger").val();
-    //
-    //     if (status !=""){
-    //         if(status==1){
-    //             var lastbalance =  accounts - nitsellamount;
-    //             $('#calculate').val(lastbalance);
-    //         }else if(status==0){
-    //             var lastbalanceoo =  parseFloat(nitsellamount) + parseFloat(accounts);
-    //             $('#calculate').val(lastbalanceoo);
-    //         }else{
-    //             $('#calculate').val(nitsellamount);
-    //         }
-    //     }else{
-    //         $('#calculate').val(nitsellamount);
-    //     }
-    //
-    //     if (nitsellamount === 0) {
-    //         location.reload();
-    //     }
-    //     $('.tagBox').val("");
-    //     $('#code_pd').val("");
-    //     $('#laber_cost').val("");
-    //     $('#discount_flat').val("");
-    //     $('#suplier_payment').val("");
-    //     $('#select2-product_iddata-container').html("");
-    //     $('#select2-input_product_code-container').html("");
-    //     $('.tag').remove();
-    //     $('.bootstrap-tagsinput').find('span').remove();
-    //     calculate();
-    // });
-    //
-    //
-    // $("#order_submit_btn").on('click',function(e){
-    //
-    //     var suplierid 		= $("#suplierid").val();
-    //     var laber_cost 		= $("#laber_cost").val();
-    //     var discountflat 	= $("#discount_flat").val();
-    //     var suplier_payment = $("#suplier_payment").val();
-    //     var checkval 		= $("#checkvalchange").val();
-    //     var suplier_buy 	= $("#suplier_buy").val();
-    //     var balanch_cash = $("#calculate").val();
-    //     var sellingdate = $("#sellingdate").val();
-    //
-    //     if (suplierid !="" && suplier_buy !="") {
-    //         $.ajax({
-    //             url: '/Purchase',
-    //             type: 'post',
-    //             data: {
-    //                 "requested_data": product_info,
-    //                 "suplierid": suplierid,
-    //                 "laber_cost": laber_cost,
-    //                 "suplier_payment": suplier_payment,
-    //                 "checkval": checkval,
-    //                 "suplier_buy": suplier_buy,
-    //                 "discountflat": discountflat,
-    //                 balanch_cash: balanch_cash,
-    //                 sellingdate: sellingdate
-    //             },
-    //             headers: {
-    //                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //             },
-    //             dataType: 'json',
-    //
-    //             success: function (data) {
-    //                 $('#order_submit_btn').attr('disabled','disabled');
-    //                 //console.log(data);
-    //                 if (data.status == "success") {
-    //                     toastr["success"]("Product Purchase Added Success")
-    //                     toastr.options = {
-    //                         "closeButton": false,
-    //                         "debug": false,
-    //                         "newestOnTop": false,
-    //                         "progressBar": false,
-    //                         "positionClass": "toast-top-right",
-    //                         "preventDuplicates": false,
-    //                         "onclick": null,
-    //                         "showDuration": "300",
-    //                         "hideDuration": "1000",
-    //                         "timeOut": "5000",
-    //                         "extendedTimeOut": "1000",
-    //                         "showEasing": "swing",
-    //                         "hideEasing": "linear",
-    //                         "showMethod": "fadeIn",
-    //                         "hideMethod": "fadeOut"
-    //                     }
-    //
-    //                 }
-    //
-    //                 location.reload();
-    //                 $('#name_tags').focus();
-    //                 $('#suplierid').val('');
-    //                 $('#suplier_buy').val('');
-    //                 $('#order_submit_btn').attr('disabled','disabled');
-    //
-    //             },
-    //             error: function(data){
-    //                 alert("Check Data !");
-    //             }
-    //
-    //         });
-    //     }else{
-    //         alert("Check Data !");
-    //         $('#suplierid').focus();
-    //     }
-    //
-    //     $(this).prop("disabled",true);
-    //     $(this).attr("disabled","disabled");
-    //
-    //     //location.reload();
-    //
-    // });
+    $(document).on('click', '.remove_field', function() {
+        var serial_r = $(this).closest('tr').find('td:eq(0)').text();
+        var productname = $(this).closest('tr').find('td:eq(1)').text();
+        var singBuyprice = $(this).closest('tr').find('td:eq(2)').text();
+        var quantiry = $(this).closest('tr').find('td:eq(3)').text();
+        var subtotal_r = $(this).closest('tr').find('td:eq(5)').text();
+        var sellpricesn = $(this).closest('tr').find('td:eq(6)').text();
+        $(this).parents('tr').remove();
+
+        const index = product_info.findIndex(function (todo, index){
+            return todo.serialid == serial_r
+        })
+
+        product_info.splice(index, 1);
+
+        var lastbuy_buy = $("#purchase_amount_total").val();
+        var nitsellamount = lastbuy_buy - subtotal_r;
+
+        $('#purchase_amount_total').val(nitsellamount);
+        $('#payable_amount').val(nitsellamount);
+        $('#subtotal_cash').val(nitsellamount);
+
+        var accountscas = $("#suplier_accounts").val();
+
+        if(accountscas > 0){
+            $('#previus_account').val(accountscas).css({"color":"red"});
+            $('#last_balanch').val(parseFloat(lastbuy_buy) + parseFloat(accountscas));
+        }else if(accountscas < 0){
+            $('#previus_account').val(accountscas).css({"color":"blue"});
+            var accounts = accountscas.replace('-', '');
+            $('#last_balanch').val(lastbuy_buy - accounts);
+        }else{
+            $('#last_balanch').val(parseFloat(lastbuy_buy) + parseFloat(accountscas));
+            $('#previus_account').val(accountscas).css({"color":"red"});
+        }
+
+        if (nitsellamount === 0) {
+            location.reload();
+        }
+        $('#purchase_cost').val('');
+        $('#discount_flat').val('');
+        $('#supplier_payment').val('');
+
+        calculate();
+    });
+
+
+    $("#purchese_submit_btn").on('click',function(e){
+
+        var suplier_id   		= $("#suplier_iddata").val();
+        var purchase_cost 		= $("#purchase_cost").val();
+        var discountflat 	    = $("#discount_flat").val();
+        var supplier_payment     = $("#supplier_payment").val();
+        var checkval 		    = $("#checkvalchange").val();
+        var purchase_amount_total   = $("#purchase_amount_total").val();
+        var last_balanch        = $("#last_balanch").val();
+        var sellingdate         = $("#sellingdate").val();
+
+        if (suplier_id !="" && purchase_amount_total !="") {
+            $.ajax({
+                url: '/Purchase',
+                type: 'post',
+                data: {
+                    "requested_data": product_info,
+                    "suplierid": suplier_id,
+                    "purchase_cost": purchase_cost,
+                    "supplier_payment": supplier_payment,
+                    "checkval": checkval,
+                    "purchase_amount_total": purchase_amount_total,
+                    "discountflat": discountflat,
+                    "last_balanch": last_balanch,
+                    "sellingdate": sellingdate
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                dataType: 'json',
+
+                success: function (data) {
+                    $('#purchese_submit_btn').attr('disabled','disabled');
+                   // console.log(data);
+                    if (data.status == "success") {
+                        toastr["success"]("Product Purchase Added Success")
+                        toastr.options = {
+                            "closeButton": false,
+                            "debug": false,
+                            "newestOnTop": false,
+                            "progressBar": false,
+                            "positionClass": "toast-top-right",
+                            "preventDuplicates": false,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        }
+
+                    }
+
+                    location.reload();
+                    $('#product_id').focus();
+                    $('#suplier_iddata').val('');
+                    $('#purchase_amount_total').val('');
+                    $('#purchese_submit_btn').attr('disabled','disabled');
+
+                },
+                error: function(data){
+                    alert("Check Data !");
+                }
+
+            });
+        }else{
+            alert("Check Data !");
+            $('#suplier_iddata').focus();
+        }
+
+     //   $(this).prop("disabled",true);
+       // $(this).attr("disabled","disabled");
+
+    });
 
 //=======================================
 });// end function

@@ -11,6 +11,7 @@ use App\Admin_model\Subcategorie;
 use App\Http\Controllers\Controller;
 use App\Product_model\FeatureGroup;
 use App\Product_model\FeatureProduct;
+use App\Recognition_model\Recognition_item;
 use App\Supplier_model\Supplier;
 use App\Supplier_model\Supplieraccount;
 use Illuminate\Http\Request;
@@ -164,6 +165,20 @@ class AjaxController extends Controller
         $data = Product::where('id',$id)->first();
         return response()->json($data);
 
+    }
+
+    public function RecognitionItemData($id)
+    {
+        $Recognition = Recognition_item::where('id',$id)->first();
+
+        $data = [
+            'id' => $Recognition->id,
+            'recognition_no' => $Recognition->Recognition->recognition_no,
+            'product' => $Recognition->product->name,
+            'quantity' => $Recognition->quantity,
+        ];
+
+        return response()->json($data);
     }
 
 

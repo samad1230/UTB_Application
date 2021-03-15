@@ -31,4 +31,13 @@ class Supplier extends Model
     }
 
 
+    public function localpurchases(){
+        return $this->hasMany('App\Recognition_model\Localpurchase');
+    }
+
+    public function lcpurchases(){
+        return $this->hasMany('App\Recognition_model\Lcpurchase');
+    }
+
+
 }

@@ -48,7 +48,7 @@
                                                             <label class="form-control-label">Sale Date : <span class="tx-danger"> *</span></label>
                                                         </div>
                                                         <div class="col-md-7">
-                                                            <?php  use Illuminate\Support\Facades\Cache;$n_dat= date("Y-m-d"); ?>
+                                                            <?php  use Illuminate\Support\Facades\Auth;use Illuminate\Support\Facades\Cache;$n_dat= date("Y-m-d"); ?>
                                                             <input type="date" class="form-control" name="sale_date" id="sellingdate" value="{{$n_dat}}" required>
                                                         </div>
                                                     </div>
@@ -233,7 +233,70 @@
                                         <div class="form-actions text-center">
                                             <button class="btn btn-primary pull-center" id="purchese_submit_btn" >Submit</button>
                                         </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="table-responsive m-b-40">
+                                            <table class="table table-striped table-data3 data-table1">
+                                                <thead>
+                                                <tr>
+                                                    <th>SL</th>
+                                                    <th>Date</th>
+                                                    <th>Offer Id</th>
+                                                    <th>Supplier</th>
+                                                    <th>Buy Amount</th>
+                                                    <th>Buy Cost</th>
+                                                    <th>Discount</th>
+                                                    <th>Total Buy</th>
+                                                    <th>Payment</th>
+                                                    <th>Blanch</th>
+                                                    <th>View</th>
 
+                                                    <?php
+                                                    $userid = Auth::user()->id;
+                                                    if (Auth::user()->role_id == 1){
+                                                    ?>
+                                                    <th>Delete</th>
+                                                    <?php
+
+                                                    }
+                                                    ?>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                <?php $sl = 1; ?>
+                                                @foreach ($productstokedata as $row)
+                                                    <tr>
+                                                        <td>{{ $sl}}</td>
+                                                        <td>{{ $row->purchase_date}}</td>
+                                                        <td>{{ $row->offer_id}}</td>
+                                                        <td>{{ $row->supplier->company_name}}</td>
+                                                        <td>{{ $row->total_buy_amount}}</td>
+                                                        <td>{{ $row->total_buy_cost}}</td>
+                                                        <td>{{ $row->total_buy_discount}}</td>
+                                                        <td>{{ $row->last_buy_amount}}</td>
+                                                        <td>{{ $row->payment_amount}}</td>
+                                                        <td>{{ $row->last_buy_amount - $row->payment_amount}}</td>
+                                                        <td><a href="{{route('purchesedetail.view',$row->offer_id)}}" class="btn-primary btn-sm"> View</a></td>
+
+                                                        <?php
+                                                        $userid = Auth::user()->id;
+                                                        if (Auth::user()->role_id == 1){
+                                                        ?>
+                                                        <td><a class="btn btn-danger btn-sm" href="#" id="delete" role="button">Delete</a></td>
+                                                        <?php
+
+                                                        }
+                                                        ?>
+                                                    </tr>
+                                                    <?php $sl++; ?>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                            <div class="text-center">
+                                                {{ $productstokedata->links() }}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

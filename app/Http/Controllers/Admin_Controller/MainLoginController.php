@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+
 class MainLoginController extends Controller
 {
     public function __construct()
@@ -53,6 +54,7 @@ class MainLoginController extends Controller
 //    }
 
     public function purchaseDepartment(){
+        setcookie("Department", "Purchase Department".",,"."Purchase-Department", time() + (86400 * 1), "/");
         $user = Auth::user();
         $userDepartments = $user->departments();
         $thisDepartment = Department::where('id',1)->first()->name;
@@ -65,6 +67,7 @@ class MainLoginController extends Controller
     }
 
     public function HradminDepartment(){
+        setcookie("Department", "Hradmin Department".",,"."Hradmin-Department", time() + (86400 * 1), "/");
         $user = Auth::user();
         $userDepartments = $user->departments();
         $thisDepartment = Department::where('id',2)->first()->name;
@@ -78,6 +81,7 @@ class MainLoginController extends Controller
 
 
     public function AccountsDepartment(){
+        setcookie("Department", "Accounts Department".",,"."Accounts-Department", time() + (86400 * 1), "/");
         $user = Auth::user();
         $userDepartments = $user->departments();
         $thisDepartment = Department::where('id',3)->first()->name;
@@ -90,6 +94,7 @@ class MainLoginController extends Controller
     }
 
     public function CommercialDepartment(){
+        setcookie("Department", "Commercial Department".",,"."Commercial-Department", time() + (86400 * 1), "/");
         $user = Auth::user();
         $userDepartments = $user->departments();
         $thisDepartment = Department::where('id',4)->first()->name;
@@ -102,6 +107,7 @@ class MainLoginController extends Controller
     }
 
     public function StoreDepartment(){
+        setcookie("Department", "Store Department".",,"."Store-Department", time() + (86400 * 1), "/");
         $user = Auth::user();
         $userDepartments = $user->departments();
         $thisDepartment = Department::where('id',5)->first()->name;
@@ -114,6 +120,7 @@ class MainLoginController extends Controller
     }
 
     public function SalesDepartment(){
+        setcookie("Department", "Sales Department".",,"."Sales-Department", time() + (86400 * 1), "/");
         $user = Auth::user();
         $userDepartments = $user->departments();
         $thisDepartment = Department::where('id',6)->first()->name;

@@ -8,6 +8,11 @@ use App\Admin_model\Procategorie;
 use App\Admin_model\Product;
 use App\Admin_model\Subcategorie;
 use App\Http\Controllers\Controller;
+use App\Product_model\Purchase;
+use App\Recognition_model\Purchase_Type;
+use App\Recognition_model\Recognition;
+use App\Recognition_model\Recognition_item;
+use App\Supplier_model\Supplier;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -25,7 +30,7 @@ class MainIndexController extends Controller
     public function CategoryIndex()
     {
         $category = Categorie::all();
-        return view('Purchase_view.Categorie.categories',compact('category'));
+        return view('Store_Department.Categorie.categories',compact('category'));
     }
 
     public function SubcategoryIndex()
@@ -36,7 +41,7 @@ class MainIndexController extends Controller
             ->select('subcategories.*','categories.name as catname')
             ->join('categories','categories.id','=','subcategories.categorie_id')
             ->get();
-        return view('Purchase_view.Categorie.subcategory',compact('category','subcategory'));
+        return view('Store_Department.Categorie.subcategory',compact('category','subcategory'));
     }
 
 
@@ -48,7 +53,7 @@ class MainIndexController extends Controller
             ->select('procategories.*','subcategories.name as subcatname')
             ->join('subcategories','subcategories.id','=','procategories.subcategorie_id')
             ->get();
-        return view('Purchase_view.Categorie.procategory',compact('subcategory','procategory'));
+        return view('Store_Department.Categorie.procategory',compact('subcategory','procategory'));
     }
 
 
@@ -58,7 +63,7 @@ class MainIndexController extends Controller
         $category = Categorie::all();
         $subcategory = Subcategorie::all();
         $procategory = Procategorie::all();
-        return view('Purchase_view.Categorie.brandview',compact('brand','category','subcategory','procategory'));
+        return view('Store_Department.Categorie.brandview',compact('brand','category','subcategory','procategory'));
     }
 
 
@@ -66,7 +71,7 @@ class MainIndexController extends Controller
     {
         $product = Product::orderBy('id','DESC')->get();
         //$product = Product::all();
-        return view('Purchase_view.Product.productdetails',compact('product'));
+        return view('Store_Department.Product.productdetails',compact('product'));
     }
 
 
@@ -78,8 +83,47 @@ class MainIndexController extends Controller
         $brand = Brand::all();
         $subcategory = Subcategorie::all();
         $procategory = Procategorie::all();
-        return view('Purchase_view.Product.productdetails_edit',compact('producteditdata','category','brand','subcategory','procategory'));
+        return view('Store_Department.Product.productdetails_edit',compact('producteditdata','category','brand','subcategory','procategory'));
     }
 
+
+    public function DetailsProductPurchaseStock()
+    {
+        $productstokedata = Purchase::where('status',"1")->orderBy('id','DESC')->paginate(15);
+        return view('Purchase_view.Purchase.ProductPurchase_stock',compact('productstokedata'));
+    }
+
+    public function AddRecognition()
+    {
+        $supplier = Supplier::all();
+        $purchasetype = Purchase_Type::all();
+        $product = Product::where('status','1')->get();
+        $Recognition = Recognition::orderBy('id','DESC')->paginate(15);
+        return view('Store_Department.Recognition.recognition_view',compact('supplier','purchasetype','product','Recognition'));
+    }
+
+    public function DetailsRecognition()
+    {
+        $Recognition = Recognition::orderBy('id','DESC')->paginate(15);
+        return view('Store_Department.Recognition.recognition_totalview',compact('Recognition'));
+    }
+
+    public function RecognitionStatus()
+    {
+        $Recognition = Recognition::orderBy('id','DESC')->paginate(15);
+        return view('Store_Department.Recognition.recognition_status_view',compact('Recognition'));
+    }
+
+    public function ApprovedRecognition()
+    {
+        $Recognition = Recognition::orderBy('id','DESC')->paginate(15);
+        return view('Purchase_view.Recogintion_approve.recognition_approve_view',compact('Recognition'));
+    }
+
+    public function ApprovedPurchaseRecognition()
+    {
+        $Recognition = Recognition::where('status',"1")->orderBy('id','DESC')->paginate(15);
+        return view('Accounts_Section.Recognition_purchase.recognition_approve_by_accounts',compact('Recognition'));
+    }
 
 }

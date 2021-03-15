@@ -58,7 +58,7 @@
                                 <div class="mail-item">
 
                                     <div class="col-md-8">
-                                        <h5 style="font-weight: bold">{{$data->name}} Department</h5>
+                                        <h6 style="font-weight: bold">{{$data->name}} Department</h6>
                                     </div>
                                     <div class="col-md-4">
                                         @if($data->id == 1)

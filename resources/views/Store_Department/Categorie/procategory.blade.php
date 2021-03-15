@@ -1,4 +1,4 @@
-@extends('Department_layouts.Purchese_master_layout')
+@extends('Department_layouts.Store_master_layout')
 @section('content')
 
     <div class="app-admin-wrap layout-sidebar-large">
