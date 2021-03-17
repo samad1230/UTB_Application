@@ -24,6 +24,7 @@
                                                     <th>ID</th>
                                                     <th>Company</th>
                                                     <th>Person</th>
+                                                    <th>Designation</th>
                                                     <th>Address</th>
                                                     <th>Mobile</th>
                                                     <th>Status</th>
@@ -39,6 +40,7 @@
                                                         <td>{{$row->id}}</td>
                                                         <td>{{$row->company_name}}</td>
                                                         <td>{{$row->person_name}}</td>
+                                                        <td>{{$row->designation}}</td>
                                                         <td>{{$row->address}}</td>
                                                         <td>{{$row->mobile}}</td>
                                                         <?php
@@ -104,6 +106,16 @@
                                 </div>
                                 <div class="col-md-8">
                                     <input type="text" name="contact_person" class="form-control" placeholder="Contact Person" required="" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label class=" " for="Showroom Name">Designation </label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="text" name="designation" class="form-control" placeholder="Designation" required="" autocomplete="off">
                                 </div>
                             </div>
                         </div>

@@ -15,6 +15,7 @@ class CreateLocalpurchasesTable extends Migration
     {
         Schema::create('localpurchases', function (Blueprint $table) {
             $table->id();
+            $table->integer('recognition_item_id');
             $table->integer('invoice_no');
             $table->integer('supplier_id')->nullable();
             $table->string('amount');

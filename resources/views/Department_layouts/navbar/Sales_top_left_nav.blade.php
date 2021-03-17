@@ -38,9 +38,6 @@
         </div>
 
 
-
-        <div style="margin: auto"></div>
-        <div class="header-part-right">
             <div class="dropdown">
                 <div class="user col align-self-end">
                     @php

@@ -11,6 +11,8 @@ use App\Admin_model\Subcategorie;
 use App\Http\Controllers\Controller;
 use App\Product_model\FeatureGroup;
 use App\Product_model\FeatureProduct;
+use App\Recognition_model\Lcpurchase;
+use App\Recognition_model\Localpurchase;
 use App\Recognition_model\Recognition_item;
 use App\Supplier_model\Supplier;
 use App\Supplier_model\Supplieraccount;
@@ -181,6 +183,40 @@ class AjaxController extends Controller
         return response()->json($data);
     }
 
+    public function Purchaseapprove_dataItemData($id)
+    {
+        $Recognition = Recognition_item::where('id',$id)->first();
 
+        $lcpurchase = Lcpurchase::where('recognition_item_id',$id)->first();
+        $localpurchase = Localpurchase::where('recognition_item_id',$id)->first();
+
+       if ($lcpurchase !=null){
+           $data = [
+               'id' => $Recognition->id,
+               'recognition_no' => $Recognition->Recognition->recognition_no,
+               'product' => $Recognition->product->name,
+               'quantity' => $Recognition->quantity,
+               'supplier' => $lcpurchase->supplier->company_name,
+               'supplier_id' => $lcpurchase->supplier->id,
+               'Purchase_Type' => "LC Purchase",
+               'amount' => $lcpurchase->amount,
+               'purchase_id' => $lcpurchase->id,
+           ];
+       }else{
+           $data = [
+               'id' => $Recognition->id,
+               'recognition_no' => $Recognition->Recognition->recognition_no,
+               'product' => $Recognition->product->name,
+               'quantity' => $Recognition->quantity,
+               'supplier' => $localpurchase->supplier->company_name,
+               'supplier_id' => $localpurchase->supplier->id,
+               'Purchase_Type' => "Local Purchase",
+               'amount' => $localpurchase->amount,
+               'purchase_id' => $localpurchase->id,
+           ];
+       }
+
+        return response()->json($data);
+    }
 
 }

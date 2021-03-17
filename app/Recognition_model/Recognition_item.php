@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Recognition_item extends Model
 {
   protected $fillable = [
-      'recognition_id','product_id','quantity','price'
+      'recognition_id','product_id','quantity','price','product_status'
   ];
 
     public function recognition(){

@@ -49,7 +49,7 @@
                                             ?>
                                             <td><a  class="btn btn-success btn-sm"> Purchase Approve</a></td>
                                             <?php
-                                            }else if($row->status==1){
+                                            }else if($row->status==2){
                                             ?>
                                             <td><a  class="btn btn-danger btn-sm"> Dis-Approved</a></td>
                                             <?php

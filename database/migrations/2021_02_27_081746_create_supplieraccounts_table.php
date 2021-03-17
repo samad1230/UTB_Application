@@ -16,9 +16,10 @@ class CreateSupplieraccountsTable extends Migration
         Schema::create('supplieraccounts', function (Blueprint $table) {
             $table->id();
             $table->integer('supplier_id');
-            $table->integer('offer_id')->default(0);
-            $table->string('accounts');
-            $table->integer('status');
+            $table->integer('warehouse_id')->nullable();
+            $table->string('purchase_amount')->default(0);
+            $table->string('payment')->default(0);
+            $table->string('date');
             $table->timestamps();
         });
     }

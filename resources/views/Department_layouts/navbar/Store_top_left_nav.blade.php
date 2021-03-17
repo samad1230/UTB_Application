@@ -1,4 +1,3 @@
-
 @php
     $department = explode(",,", $_COOKIE["Department"]);
 
@@ -31,14 +30,11 @@
     <div class="header-part-right">
 
         <div class="dropdown">
-            <buton></buton>
             <div class="badge-top-container" role="button">
                 <a href="{{$mainurl}}"> <img src="{{ URL::to('Media/icon/Go-back.ico') }}" width="20px;"></a>
             </div>
         </div>
 
-        <div style="margin: auto"></div>
-        <div class="header-part-right">
             <div class="dropdown">
                 <div class="user col align-self-end">
                     @php

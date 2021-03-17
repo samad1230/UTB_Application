@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Store_department;
 
 use App\Http\Controllers\Controller;
+use App\Product_model\Warehouse;
 use App\Recognition_model\Lcpurchase;
 use App\Recognition_model\Localpurchase;
 use App\Recognition_model\Purchase_Type;
 use App\Recognition_model\Recognition;
 use App\Recognition_model\Recognition_item;
 use App\Supplier_model\Supplier;
+use App\Supplier_model\Supplieraccount;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -227,14 +229,79 @@ class RecognitionController extends Controller
 
     public function ApprovePurchaseDetails($id)
     {
-        $recognition_item = Recognition_item::where('recognition_id',$id)->where('product_status','1')->get();
+        $recognition_item = Recognition_item::where('recognition_id',$id)->where('product_status','!=','0')->get();
         return view('Accounts_Section.Recognition_purchase.purchase_approve_details_view',compact('recognition_item'));
     }
 
-    public function AccountsCostAnalysis($id)
+    public function AccountsCostAnalysis(Request $request )
     {
-        $recognition_item = Recognition_item::where('id',$id)->first();
-        return view('Accounts_Section.Recognition_purchase.accounts_cost_analysis',compact('recognition_item'));
+
+        $userid = Auth::user()->id;
+        $singlebuyprice = $request->total_amount / $request->Quantity;
+
+        $purchasetype= Purchase_Type::where('purchase_type',$request->purchase_type)->first();
+        $Recognition = Recognition_item::where('id',$request->rec_item_id)->first();
+
+        if ($request->purchase_type=="Local Purchase"){
+
+            $local = Localpurchase::find($request->purchaseid);
+            $local->expense=$request->expense;
+            $local->discount=$request->discount;
+            $local->disburse_date=$request->disburse_date;
+            $local->status="1";
+            $local->save();
+
+        }else if ($request->purchase_type=="LC Purchase"){
+
+            $local = Lcpurchase::find($request->purchaseid);
+            $local->expense=$request->expense;
+            $local->discount=$request->discount;
+            $local->disburse_date=$request->disburse_date;
+            $local->status="1";
+            $local->save();
+        }
+
+        $data = Recognition_item::find($request->rec_item_id);
+        $data->product_status="3";
+        $data->save();
+
+        $data = Recognition::find($Recognition->recognition_id);
+        $data->status="2";
+        $data->save();
+
+        $ware = new Warehouse();
+        $ware->recognition_item_id=$request->rec_item_id;
+        $ware->purchase_type=$purchasetype->id;
+        $ware->product_id=$Recognition->product_id;
+        $ware->single_buy_price=$singlebuyprice;
+        $ware->quantity=$request->Quantity;
+        $ware->total_buy=$request->total_amount;
+        $ware->rest_quantity=$request->Quantity;
+        $ware->rest_amount=$request->total_amount;
+        $ware->supplier_id=$request->supplier_id;
+        $ware->purchase_date=$request->disburse_date;
+        $ware->status="1";
+        $ware->user_id=$userid;
+        $ware->save();
+        $wareid = $ware->id;
+
+        $current = new Carbon();
+        $crdate =  $current->format('d-m-Y');
+
+        $account = new Supplieraccount();
+        $account->supplier_id=$request->supplier_id;
+        $account->warehouse_id=$wareid;
+        $account->purchase_amount=$request->total_amount;
+        $account->date=$crdate;
+        $account->save();
+
+
+        $notification=array(
+            'messege'=>'Successfully Purchase Updated',
+            'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);
+
     }
 
 

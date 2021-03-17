@@ -29,7 +29,7 @@
                                     <?php $sl = 1; ?>
                                     @foreach ($Recognition as $row)
                                         @php
-                                            $item = \App\Recognition_model\Recognition_item::where('recognition_id',$row->id)->where('product_status','1')->get();
+                                            $item = \App\Recognition_model\Recognition_item::where('recognition_id',$row->id)->get();
                                         @endphp
                                         @php
                                             $username = \App\User::where('id',$row->approved_by)->first();
@@ -43,11 +43,11 @@
                                             <?php
                                             if ($row->status==1){
                                             ?>
-                                            <td><a  class="btn-warning btn-sm"> Pending</a></td>
+                                            <td><a  class="btn btn-warning btn-sm"> Pending</a></td>
                                             <?php
                                             }else{
                                             ?>
-                                            <td><a  class="btn btn-primary btn-sm"> Done</a></td>
+                                            <td><a  class="btn btn-success btn-sm"> Done</a></td>
                                             <?php
                                             }
                                             ?>

@@ -122,7 +122,7 @@ class MainIndexController extends Controller
 
     public function ApprovedPurchaseRecognition()
     {
-        $Recognition = Recognition::where('status',"1")->orderBy('id','DESC')->paginate(15);
+        $Recognition = Recognition::orderBy('id','DESC')->paginate(15);
         return view('Accounts_Section.Recognition_purchase.recognition_approve_by_accounts',compact('Recognition'));
     }
 

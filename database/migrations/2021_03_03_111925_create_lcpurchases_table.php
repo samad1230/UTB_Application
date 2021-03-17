@@ -15,6 +15,7 @@ class CreateLcpurchasesTable extends Migration
     {
         Schema::create('lcpurchases', function (Blueprint $table) {
             $table->id();
+            $table->integer('recognition_item_id');
             $table->integer('lc_no')->nullable();
             $table->integer('Offer_no');
             $table->integer('supplier_id')->nullable();

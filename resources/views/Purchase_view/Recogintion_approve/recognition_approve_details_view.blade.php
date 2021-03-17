@@ -106,11 +106,9 @@
     </div>
 
 
-{{--    <div class="modal fade" id="recognition_edit" tabindex="1" role="dialog" aria-labelledby="" aria-hidden="true">--}}
-{{--        <div class="modal-dialog model-sm" role="document">--}}
 
-            <div id="recognition_edit" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
+    <div id="recognition_edit" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="">Recognition  Price Update</h4>

@@ -19,6 +19,7 @@ class CreateRecognitionItemsTable extends Migration
             $table->integer('product_id');
             $table->string('quantity');
             $table->string('price')->nullable();
+            $table->integer('product_status');
             $table->timestamps();
         });
     }

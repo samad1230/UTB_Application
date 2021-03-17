@@ -110,7 +110,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="" class="recognition_update" method="POST" enctype="multipart/form-data">
+                    <form action="" class="recognition_update" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
 

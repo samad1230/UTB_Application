@@ -17,6 +17,7 @@ class CreateSuppliersTable extends Migration
             $table->id();
             $table->string('company_name');
             $table->string('person_name');
+            $table->string('designation');
             $table->string('address');
             $table->string('mobile');
             $table->enum('status', array('0','1'))->default('1');

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Localpurchase extends Model
 {
     protected $fillable = [
-        'invoice_no','supplier_id','amount','expense','discount','due','date','disburse_date','status'
+        'recognition_item_id','invoice_no','supplier_id','amount','expense','discount','due','date','disburse_date','status'
     ];
 
     public function recognitions(){

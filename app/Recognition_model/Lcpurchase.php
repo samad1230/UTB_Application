@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Lcpurchase extends Model
 {
     protected $fillable = [
-        'lc_no','Offer_no','supplier_id','amount','expense','discount','date','disburse_date','status'
+        'recognition_item_id','lc_no','Offer_no','supplier_id','amount','expense','discount','date','disburse_date','status'
     ];
 
     public function recognitions(){

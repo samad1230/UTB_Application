@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 //php artisan migrate:fresh --seed
+//php artisan serve --port=8080
 //php artisan make:seeder UserSeeder
+
 Route::get('/clear-cache', function() {
     $run = Artisan::call('config:clear');
     $run = Artisan::call('cache:clear');
@@ -118,7 +120,10 @@ Route::get('/Recognition/approve_details/{id}', 'Store_department\RecognitionCon
 Route::get('/recognition_edit/{id}', 'Admin_Controller\AjaxController@RecognitionItemData');
 Route::post('/Recognition_price/update', 'Store_department\RecognitionController@RecognitionPriceUpdate')->name('recognition_price.update');
 Route::get('/Purchase/Approve/Details/{id}', 'Store_department\RecognitionController@ApprovePurchaseDetails')->name('purchase.approve_details');
-Route::get('/Accounts/Cost/Analysis/{id}', 'Store_department\RecognitionController@AccountsCostAnalysis')->name('accounts_cost_analysis');
+Route::post('/purchase_accounts_cost_analysis', 'Store_department\RecognitionController@AccountsCostAnalysis')->name('purchase_accounts_cost_analysis');
+
+Route::get('/purchaseapprove_data/{id}', 'Admin_Controller\AjaxController@Purchaseapprove_dataItemData');
+
 
 // Recognition section
 
