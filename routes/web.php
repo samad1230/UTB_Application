@@ -74,6 +74,8 @@ Route::get('/Recognition/Details','Admin_Controller\MainIndexController@DetailsR
 Route::get('/Recognition/Status','Admin_Controller\MainIndexController@RecognitionStatus')->name('recognition.status');
 Route::get('/Recognition/Approved','Admin_Controller\MainIndexController@ApprovedRecognition')->name('recognition.approve');
 Route::get('/Recognition/Purchase/Approved','Admin_Controller\MainIndexController@ApprovedPurchaseRecognition')->name('recognition_purchase.approve');
+Route::get('/Supplier/Accounts','Admin_Controller\MainIndexController@AccountsSupplier')->name('supplier.accounts');
+Route::get('/Bank/Index','Admin_Controller\MainIndexController@BankIndex')->name('bank.index');
 
 // main index controller==================================
 
@@ -85,7 +87,12 @@ Route::resource('/brand', 'Product\BrandController');
 Route::resource('/Product', 'Product\ProductController');
 Route::resource('/Purchase', 'Product\PurchaseController');
 Route::resource('/Supplier', 'Supplier_controller\SupplierController');
+Route::resource('/Bank', 'Accounts_Controller\BankController');
+Route::post('/Bank_deposit/{id}', 'Accounts_Controller\BankController@BankDeposit');
 //==================Categories Controller===========================
+
+
+Route::get('/Supplier/Payment_view/{id}', 'Supplier_controller\SupplierController@SupplierPayment')->name('supplier_payment_view');
 
 
 // ajax controller ========================
@@ -100,6 +107,7 @@ Route::post('/feature_id_remove','Admin_Controller\AjaxController@Feature_id_Rem
 Route::post('/feature_group_remove','Admin_Controller\AjaxController@FeatureGroupRemove');
 Route::get('/purchesh_suplier_data/{id}','Admin_Controller\AjaxController@AccountsPurchaseSupplier');
 Route::get('/purchesh_product_data/{id}','Admin_Controller\AjaxController@PurchaseProductData');
+Route::get('/Bank_accountdata/{id}','Admin_Controller\AjaxController@BankaccountData');
 
 
 // ajax controller===================

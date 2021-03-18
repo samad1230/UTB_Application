@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers\Supplier_controller;
 
+use App\Account_model\Bank;
 use App\Http\Controllers\Controller;
+use App\Product_model\Warehouse;
+use App\Recognition_model\Recognition_item;
 use App\Supplier_model\Supplier;
 use App\Supplier_model\Supplieraccount;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SupplierController extends Controller
 {
@@ -156,4 +160,32 @@ class SupplierController extends Controller
     {
         //
     }
+
+    public function SupplierPayment($id)
+    {
+        $supplierac = Supplieraccount::where('supplier_id',$id)->select('supplier_id', DB::raw('SUM(purchase_amount) as purchase_amount'), DB::raw('SUM(payment) as payment'))
+            ->groupBy('supplier_id')
+            ->first();
+        $blanch = $supplierac->purchase_amount - $supplierac->payment;
+        $warehouse  = Warehouse::where('supplier_id',$id)->first();
+        if ($warehouse !=null){
+            $recognition_item = Recognition_item::where('id',$warehouse->recognition_item_id)->first();
+
+            $supplierpaymentdata = [
+                'supplieriddata' => $id,
+                'supplier_name' => $supplierac->supplier->company_name,
+                'supplier_blanch' => $blanch,
+                'recognition_no' => $recognition_item->Recognition->recognition_no,
+            ];
+
+            $bankac = Bank::all();
+
+            return view('Accounts_Section.Recognition_purchase.supplier_payment',compact('supplierpaymentdata','bankac'));
+        }else{
+            return redirect()->back();
+        }
+
+
+    }
+
 }

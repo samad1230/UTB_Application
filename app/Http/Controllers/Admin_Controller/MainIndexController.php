@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin_Controller;
 
+use App\Account_model\Bank;
 use App\Admin_model\Brand;
 use App\Admin_model\Categorie;
 use App\Admin_model\Procategorie;
@@ -13,6 +14,7 @@ use App\Recognition_model\Purchase_Type;
 use App\Recognition_model\Recognition;
 use App\Recognition_model\Recognition_item;
 use App\Supplier_model\Supplier;
+use App\Supplier_model\Supplieraccount;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -124,6 +126,34 @@ class MainIndexController extends Controller
     {
         $Recognition = Recognition::orderBy('id','DESC')->paginate(15);
         return view('Accounts_Section.Recognition_purchase.recognition_approve_by_accounts',compact('Recognition'));
+    }
+
+    public function AccountsSupplier()
+    {
+        $supplier = Supplier::where('status',"1")->get();
+
+        for ($i=0; $i < count($supplier); $i++  ){
+
+            $supplierac = Supplieraccount::where('supplier_id',$supplier[$i]->id)->select('supplier_id', DB::raw('SUM(purchase_amount) as purchase_amount'), DB::raw('SUM(payment) as payment'))
+                    ->groupBy('supplier_id')
+                    ->first();
+
+            $accountsdata[$i] = array(
+                'id'=>$supplier[$i]['id'],
+                'company_name'=>$supplier[$i]['company_name'],
+                'person_name'=>$supplier[$i]['person_name'],
+                'purchase_amount'=>$supplierac['purchase_amount'],
+                'payment'=>$supplierac['payment'],
+            );
+        }
+
+        return view('Accounts_Section.Recognition_purchase.supplier_accounts',compact('accountsdata'));
+    }
+
+    public function BankIndex()
+    {
+        $accounts = Bank::orderBy('id','DESC')->paginate(15);
+        return view('Accounts_Section.Recognition_purchase.bank_view',compact('accounts'));
     }
 
 }

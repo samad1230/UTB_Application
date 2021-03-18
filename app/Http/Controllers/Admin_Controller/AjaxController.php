@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin_Controller;
 
+use App\Account_model\Bank;
+use App\Account_model\BankAccount;
 use App\Admin_model\Brand;
 use App\Admin_model\Categorie;
 use App\Admin_model\Prductimage;
@@ -17,6 +19,7 @@ use App\Recognition_model\Recognition_item;
 use App\Supplier_model\Supplier;
 use App\Supplier_model\Supplieraccount;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AjaxController extends Controller
 {
@@ -215,6 +218,26 @@ class AjaxController extends Controller
                'purchase_id' => $localpurchase->id,
            ];
        }
+
+        return response()->json($data);
+    }
+
+
+    public function BankaccountData($id)
+    {
+        $bankdetails = Bank::where('id',$id)->first();
+        $accounts = BankAccount::where('bank_id',$id)->select('bank_id', DB::raw('SUM(deposit) as deposit'), DB::raw('SUM(withdraw) as withdraw'))
+            ->groupBy('bank_id')
+            ->first();
+        $blanch = $accounts->deposit - $accounts->withdraw;
+        $data = [
+            'id' => $bankdetails->id,
+            'account_name' => $bankdetails->account_name,
+            'account_no' => $bankdetails->account_no,
+            'bank_name' => $bankdetails->bank_name,
+            'balanch' => $blanch,
+
+        ];
 
         return response()->json($data);
     }

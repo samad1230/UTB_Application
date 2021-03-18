@@ -97,7 +97,10 @@
                 <li class="nav-item"><a href="{{route('recognition_purchase.approve')}}"><i class="nav-icon i-Add"></i><span class="item-name">Recognition List</span></a></li>
             </ul>
             <ul class="childNav" data-parent="accounts">
-                <li class="nav-item"><a href=""><i class="nav-icon i-Add"></i><span class="item-name">Supplier AC</span></a></li>
+                <li class="nav-item"><a href="{{route('supplier.accounts')}}"><i class="nav-icon i-Add"></i><span class="item-name">Supplier Accounts</span></a></li>
+            </ul>
+            <ul class="childNav" data-parent="accounts">
+                <li class="nav-item"><a href="{{route('bank.index')}}"><i class="nav-icon i-Add"></i><span class="item-name">Bank Accounts</span></a></li>
             </ul>
 
         </div>
