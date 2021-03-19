@@ -49,4 +49,9 @@ class User extends Authenticatable
     public function profile(){
         return $this->hasOne('App\Admin_model\User_Profile');
     }
+
+
+    public function cashBlanch(){
+        return $this->hasOne('App\Account_model\CashBlanch');
+    }
 }

@@ -121,7 +121,7 @@
                                             <?php
                                             }else{
                                             ?>
-                                            <td><a  class="btn-danger btn-sm"> All Approved</a></td>
+                                            <td><a  class="btn-success btn-sm"> All Approved</a></td>
                                             <?php
                                             }
                                             ?>

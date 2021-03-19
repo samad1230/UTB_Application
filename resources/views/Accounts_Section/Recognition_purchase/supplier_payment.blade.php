@@ -18,10 +18,11 @@
                 <div class="col-md-12">
                     <div class="card mb-4">
                         <div class="card-body">
-                            <form action="" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('supplier_payment_update',$supplierpaymentdata['supplieriddata'])}}" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                <input type="hidden" id="cashblanch_store">
+                                <input type="hidden" id="bankblanch_store">
 
-                                <input type="hidden" name="supplierid" value="{{$supplierpaymentdata['supplieriddata']}}">
                                 <div class="row rowpad">
                                     <div class="col-md-12">
                                         <div class="row">
@@ -34,7 +35,12 @@
                                                     </div>
                                                     <div class="col-md-6 rowpad">
                                                         <label class="form-control-label">Recognition Number <span class="tx-danger"> *</span></label>
-                                                        <input type="text" class="form-control form-control-rounded" name="recognition_number" id="" value="{{$supplierpaymentdata['recognition_no']}}" placeholder="Recognition Number" readonly/>
+                                                        <select class="form-control form-control-rounded" name="recogination_no" id="" required>
+                                                            <option value="">Select Recognition</option>
+                                                            @foreach($recognition_item as $data)
+                                                                <option value="{{$data->Recognition->recognition_no}}">{{$data->Recognition->recognition_no}}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                     <div class="col-md-6 rowpad">
                                                         <label class="form-control-label">Supplier <span class="tx-danger"> *</span></label>
@@ -48,40 +54,24 @@
                                                         <label class="form-control-label">Payment Type <span class="tx-danger"> *</span></label>
                                                         <select class="form-control form-control-rounded" name="paymenttype" id="payment_type">
                                                             <option value="">Select Payment Type</option>
-                                                            <option value="1">Cash Payment</option>
-                                                            <option value="2">Bank Payment</option>
+                                                            <option value="cash">Cash Payment</option>
+                                                            <option value="bank">Bank Payment</option>
                                                         </select>
                                                     </div>
-                                                    <div class="col-md-4 rowpad">
-                                                        <label class="form-control-label">Payment To Bank <span class="tx-danger"> *</span></label>
-                                                        <select class="form-control form-control-rounded" name="bank_id" id="bankdata_id">
-                                                            <option value="">Select Bank</option>
-                                                                @foreach($bankac as $row)
-                                                                <option value="{{$row->id}}">{{$row->account_name}}</option>
-                                                                @endforeach
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-md-4 rowpad">
-                                                        <label class="form-control-label">Bank Ac Blanch <span class="tx-danger"> *</span></label>
-                                                        <input type="text" class="form-control form-control-rounded" name="bankacblanch" id="bankac_blanch" value="" placeholder="Bank Ac Blanch" readonly/>
+                                                    <div class="account_form">
+
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="row">
-                                                    <div class="col-md-12 rowpad">
+                                                    <div class="col-md-10 rowpad">
                                                         <label class="form-control-label">Pay Amount <span class="tx-danger"> *</span></label>
                                                         <input type="text" class="form-control form-control-rounded" name="payamount" id="payment_amount" value="" placeholder="Pay Amount"/>
                                                     </div>
-                                                    <div class="col-md-12 rowpad">
-                                                        <label class="form-control-label">Check No<span class="tx-danger"> *</span></label>
-                                                        <input type="text" class="form-control form-control-rounded" name="checkno" id="" value="" placeholder="Check No"/>
-                                                    </div>
-                                                    <div class="col-md-12 rowpad">
-                                                        <label class="form-control-label">Check Date<span class="tx-danger"> *</span></label>
-                                                        <input type="text" class="form-control form-control-rounded" name="checkdate" id="" value="" placeholder="Check Date"/>
-                                                    </div>
+                                                    <div class="paymentform">
 
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -100,7 +90,7 @@
                                     </div>
                                 </div>
                                 <div class="form-actions text-center">
-                                    <button type="submit" class="btn btn-primary pull-center" id="" >Submit </button>
+                                    <button type="submit" class="btn btn-primary pull-center" id="submitbtn" >Submit </button>
                                 </div>
                             </form>
 
@@ -115,6 +105,7 @@
 
 
 @section('pagescript')
+    <script src="{{ asset('js/supplier/payment.js') }}"></script>
 
 @endsection
 

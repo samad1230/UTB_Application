@@ -266,7 +266,7 @@ class RecognitionController extends Controller
         $data->save();
 
         $data = Recognition::find($Recognition->recognition_id);
-        $data->status="2";
+        $data->status="3";
         $data->save();
 
         $ware = new Warehouse();
@@ -280,7 +280,7 @@ class RecognitionController extends Controller
         $ware->rest_amount=$request->total_amount;
         $ware->supplier_id=$request->supplier_id;
         $ware->purchase_date=$request->disburse_date;
-        $ware->status="1";
+        $ware->status="0";
         $ware->user_id=$userid;
         $ware->save();
         $wareid = $ware->id;

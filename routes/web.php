@@ -89,10 +89,13 @@ Route::resource('/Purchase', 'Product\PurchaseController');
 Route::resource('/Supplier', 'Supplier_controller\SupplierController');
 Route::resource('/Bank', 'Accounts_Controller\BankController');
 Route::post('/Bank_deposit/{id}', 'Accounts_Controller\BankController@BankDeposit');
+Route::resource('/CashBlanch', 'Accounts_Controller\CashBlanchController');
 //==================Categories Controller===========================
 
 
 Route::get('/Supplier/Payment_view/{id}', 'Supplier_controller\SupplierController@SupplierPayment')->name('supplier_payment_view');
+
+Route::post('/Supplier/Payment/update/{id}', 'Supplier_controller\SupplierController@SupplierPaymentUpdate')->name('supplier_payment_update');
 
 
 // ajax controller ========================
@@ -108,6 +111,9 @@ Route::post('/feature_group_remove','Admin_Controller\AjaxController@FeatureGrou
 Route::get('/purchesh_suplier_data/{id}','Admin_Controller\AjaxController@AccountsPurchaseSupplier');
 Route::get('/purchesh_product_data/{id}','Admin_Controller\AjaxController@PurchaseProductData');
 Route::get('/Bank_accountdata/{id}','Admin_Controller\AjaxController@BankaccountData');
+Route::get('/account_blanch','Admin_Controller\AjaxController@AccountBlanch');
+Route::get('/Bank_accountlist','Admin_Controller\AjaxController@BankAccountsList');
+Route::get('/Bank_account_blanch/{id}','Admin_Controller\AjaxController@BankAccountBlanch');
 
 
 // ajax controller===================

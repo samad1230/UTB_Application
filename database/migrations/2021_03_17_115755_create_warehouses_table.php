@@ -25,7 +25,8 @@ class CreateWarehousesTable extends Migration
             $table->string('rest_amount');
             $table->string('supplier_id');
             $table->string('purchase_date');
-            $table->integer('status');
+            $table->string('stoke_in_date')->nullable();
+            $table->integer('status')->default(0);
             $table->integer('user_id');
             $table->timestamps();
         });

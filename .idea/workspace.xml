@@ -20,20 +20,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed9422ca-31df-4782-9109-4c2badbd632a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Account_model/Bank.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Account_model/BankAccount.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Accounts_Controller/BankController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_18_184446_create_banks_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_18_184506_create_bank_accounts_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Accounts_Section/Recognition_purchase/bank_account_view_details.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Accounts_Section/Recognition_purchase/bank_view.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Accounts_Section/Recognition_purchase/supplier_accounts.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Accounts_Section/Recognition_purchase/supplier_payment.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Account_model/CashBlanch.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Accounts_Controller/CashBlanchController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_19_065147_create_cash_blanches_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/supplier/payment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Accounts_Section/Recognition_purchase/cash_blanch_view.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin_Controller/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin_Controller/AjaxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin_Controller/MainIndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin_Controller/MainIndexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Store_department/RecognitionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Store_department/RecognitionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Supplier_controller/SupplierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Supplier_controller/SupplierController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product_model/ProductStock.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product_model/ProductStock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product_model/Warehouse.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product_model/Warehouse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_13_114040_create_product_stocks_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_13_114040_create_product_stocks_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_03_111905_create_localpurchases_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_03_111905_create_localpurchases_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_03_111925_create_lcpurchases_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_03_111925_create_lcpurchases_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_115755_create_warehouses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_115755_create_warehouses_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Accounts_Section/Recognition_purchase/supplier_payment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Accounts_Section/Recognition_purchase/supplier_payment.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Department_layouts/navbar/Accounts_top_left_nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Department_layouts/navbar/Accounts_top_left_nav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Purchase_view/Recogintion_approve/recognition_approve_details_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Purchase_view/Recogintion_approve/recognition_approve_details_view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Purchase_view/Recogintion_approve/recognition_approve_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Purchase_view/Recogintion_approve/recognition_approve_view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Store_Department/Recognition/recognition_details_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Store_Department/Recognition/recognition_details_view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Store_Department/Recognition/recognition_totalview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Store_Department/Recognition/recognition_totalview.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Store_Department/Recognition/recognition_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Store_Department/Recognition/recognition_view.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -174,25 +183,25 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/Accounts_Section/Recognition_purchase" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SuperShopApp" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\utb_application\resources\views\Accounts_Section\Recognition_purchase" />
-      <recent name="D:\xampp\htdocs\utb_application\resources\views\Store_Department" />
-      <recent name="D:\xampp\htdocs\utb_application\resources\views\Purchase_view\Recogintion_approve" />
-      <recent name="D:\xampp\htdocs\utb_application\public\js\Product" />
-      <recent name="D:\xampp\htdocs\utb_application\resources\views\Purchase_view\Purchase" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\utb_application\resources\views\Store_Department\Recognition" />
       <recent name="D:\xampp\htdocs\utb_application\resources\views\Store_Department" />
       <recent name="D:\xampp\htdocs\utb_application\resources\views\Purchase_view\Recogintion_approve" />
       <recent name="D:\xampp\htdocs\utb_application\resources\views\Admin_view\Main" />
       <recent name="D:\xampp\htdocs\utb_application\resources\views" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\utb_application\resources\views\Accounts_Section\Recognition_purchase" />
+      <recent name="D:\xampp\htdocs\utb_application\resources\views\Store_Department" />
+      <recent name="D:\xampp\htdocs\utb_application\resources\views\Purchase_view\Recogintion_approve" />
+      <recent name="D:\xampp\htdocs\utb_application\public\js\Product" />
+      <recent name="D:\xampp\htdocs\utb_application\resources\views\Purchase_view\Purchase" />
     </key>
   </component>
   <component name="RunManager">
@@ -264,7 +273,8 @@
       <workItem from="1616068047814" duration="58000" />
       <workItem from="1616069439603" duration="77000" />
       <workItem from="1616073171124" duration="54000" />
-      <workItem from="1616087799931" duration="13034000" />
+      <workItem from="1616087799931" duration="13111000" />
+      <workItem from="1616132207816" duration="18930000" />
     </task>
     <servers />
   </component>
@@ -295,15 +305,15 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="90" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1615974576179" />
-    <state x="387" y="113" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616099995134">
+    <state x="387" y="113" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616139095654">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="387" y="113" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680@0.0.1280.680" timestamp="1616099995134" />
+    <state x="387" y="113" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680@0.0.1280.680" timestamp="1616139095654" />
     <state x="413" y="121" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1615104972524" />
-    <state x="434" y="113" key="FileChooserDialogImpl" timestamp="1616068063547">
+    <state x="434" y="113" key="FileChooserDialogImpl" timestamp="1616158119195">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="434" y="113" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1616068063547" />
+    <state x="434" y="113" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1616158119195" />
     <state x="463" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1615369205762" />
     <state x="186" y="0" key="SettingsEditor" timestamp="1615454738287">
       <screen x="0" y="0" width="1366" height="728" />

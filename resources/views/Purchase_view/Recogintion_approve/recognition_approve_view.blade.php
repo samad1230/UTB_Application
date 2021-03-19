@@ -55,7 +55,7 @@
                                             <?php
                                             }else{
                                             ?>
-                                            <td><a  class="btn btn-danger btn-sm"> All Approved</a></td>
+                                            <td><a  class="btn btn-success btn-sm"> All Approved</a></td>
                                             <?php
                                             }
                                             ?>

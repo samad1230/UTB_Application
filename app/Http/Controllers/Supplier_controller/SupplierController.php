@@ -169,23 +169,28 @@ class SupplierController extends Controller
         $blanch = $supplierac->purchase_amount - $supplierac->payment;
         $warehouse  = Warehouse::where('supplier_id',$id)->first();
         if ($warehouse !=null){
-            $recognition_item = Recognition_item::where('id',$warehouse->recognition_item_id)->first();
+            $recognition_item = Recognition_item::where('id',$warehouse->recognition_item_id)->get();
 
             $supplierpaymentdata = [
                 'supplieriddata' => $id,
                 'supplier_name' => $supplierac->supplier->company_name,
                 'supplier_blanch' => $blanch,
-                'recognition_no' => $recognition_item->Recognition->recognition_no,
             ];
 
             $bankac = Bank::all();
 
-            return view('Accounts_Section.Recognition_purchase.supplier_payment',compact('supplierpaymentdata','bankac'));
+            return view('Accounts_Section.Recognition_purchase.supplier_payment',compact('supplierpaymentdata','bankac','recognition_item'));
         }else{
             return redirect()->back();
         }
 
 
+    }
+
+
+    public function SupplierPaymentUpdate(Request $request, $id)
+    {
+        dd($request);
     }
 
 }

@@ -102,6 +102,9 @@
             <ul class="childNav" data-parent="accounts">
                 <li class="nav-item"><a href="{{route('bank.index')}}"><i class="nav-icon i-Add"></i><span class="item-name">Bank Accounts</span></a></li>
             </ul>
+            <ul class="childNav" data-parent="accounts">
+                <li class="nav-item"><a href="{{route('CashBlanch.index')}}"><i class="nav-icon i-Add"></i><span class="item-name">Cash Blanch</span></a></li>
+            </ul>
 
         </div>
 

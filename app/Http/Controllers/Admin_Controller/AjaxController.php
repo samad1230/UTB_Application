@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin_Controller;
 
 use App\Account_model\Bank;
 use App\Account_model\BankAccount;
+use App\Account_model\CashBlanch;
 use App\Admin_model\Brand;
 use App\Admin_model\Categorie;
 use App\Admin_model\Prductimage;
@@ -242,4 +243,22 @@ class AjaxController extends Controller
         return response()->json($data);
     }
 
+    public function AccountBlanch()
+    {
+        $data = CashBlanch::orderBy('id','DESC')->first();
+        return response()->json($data);
+    }
+
+
+    public function BankAccountsList()
+    {
+        $data = Bank::orderBy('id','DESC')->get();
+        return response()->json($data);
+    }
+
+    public function BankAccountBlanch($id)
+    {
+        $data = BankAccount::where('bank_id',$id)->orderBy('id','DESC')->first();
+        return response()->json($data);
+    }
 }

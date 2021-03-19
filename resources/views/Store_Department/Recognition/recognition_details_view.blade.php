@@ -44,13 +44,13 @@
                                                 ?>
                                                 <td><a  class="btn btn-success btn-sm"> Purchase Approve</a></td>
                                                 <?php
-                                                }else if($row->product_status==1){
+                                                }else if($row->product_status==2){
                                                 ?>
                                                 <td><a  class="btn btn-danger btn-sm"> Dis-Approved</a></td>
                                                 <?php
                                                 }else{
                                                 ?>
-                                                <td><a  class="btn btn-danger btn-sm"> All Approved</a></td>
+                                                <td><a  class="btn btn-success btn-sm"> All Approved</a></td>
                                                 <?php
                                                 }
                                                 ?>
@@ -69,7 +69,7 @@
                                                 ?>
 
                                                 <?php
-                                                if ($row->product_status !=1){
+                                                if ($row->product_status ==0){
                                                 ?>
                                                 <td><a class="btn btn-danger btn-sm" href="{{route('Recognition.delete',$row->id)}}" id="delete" role="button">Delete</a></td>
                                                 <?php

@@ -45,13 +45,13 @@
                                             ?>
                                             <td><a  class="btn-success btn-sm"> Purchase Approve</a></td>
                                             <?php
-                                            }else if($row->status==1){
+                                            }else if($row->status==2){
                                             ?>
                                             <td><a  class="btn-danger btn-sm"> Dis-Approved</a></td>
                                             <?php
                                             }else{
                                             ?>
-                                            <td><a  class="btn-danger btn-sm"> All Approved</a></td>
+                                            <td><a  class="btn-success btn-sm"> All Approved</a></td>
                                             <?php
                                             }
                                             ?>
