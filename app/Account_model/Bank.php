@@ -14,4 +14,8 @@ class Bank extends Model
     {
         return $this->hasMany('App\Account_model\BankAccount');
     }
+
+    public function bankTransactions(){
+        return $this->belongsTo('App\Account_model\BankTransaction');
+    }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProductStock extends Model
 {
     protected $fillable = [
-        'product_id','buy_price','buy_qty','buy_sub_total','rest_qty','rest_qty_buy_total','sell_price','sell_discount_price','supplier_id','stoke_date','with_free','status','user_id'
+        'warehouse_id','product_id','buy_price','buy_qty','buy_sub_total','rest_qty','rest_qty_buy_total','sell_price','sell_discount_price','supplier_id','stoke_date','with_free','status','user_id'
 
     ];
 
@@ -17,6 +17,10 @@ class ProductStock extends Model
 
     public function product(){
         return $this->belongsTo('App\Admin_model\Product');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\User');
     }
 
 

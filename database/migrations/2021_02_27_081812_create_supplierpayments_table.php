@@ -16,7 +16,7 @@ class CreateSupplierpaymentsTable extends Migration
         Schema::create('supplierpayments', function (Blueprint $table) {
             $table->id();
             $table->integer('supplier_id');
-            $table->integer('offer_id');
+            $table->string('offer_id')->nullable();
             $table->string('payment_date');
             $table->integer('pay_amount');
             $table->string('payment_details')->nullable();

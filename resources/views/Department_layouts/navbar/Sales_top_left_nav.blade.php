@@ -93,9 +93,8 @@
 
 
             <ul class="childNav" data-parent="productmenu">
-                <li class="nav-item"><a href=""><i class="nav-icon i-Add"></i><span class="item-name">sales</span></a></li>
-                <li class="nav-item"><a href="#"><i class="nav-icon i-Loading-3"></i><span class="item-name">Loaders</span></a></li>
-                <li class="nav-item"><a href="#"><i class="nav-icon i-Loading-2"></i><span class="item-name">Ladda Buttons</span></a></li>
+                <li class="nav-item"><a href="{{route('Sells.index')}}"><i class="nav-icon i-Add"></i><span class="item-name">Product Rate Update</span></a></li>
+                <li class="nav-item"><a href="{{route('product_details_update')}}"><i class="nav-icon i-Add"></i><span class="item-name">Product Details</span></a></li>
             </ul>
 
         </div>

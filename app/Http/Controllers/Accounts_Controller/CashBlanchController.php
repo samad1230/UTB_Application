@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Accounts_Controller;
 
 use App\Account_model\Bank;
 use App\Account_model\BankAccount;
+use App\Account_model\BankTransaction;
 use App\Account_model\CashBlanch;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
@@ -86,6 +87,17 @@ class CashBlanchController extends Controller
             $data ->user_id=$userid;
             $data ->status=1;
             $data->save();
+            $bankAcID = $data->id;
+
+            $data = new BankTransaction();
+            $data ->bank_account_id=$bankAcID;
+            $data ->bank_id=$request->bank_id;
+            $data ->amount=$request->receipt;
+            $data ->purpose="Cash In Hand";
+            $data ->details="Account Recipt";
+            $data ->date=$crdate;
+            $data->save();
+
 
             $data = Bank::find($request->bank_id);
             $data ->blanch=$lastcash;

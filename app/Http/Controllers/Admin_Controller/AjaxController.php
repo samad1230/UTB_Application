@@ -14,6 +14,7 @@ use App\Admin_model\Subcategorie;
 use App\Http\Controllers\Controller;
 use App\Product_model\FeatureGroup;
 use App\Product_model\FeatureProduct;
+use App\Product_model\Warehouse;
 use App\Recognition_model\Lcpurchase;
 use App\Recognition_model\Localpurchase;
 use App\Recognition_model\Recognition_item;
@@ -259,6 +260,17 @@ class AjaxController extends Controller
     public function BankAccountBlanch($id)
     {
         $data = BankAccount::where('bank_id',$id)->orderBy('id','DESC')->first();
+        return response()->json($data);
+    }
+
+    public function StoreproductData($id)
+    {
+        $alldata = Warehouse::where('id',$id)->first();
+        $data = [
+            'id' => $alldata->id,
+            'quantity' => $alldata->quantity,
+            'product' => $alldata->product->name,
+        ];
         return response()->json($data);
     }
 }

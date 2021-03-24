@@ -54,4 +54,12 @@ class User extends Authenticatable
     public function cashBlanch(){
         return $this->hasOne('App\Account_model\CashBlanch');
     }
+
+    public function warehouse(){
+        return $this->hasOne('App\Product_model\Warehouse');
+    }
+
+    public function productStock(){
+        return $this->hasOne('App\Product_model\ProductStock');
+    }
 }

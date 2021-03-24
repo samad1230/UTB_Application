@@ -22,10 +22,6 @@ class Supplier extends Model
     }
 
 
-    public function purchases(){
-        return $this->hasMany('App\Product_model\Purchase');
-    }
-
     public function productStocks(){
         return $this->hasMany('App\Product_model\ProductStock');
     }
@@ -39,5 +35,7 @@ class Supplier extends Model
         return $this->hasMany('App\Recognition_model\Lcpurchase');
     }
 
-
+    public function warehouse(){
+        return $this->hasOne('App\Product_model\Warehouse');
+    }
 }

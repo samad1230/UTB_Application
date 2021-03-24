@@ -82,14 +82,7 @@
                     <div class="triangle"></div>
                 </li>
 
-                <li class="nav-item" data-item="purchases"><a class="nav-item-hold" href="#"><i class="nav-icon i-Financial"></i><span class="nav-text">Purchase</span></a>
-                    <div class="triangle"></div>
-                </li>
-
                 <li class="nav-item" data-item="recognition_nav"><a class="nav-item-hold" href="#"><i class="nav-icon i-Money-2"></i><span class="nav-text">Recognition</span></a>
-                    <div class="triangle"></div>
-                </li>
-                <li class="nav-item" data-item="warehouse"><a class="nav-item-hold" href="#"><i class="nav-icon i-Checkout-Basket"></i><span class="nav-text">Warehouse </span></a>
                     <div class="triangle"></div>
                 </li>
                 <li class="nav-item" data-item="account"><a class="nav-item-hold" href="#"><i class="nav-icon i-Money-2"></i><span class="nav-text">Suppliers</span></a>
@@ -99,19 +92,15 @@
         </div>
         <div class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
 
-            <ul class="childNav" data-parent="purchases">
-                <li class="nav-item"><a href="{{route('Purchase.index')}}"><i class="nav-icon i-Add-File"></i><span class="item-name">Product Purchase</span></a></li>
-                <li class="nav-item"><a href="{{route('ProductPurchase.Stock')}}"><i class="nav-icon i-Add-File"></i><span class="item-name">Stock Details Purchase</span></a></li>
-            </ul>
             <ul class="childNav" data-parent="account">
                 <li class="nav-item"><a href="{{route('Supplier.index')}}"><i class="nav-icon i-Add-File"></i><span class="item-name">Supplier</span></a></li>
             </ul>
             <ul class="childNav" data-parent="recognition_nav">
                 <li class="nav-item"><a href="{{route('recognition.approve')}}"><i class="nav-icon i-Add"></i><span class="item-name"> Recognition Status</span></a></li>
             </ul>
-            <ul class="childNav" data-parent="warehouse">
-                <li class="nav-item"><a href=""><i class="nav-icon i-Add"></i><span class="item-name">Product List</span></a></li>
-            </ul>
+{{--            <ul class="childNav" data-parent="warehouse">--}}
+{{--                <li class="nav-item"><a href=""><i class="nav-icon i-Add"></i><span class="item-name">Product List</span></a></li>--}}
+{{--            </ul>--}}
 
         </div>
 

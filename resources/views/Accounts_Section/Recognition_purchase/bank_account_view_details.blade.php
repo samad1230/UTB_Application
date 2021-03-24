@@ -26,6 +26,7 @@
                                                 <th>Account Name</th>
                                                 <th>Bank Name</th>
                                                 <th>Deposit</th>
+                                                <th>Purpose</th>
                                                 <th>Withdraw</th>
                                                 <th>Blanch</th>
                                             </tr>
@@ -39,6 +40,7 @@
                                                     <td>{{$row->bank->account_name}}</td>
                                                     <td>{{$row->bank->bank_name}}</td>
                                                     <td>{{$row->deposit}}</td>
+                                                    <td>{{@$row->bankTransactions->purpose}}</td>
                                                     <td>{{$row->withdraw}}</td>
                                                     <td>{{$row->blanch}}</td>
                                                 </tr>

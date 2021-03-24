@@ -87,6 +87,9 @@
                 <li class="nav-item" data-item="recognition"><a class="nav-item-hold" href="#"><i class="nav-icon i-Suitcase"></i><span class="nav-text">Recognition </span></a>
                     <div class="triangle"></div>
                 </li>
+                <li class="nav-item" data-item="warehouse"><a class="nav-item-hold" href="#"><i class="nav-icon i-Suitcase"></i><span class="nav-text">Warehouse </span></a>
+                    <div class="triangle"></div>
+                </li>
             </ul>
         </div>
         <div class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
@@ -103,6 +106,11 @@
             <ul class="childNav" data-parent="recognition">
                 <li class="nav-item"><a href="{{route('add.recognition')}}"><i class="nav-icon i-Add"></i><span class="item-name">Add Recognition</span></a></li>
                 <li class="nav-item"><a href="{{route('recognition.details')}}"><i class="nav-icon i-Add"></i><span class="item-name"> Recognition Details</span></a></li>
+            </ul>
+
+            <ul class="childNav" data-parent="warehouse">
+                <li class="nav-item"><a href="{{route('Warehouse.index')}}"><i class="nav-icon i-Add"></i><span class="item-name">Stoke Product</span></a></li>
+
             </ul>
 
         </div>

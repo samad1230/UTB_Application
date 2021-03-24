@@ -76,6 +76,8 @@ Route::get('/Recognition/Approved','Admin_Controller\MainIndexController@Approve
 Route::get('/Recognition/Purchase/Approved','Admin_Controller\MainIndexController@ApprovedPurchaseRecognition')->name('recognition_purchase.approve');
 Route::get('/Supplier/Accounts','Admin_Controller\MainIndexController@AccountsSupplier')->name('supplier.accounts');
 Route::get('/Bank/Index','Admin_Controller\MainIndexController@BankIndex')->name('bank.index');
+Route::get('/Product/Details/Update','Admin_Controller\MainIndexController@ProductDetailsUpdate')->name('product_details_update');
+Route::get('/Sell/Product/Edit/{slag}','Admin_Controller\MainIndexController@SellProductEditPlacement')->name('sell_product.edit');
 
 // main index controller==================================
 
@@ -85,11 +87,14 @@ Route::resource('/subcategory', 'Product\SubCategoryController');
 Route::resource('/procategory', 'Product\ProCategoryController');
 Route::resource('/brand', 'Product\BrandController');
 Route::resource('/Product', 'Product\ProductController');
-Route::resource('/Purchase', 'Product\PurchaseController');
 Route::resource('/Supplier', 'Supplier_controller\SupplierController');
 Route::resource('/Bank', 'Accounts_Controller\BankController');
 Route::post('/Bank_deposit/{id}', 'Accounts_Controller\BankController@BankDeposit');
 Route::resource('/CashBlanch', 'Accounts_Controller\CashBlanchController');
+Route::resource('/Warehouse', 'Store_department\WarehouseController');
+Route::resource('/Sells', 'SellsDepartment\SellUpdateController');
+
+Route::post('/Warehouse/Product','Store_department\WarehouseController@update')->name("warehousedata.update");
 //==================Categories Controller===========================
 
 
@@ -114,9 +119,15 @@ Route::get('/Bank_accountdata/{id}','Admin_Controller\AjaxController@Bankaccount
 Route::get('/account_blanch','Admin_Controller\AjaxController@AccountBlanch');
 Route::get('/Bank_accountlist','Admin_Controller\AjaxController@BankAccountsList');
 Route::get('/Bank_account_blanch/{id}','Admin_Controller\AjaxController@BankAccountBlanch');
+Route::get('/storeproduct_id/{id}','Admin_Controller\AjaxController@StoreproductData');
 
 
 // ajax controller===================
+
+//warehouse controller
+
+
+
 
 
 // search and view details ============================

@@ -13,4 +13,8 @@ class BankAccount extends Model
     public function bank(){
         return $this->belongsTo('App\Account_model\Bank');
     }
+
+    public function bankTransactions(){
+        return $this->hasOne('App\Account_model\BankTransaction');
+    }
 }

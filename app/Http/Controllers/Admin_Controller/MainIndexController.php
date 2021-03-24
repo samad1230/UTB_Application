@@ -10,6 +10,7 @@ use App\Admin_model\Product;
 use App\Admin_model\Subcategorie;
 use App\Http\Controllers\Controller;
 use App\Product_model\Purchase;
+use App\Product_model\Warehouse;
 use App\Recognition_model\Purchase_Type;
 use App\Recognition_model\Recognition;
 use App\Recognition_model\Recognition_item;
@@ -155,5 +156,23 @@ class MainIndexController extends Controller
         $accounts = Bank::orderBy('id','DESC')->paginate(15);
         return view('Accounts_Section.Recognition_purchase.bank_view',compact('accounts'));
     }
+
+    public function ProductDetailsUpdate()
+    {
+        $product = Product::orderBy('id','DESC')->get();
+        return view('Sells_Section.Product_manage.sells_productdetails',compact('product'));
+    }
+
+    public function SellProductEditPlacement($slag)
+    {
+        $producteditdata = Product::where('slag',$slag)->first();
+        $category = Categorie::all();
+        $brand = Brand::all();
+        $subcategory = Subcategorie::all();
+        $procategory = Procategorie::all();
+        return view('Sells_Section.Product_manage.sellproductdetails_edit',compact('producteditdata','category','brand','subcategory','procategory'));
+    }
+
+
 
 }

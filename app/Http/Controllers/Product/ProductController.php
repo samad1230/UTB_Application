@@ -385,7 +385,7 @@ class ProductController extends Controller
             'messege'=>'Successfully Product Insert!',
             'alert-type'=>'success'
         );
-        return Redirect()->back()->with($notification);
+        return Redirect()->route('product_details_update')->with($notification);
 
 
     }

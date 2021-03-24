@@ -238,6 +238,8 @@ class RecognitionController extends Controller
 
         $userid = Auth::user()->id;
         $singlebuyprice = $request->total_amount / $request->Quantity;
+        $current = new Carbon();
+        $crdate =  $current->format('d-m-Y');
 
         $purchasetype= Purchase_Type::where('purchase_type',$request->purchase_type)->first();
         $Recognition = Recognition_item::where('id',$request->rec_item_id)->first();
@@ -279,14 +281,11 @@ class RecognitionController extends Controller
         $ware->rest_quantity=$request->Quantity;
         $ware->rest_amount=$request->total_amount;
         $ware->supplier_id=$request->supplier_id;
-        $ware->purchase_date=$request->disburse_date;
+        $ware->purchase_date=$crdate;
         $ware->status="0";
         $ware->user_id=$userid;
         $ware->save();
         $wareid = $ware->id;
-
-        $current = new Carbon();
-        $crdate =  $current->format('d-m-Y');
 
         $account = new Supplieraccount();
         $account->supplier_id=$request->supplier_id;
