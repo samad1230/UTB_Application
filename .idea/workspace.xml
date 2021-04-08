@@ -20,48 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed9422ca-31df-4782-9109-4c2badbd632a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Account_model/BankTransaction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Account_model/PaymentDocumet.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SellsDepartment/SellUpdateController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Store_department/WarehouseController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_19_144126_create_bank_transactions_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_23_125445_create_payment_documets_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Media/supplier_document/1616505109m4j0zh.DAC_ZS.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Media/supplier_document/1616505340eqoin5.DAC_ZS.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Media/supplier_document/1616505494j9c4te.DAC_ZS.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Sells_Section/Product_manage/sales_product_view.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Sells_Section/Product_manage/sellproductdetails_edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Sells_Section/Product_manage/sells_productdetails.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Store_Department/warehouse/product_stoke_view.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Account_model/Bank.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Account_model/Bank.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Account_model/BankAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Account_model/BankAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin_model/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin_model/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Accounts_Controller/CashBlanchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Accounts_Controller/CashBlanchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin_Controller/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin_Controller/AjaxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin_Controller/MainIndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin_Controller/MainIndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Product/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Product/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Product/PurchaseController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Store_department/RecognitionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Store_department/RecognitionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Supplier_controller/SupplierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Supplier_controller/SupplierController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Product_model/ProductStock.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product_model/ProductStock.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Product_model/Purchase.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Product_model/Warehouse.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product_model/Warehouse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Recognition_model/Purchase_Type.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Recognition_model/Purchase_Type.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Supplier_model/Supplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Supplier_model/Supplier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_13_114040_create_product_stocks_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_13_114040_create_product_stocks_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_27_081812_create_supplierpayments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_27_081812_create_supplierpayments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_27_082843_create_purchases_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Accounts_Section/Recognition_purchase/bank_account_view_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Accounts_Section/Recognition_purchase/bank_account_view_details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Common_header_footer/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Common_header_footer/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Department_layouts/navbar/Purchase_top_left_nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Department_layouts/navbar/Purchase_top_left_nav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Department_layouts/navbar/Sales_top_left_nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Department_layouts/navbar/Sales_top_left_nav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Department_layouts/navbar/Store_top_left_nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Department_layouts/navbar/Store_top_left_nav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Purchase_view/Purchase/ProductPurchaseDetails.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Purchase_view/Purchase/ProductPurchase_stock.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Purchase_view/Purchase/purchase_view.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +160,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/Sells_Section/Product_manage" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -301,7 +260,10 @@
       <workItem from="1616477058001" duration="392000" />
       <workItem from="1616499317743" duration="112000" />
       <workItem from="1616499975379" duration="10835000" />
-      <workItem from="1616562564624" duration="9408000" />
+      <workItem from="1616562564624" duration="9653000" />
+      <workItem from="1616591051959" duration="290000" />
+      <workItem from="1617863501075" duration="1902000" />
+      <workItem from="1617885733193" duration="938000" />
     </task>
     <servers />
   </component>
@@ -337,10 +299,10 @@
     </state>
     <state x="387" y="113" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680@0.0.1280.680" timestamp="1616568730720" />
     <state x="413" y="121" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1615104972524" />
-    <state x="434" y="113" key="FileChooserDialogImpl" timestamp="1616570782316">
+    <state x="434" y="113" key="FileChooserDialogImpl" timestamp="1616572391245">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="434" y="113" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1616570782316" />
+    <state x="434" y="113" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1616572391245" />
     <state x="463" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1615369205762" />
     <state x="186" y="0" key="SettingsEditor" timestamp="1615454738287">
       <screen x="0" y="0" width="1366" height="728" />
